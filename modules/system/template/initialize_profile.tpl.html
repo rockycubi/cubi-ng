@@ -1,0 +1,36 @@
+<form id="{$form.name}" name="{$form.name}">
+
+<div class="register-block new-user-success ">
+
+	<div class="form-title-forgetpass" style="padding-bottom:10px;"><h1>{$form.title}</h1></div>
+		<p class="input_row" style="height:35px;" >{$form.description}</p>
+	{foreach item=item key=itemName from=$dataPanel}
+		{if $itemName != 'fld_subscribe'}
+		<div class="input_row" style="height:35px;float:none;">
+			<label >{$item.label}</label>
+			<span>{$item.element}</span>
+			{if $errors.$itemName}
+			<span class="input_error_msg" >{$errors.$itemName}</span>
+			{elseif $item.description}
+				{if $itemName !='fld_phone' }
+					<span class="input_desc" >{$item.description}</span>
+				{else}
+					<span class="input_desc" style="background-image:none;padding-left:15px" >{$item.description}</span>
+				{/if}			
+			{/if}			
+		</div>
+		{/if}
+	{/foreach}
+		
+		<p class="input_row" style="padding-top:5px;">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+			<label style="padding-left:25px;max-width:none;width:auto;color:#999999;line-height:18px;">{$dataPanel.fld_subscribe.element}</label>
+		</p>
+</div>
+</form>
+
+
+

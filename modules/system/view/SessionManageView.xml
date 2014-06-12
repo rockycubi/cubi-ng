@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: SessionManageView.xml 5508 2014-06-01 00:32:52Z rockyswen@gmail.com $
+-->
+<EasyView Name="SessionManageView" Title="Session Management" Description="User Session Management" class="EasyView" TemplateEngine="Smarty" TemplateFile="system_right_panel.tpl.html" PageTemplate="view.tpl.html" Access="Session.Administer_Session">
+    <FormReferences>
+        <Reference Name="system.form.SessionListForm"/>
+    </FormReferences>
+</EasyView>

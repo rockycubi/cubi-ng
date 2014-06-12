@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: LoaderNotInstalledForm.xml 4666 2012-11-11 15:50:51Z hellojixian@gmail.com $
+-->
+<EasyForm Name="LoaderNotInstalledForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Loader Not Installed" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="loader_not_installed.tpl.html" >
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>        
+    
+    	<Element Name="btn_install" Class="LabelText" Text="Install" CssClass="button_highlight" Link="{APP_URL}/bin/loader-wizard.php" Target="_blank"></Element>
+        <Element Name="btn_test" Class="LabelText" Text="Check" CssClass="button_highlight" Link="javascript:window.location.reload()"></Element>
+        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button" Link="javascript:history.go(-1)"></Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

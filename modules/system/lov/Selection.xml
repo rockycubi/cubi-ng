@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: Selection.xml 3798 2012-08-04 12:56:23Z hellojixian@gmail.com $
+-->
+<Selection>
+   <AccessLevel Value="" Text=""/>
+   <AccessLevel Value="1" Text="Allow"/>
+   <!--<AccessLevel Value="2" Text="Allow Owner"/>-->
+   <AccessLevel Value="0" Text="Deny"/>
+   
+   <Status Value="1" text="Active"/>
+   <Status Value="0" text="Inactive"/>
+   
+   <Default Value="1" text="Enable"/>
+   <Default Value="0" text="Disable"/>   
+   
+   <SessionRestrict Value="0" text="Allow Concurrent Session "/>
+   <SessionRestrict Value="1" text="Limited to Single Session"/>
+   
+   <SessionTimeout Value="1800" text="30 minutes"/>
+   <SessionTimeout Value="3600" text="1 hour"/>
+   <SessionTimeout Value="10800" text="3 hours"/>
+   <SessionTimeout Value="43200" text="half a day"/>
+   <SessionTimeout Value="86400" text="1 day"/>
+     
+</Selection>

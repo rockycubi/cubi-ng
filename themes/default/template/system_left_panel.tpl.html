@@ -1,0 +1,65 @@
+{php}
+if($this->_tpl_vars['left_menu']){
+	$left_menu = $this->_tpl_vars['left_menu'];
+}else{
+	$left_menu = "menu.widget.ApplicationMenu";
+}
+$obj = Bizsystem::GetObject($left_menu);
+$left_menu_content = $obj->render();
+$this->assign('system_left_menu_content', 	$left_menu_content);
+{/php}
+
+	{if $system_left_top_content}{$system_left_top_content}{/if}
+
+	<!-- left menu block start -->
+	<div class="content_block">
+		<div class="header"></div>
+		<div class="content" >								
+			{$system_left_menu_content}
+		</div>
+		<div class="footer"></div>						
+	</div>
+	<div class="v_spacer"></div>
+	<!-- left menu block end -->
+	
+	{foreach key=formname item=form from=$forms}	
+		{if preg_match("/LeftWidget$/si",$formname)}						    
+		<div class="content_block">
+			<div class="header"></div>
+			<div class="content" >	
+		 	
+			<div>
+			 	{$form}
+			</div>
+							
+			</div>
+			<div class="footer"></div>						
+		</div>
+		<div class="v_spacer"></div>
+		{/if}
+	{/foreach}		
+
+	{foreach key=formname item=form from=$widgets}	
+		{if preg_match("/LeftWidget$/si",$formname)}						    
+		<div class="content_block">
+			<div class="header"></div>
+			<div class="content" >	
+		 	
+			<div>
+			 	{$form}
+			</div>
+							
+			</div>
+			<div class="footer"></div>						
+		</div>
+		<div class="v_spacer"></div>
+		{/if}
+	{/foreach}	
+											
+	<!-- left help block start -->
+<div>
+		{php}//echo Bizsystem::GetObject('help.form.HelpWidgetListForm',1)->render();{/php}
+</div>				
+
+	<div class="v_spacer"></div>
+	<!-- left help block end -->

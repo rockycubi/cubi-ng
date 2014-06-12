@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: LicenseActiveForm.xml 4979 2012-12-29 09:41:39Z hellojixian@gmail.com $
+-->
+<EasyForm Name="LicenseInitializeForm" Class="LicenseInitializeForm" FormType="Edit" Icon="{RESOURCE_URL}/common/images/license/app_logo.png" jsClass="jbForm" Title="Welcome to Active the Software Product" Description="Its the first time for you to use the application, Please active the software. " BizDataObj="" TemplateEngine="Smarty" TemplateFile="license_init.tpl.html" MessageFile="license.ini">
+    <DataPanel>
+    	<Element Name="fld_how_to_active" Class="common.element.ActiveLogicRadio" FieldName="howto_active" Label="How would you active the product?" DefaultValue="FREETRIAL" AllowURLParam="N" SelectFrom="common.lov.LicenseLOV(ActiveLogic)" />
+    	
+    	<Element Name="fld_eula" Hidden="N" FieldName="eula" ElementSet="General" Label="End User License Agreement " DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Class="common.element.LicenseCheckbox" Text="I have read and agree with the [url]EULA license[/url]" />
+    	
+    </DataPanel>
+    <ActionPanel>            
+        <Element Name="btn_active" Class="Button" Text="Active" CssClass="button_highlight" >
+        	<EventHandler Name="btn_active_onclick" Event="onclick" Function="GoActive()" />
+        </Element>
+        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button" Link="javascript:history.go(-1)"></Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

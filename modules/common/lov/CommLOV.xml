@@ -1,0 +1,93 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: CommLOV.xml 3355 2012-05-31 05:43:33Z rockyswen@gmail.com $
+-->
+<Selection>
+   <Status Value="1" text="Active"/>
+   <Status Value="0" text="Inactive"/>
+
+   <EnableStatus  Picture="flag_y.gif" Value="1" text="Enable"/>
+   <EnableStatus Picture="flag_n.gif" Value="0" text="Disable"/>
+   
+   <Bool Picture="flag_y.gif" Value="1" text="Enable"/>
+   <Bool Picture="flag_n.gif" Value="0" text="Disable"/>   
+   
+	<Order Text="5" Value="5"/>  
+	<Order Text="10" Value="10"/>
+	<Order Text="15" Value="15"/>
+	<Order Text="20" Value="20"/>
+	<Order Text="25" Value="25"/>
+	<Order Text="30" Value="30"/>
+	<Order Text="35" Value="35"/>
+	<Order Text="40" Value="40"/>
+	<Order Text="45" Value="45"/>
+	<Order Text="50" Value="50"/>
+	<Order Text="55" Value="55"/>
+	<Order Text="60" Value="60"/>
+	<Order Text="65" Value="65"/>
+	<Order Text="70" Value="70"/>
+	<Order Text="75" Value="75"/>
+	<Order Text="80" Value="80"/>
+	<Order Text="85" Value="85"/>
+	<Order Text="90" Value="90"/>
+	<Order Text="95" Value="95"/>
+	<Order Text="100" Value="100"/>
+	
+	<Published Text="Full Control" Value="3"/>
+	<Published Text="Editable" Value="2"/>
+	<Published Text="Visible" Value="1"/>
+	<Published Text="Private" Value="0"/>	
+	
+	<ReadStatusFilter Text="All Read" Value="1"/>
+	<ReadStatusFilter Text="All Unread" Value="0"/>
+	
+	<ReadStatus Text="Read" Value="1"/>
+	<ReadStatus Text="Unread" Value="0"/>
+
+	<NameDisplayMode Text="Firstname, Lastname" Value="@@Firstname@@, @@Lastname@@"/>
+	<NameDisplayMode Text="FirstnameLastname" Value="@@Firstname@@@@Lastname@@"/>
+	<NameDisplayMode Text="LastnameFirstname" Value="@@Lastname@@@@Firstname@@"/>
+	<NameDisplayMode Text="Lastname Firstname" Value="@@Lastname@@ @@Firstname@@"/>	
+	<NameDisplayMode Text="Firstname, Lastname (Company)" Value="@@Firstname@@, @@Lastname@@ (@@Company@@)"/>
+	<NameDisplayMode Text="Company (Firstname, Lastname)" Value="@@Company@@ (@@Firstname@@, @@Lastname@@)"/> 
+	
+	<TaskStatus Text="Not Started" Value="Not Started"/>
+	<TaskStatus Text="In Progress" Value="In Progress"/>
+	<TaskStatus Text="Completed" Value="Completed"/>
+	<TaskStatus Text="Waiting on someone else" Value="Waiting on someone else"/>
+	<TaskStatus Text="Deferred" Value="Deferred"/>
+
+
+	<Prionty Text="Normal" Value="Normal"/>
+	<Prionty Text="Low" Value="Low"/>
+	<Prionty Text="High" Value="High"/>
+	
+	
+	<Complete Text="0%" Value="0"/>
+	<Complete Text="25%" Value="25"/>
+	<Complete Text="50%" Value="50"/>
+	<Complete Text="75%" Value="75"/>
+	<Complete Text="100%" Value="100"/>
+
+	<ColorIcons Text="Blue" Value="blue"/>
+	<ColorIcons Text="Green" Value="green"/>
+	<ColorIcons Text="Pink" Value="pink"/>
+	<ColorIcons Text="Yellow" Value="yellow"/>
+	<ColorIcons Text="White" Value="white"/>
+
+
+	<IsCycle Text="No Cycle" Value="0"/>
+	<IsCycle Text="Cycle" Value="1"/>
+
+	<Recurrence Text="Daily" Value="day"/>
+	<Recurrence Text="Weekly" Value="week"/>
+	<Recurrence Text="Monthly" Value="month"/>
+	<Recurrence Text="Yearly" Value="year"/>
+
+	<Public Text="Yes" Value="1"/>
+	<Public Text="No" Value="0"/>
+	
+</Selection>

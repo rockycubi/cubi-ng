@@ -1,0 +1,18 @@
+#main #right_panel .dashboard div.icon_link{
+	background-image:url("../images/icon_link_m.gif");	
+}
+#main #right_panel .dashboard div.icon_sitemap{
+	background-image:url("../images/icon_sitemap_m.gif");	
+}
+#main #right_panel .dashboard div.icon_newsletter{
+	background-image:url("../images/icon_newsletter_m.gif");	
+}
+#main #right_panel .dashboard div.icon_gallery{
+	background-image:url("../images/icon_pictures_m.gif");	
+}
+#main #right_panel .dashboard div.icon_feedback{
+	background-image:url("../images/icon_feedback_m.gif");	
+}
+#main #right_panel .dashboard div.icon_content_block{
+	background-image:url("../images/icon_content_block_m.gif");	
+}

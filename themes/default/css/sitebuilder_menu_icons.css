@@ -1,0 +1,74 @@
+/* CSS Document */
+
+#main #left_panel .content .sitebuilder li img{
+	background-image:url(../images/left_menu_icon_sitebuilder.gif);
+}
+#main #left_panel .content .sitebuilder .icon_general{
+	background-position:left 0px;
+}
+#main #left_panel .content .sitebuilder .icon_article{
+	background-position:left -16px;
+}
+#main #left_panel .content .sitebuilder .icon_content_block{
+	background-position:left -32px;
+}
+#main #left_panel .content .sitebuilder .icon_feedback{
+	background-position:left -48px;
+}
+#main #left_panel .content .sitebuilder .icon_gallery{
+	background-position:left -64px;
+}
+#main #left_panel .content .sitebuilder .icon_link{
+	background-position:left -80px;
+}
+#main #left_panel .content .sitebuilder .icon_sitemap{
+	background-position:left -96px;
+}
+#main #left_panel .content .sitebuilder .icon_newsletter{
+	background-position:left -112px;
+}
+
+
+
+
+/* --for hovers */
+#main #left_panel .content .sitebuilder a:hover .icon_general,
+#main #left_panel .content .sitebuilder a.current .icon_general,
+#main #left_panel .content .sitebuilder a:active .icon_general{
+	background-position:right -0px;
+}
+#main #left_panel .content .sitebuilder a:hover .icon_article,
+#main #left_panel .content .sitebuilder a.current .icon_article,
+#main #left_panel .content .sitebuilder a:active .icon_article{
+	background-position:right -16px;
+}
+#main #left_panel .content .sitebuilder a:hover .icon_content_block,
+#main #left_panel .content .sitebuilder a.current .icon_content_block,
+#main #left_panel .content .sitebuilder a:active .icon_content_block{
+	background-position:right -32px;
+}
+#main #left_panel .content .sitebuilder a:hover .icon_feedback,
+#main #left_panel .content .sitebuilder a.current .icon_feedback,
+#main #left_panel .content .sitebuilder a:active .icon_feedback{
+	background-position:right -48px;
+}
+#main #left_panel .content .sitebuilder a:hover .icon_gallery,
+#main #left_panel .content .sitebuilder a.current .icon_gallery,
+#main #left_panel .content .sitebuilder a:active .icon_gallery{
+	background-position:right -64px;
+}
+#main #left_panel .content .sitebuilder a:hover .icon_link,
+#main #left_panel .content .sitebuilder a.current .icon_link,
+#main #left_panel .content .sitebuilder a:active .icon_link{
+	background-position:right -80px;
+}
+#main #left_panel .content .sitebuilder a:hover .icon_sitemap,
+#main #left_panel .content .sitebuilder a.current .icon_sitemap,
+#main #left_panel .content .sitebuilder a:active .icon_sitemap{
+	background-position:right -96px;
+}
+#main #left_panel .content .sitebuilder a:hover .icon_newsletter,
+#main #left_panel .content .sitebuilder a.current .icon_newsletter,
+#main #left_panel .content .sitebuilder a:active .icon_newsletter{
+	background-position:right -112px;
+}

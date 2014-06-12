@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="{$view_short_name}" Description="{$comp}" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="{$acl.access}">
+   <FormReferences>
+   		<Reference Name="{$comp}.{$default_form}"/>
+   </FormReferences>
+</EasyView>

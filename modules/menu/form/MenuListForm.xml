@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: MenuListForm.xml 5515 2014-06-04 04:57:18Z rockyswen@gmail.com $
+-->
+<EasyForm Name="MenuListForm" Class="EasyForm" icon="icon_menu_l.gif" FormType="List" jsClass="jbForm" Title="Manage Menu by List" Description="Menu Management by list view,\n The menu stucture in this view is simlar to tranditional FTP way to manage a directory tree." BizDataObj="menu.do.MenuTreeDO" DataService="/menu/menus" QueryString="PId=" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform_menu.tpl.html" EventName="MENU" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_child" Class="ColumnText" FieldName="" Label="Expand" Text=" " CssClass="icon_expand" Click="listChildren(dataobj.Id)"/> 
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Name" Sortable="Y" AllowURLParam="N" />
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" Link="{@home:url}/menu/menu_detail/{{dataobj.Id}}"/>
+        <Element Name="fld_desc" Class="ColumnText" MaxLength="30" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N"/>
+        <!--<Element Name="fld_parent" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y" AllowURLParam="N"/>-->
+		<Element Name="fld_module" Class="ColumnText" FieldName="module" Label="Module"  Sortable="Y" AllowURLParam="N"/>
+        <Element Name="fld_published" Class="ColumnBool" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" />
+		<Element Name="fld_sortorder" Class="ColumnText" FieldName="sortorder" Label="Ordering"  Sortable="Y" />
+        <!--<Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Ordering"  Sortable="Y" >
+        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
+        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
+        </Element>-->
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Link="{@home:url}/menu/menu_new"/>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Link="{@home:url}/menu/menu_edit/{{selectedId}}"/>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Click="delete(selectedIndex)"/>
+    </ActionPanel> 
+    <NavPanel>
+    	<Element Name="btn_first"  Class="Button" Text="" CssClass="button_gray_navi first" HTMLAttr="ng-click='gotoPage(1)'"/>
+        <Element Name="btn_prev" Class="Button" Text="" CssClass="button_gray_navi prev" HTMLAttr="ng-click='gotoPage(currentPage-1)'"/>
+        <Element Name="txt_page" Class="LabelText" Text="{{currentPage}} of {{totalPage}}"/>
+        <Element Name="btn_next" Class="Button" Text="" CssClass="button_gray_navi next" HTMLAttr="ng-click='gotoPage(currentPage+1)'"/>
+        <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
+    </NavPanel> 
+    <SearchPanel>
+        <Element Name="qry_title"  Class="InputText" FuzzySearch="Y" FieldName="title" CssClass="input_text_search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray" Click="search()"/>
+    </SearchPanel>
+</EasyForm>

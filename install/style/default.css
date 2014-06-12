@@ -1,0 +1,259 @@
+body
+{
+	background-color:#EEEEEE;
+    color: #666666;
+    font-family: Arial,Gadget,sans-serif;
+    font-size: 12px;
+    margin:0px;
+    padding:0px;
+}
+h2
+{
+	font-size:24px;
+	color:#0584ae;
+	margin:0px;
+	padding:0px;
+	padding-bottom:5px;
+	font-weight:normal;
+}
+h4
+{
+	font-size:12px;
+	color:#666666;;
+	margin:0px;
+	padding:0px;
+	padding-bottom:2px;
+	font-weight:normal;
+}
+strong
+{
+	color:#0584ae;
+}
+p,form
+{
+	padding:0px;
+	margin:0px;
+	padding-bottom:10px;
+	line-height:20px;
+	color:#666666;
+}
+.container
+{
+	padding-top:50px;
+	width:1000px;
+	min-height:450px;
+	text-align:left;
+}
+.step_0_bg
+{
+	width:1000px;		
+	background-image:url(../images/step_0_bg.png);
+	background-position:center top;
+	background-repeat:no-repeat;
+	height:450px;	
+	margin-left:auto;
+	margin-right:auto;
+	position:absolute;
+	text-align:left;
+}
+.step_0
+{
+	width:1000px;			
+	height:250px;	
+	position:absolute;
+	text-align:center;
+	padding-top:135px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.step_1
+{
+	width:940px;		
+	background-image:url(../images/step_1_bg.png);
+	background-position:center top;
+	background-repeat:no-repeat;
+	height:450px;	
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+}
+
+.step_2
+{
+	width:940px;		
+	background-image:url(../images/step_2_bg.png);
+	background-position:center top;
+	background-repeat:no-repeat;
+	height:450px;	
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+}
+
+.step_2 #setupform
+{
+	background-color:#ffffff;
+	border:1px solid #0584ae;
+	margin-bottom:10px;
+	padding:10px;
+}
+.step_2 #setupform label
+{
+	color:#666666;
+	padding-right:20px;
+}
+.step_2 #setupform .input_table
+{
+	width:100%;
+}
+.step_2 #setupform .input_table td
+{
+	padding-left:15px;
+}
+.step_2 #setupform tr.odd td
+{
+	background-color:#eeeeee;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.step_3
+{
+	width:940px;		
+	background-image:url(../images/step_3_bg.png);
+	background-position:center top;
+	background-repeat:no-repeat;
+	height:450px;	
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+}
+.step_4
+{
+	width:940px;		
+	background-image:url(../images/step_4_bg.png);
+	background-position:center top;
+	background-repeat:no-repeat;
+	height:450px;	
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+}
+
+.step_4 .list
+{
+	padding:0px;
+	padding-left:0px;
+	padding-top:5px;
+	margin:0px;
+	line-height:18px;
+	width:500px;
+	list-style:none;
+}
+.step_4 .list li
+{
+	width:195px;
+	float:left;
+	list-style:none;
+	margin-right:40px;
+	padding-left:15px;
+	background-image:url(../images/blue-dot.png);
+	background-position:0px 8px;
+	background-repeat:no-repeat;
+}
+.step_4 .list a
+{
+	color:#0584ae;
+	text-decoration:none;
+}
+.step_4 .list a:hover
+{
+	color:#0584ae;
+	text-decoration:underline;
+}
+.btn_highlight
+{
+	width:154px;
+	height:48px;
+	padding-right:30px;
+	background-image:url(../images/btn_blue_big_bg.png);
+	background-position:left 0px;
+	background-repeat:no-repeat;
+	display:block;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:22px;
+	line-height:24px;
+	padding-top:8px;
+}
+.btn_highlight span
+{
+	display:block;
+	color:#CCCCCC;
+	font-size:10px;
+	line-height:12px;
+}
+.btn_highlight:hover
+{
+	background-position:left -56px;
+}
+.btn_highlight:active
+{
+	background-position:left bottom;
+}
+
+
+.btn_back
+{
+	float:left;
+	margin-right:10px;
+	width:81px;
+	height:34px;
+	padding-left:25px;
+	text-align:center;
+	background-image:url(../images/btn_bg.png);
+	background-position:left 0px;
+	background-repeat:no-repeat;
+	display:block;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:14px;
+	line-height:30px;
+}
+
+.btn_back:hover
+{
+	background-position:left -34px;
+}
+.btn_back:active
+{
+	background-position:left bottom;
+}
+
+
+.btn_next
+{
+	float:left;	
+	width:81px;
+	height:34px;
+	padding-right:25px;
+	text-align:center;
+	background-image:url(../images/btn_bg.png);
+	background-position:right 0px;
+	background-repeat:no-repeat;
+	display:block;
+	color:#ffffff;
+	text-decoration:none;
+	font-size:14px;
+	line-height:30px;
+}
+
+.btn_next:hover
+{
+	background-position:right -34px;
+}
+.btn_next:active
+{
+	background-position:right bottom;
+}

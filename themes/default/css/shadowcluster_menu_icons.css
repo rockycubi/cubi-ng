@@ -1,0 +1,41 @@
+/* CSS Document */
+
+#main #left_panel .content .shadowcluster li img{
+	background-image:url(../images/left_menu_icon_shadowcluster.gif);
+}
+#main #left_panel .content .shadowcluster .icon_sc_dns{
+	background-position:left 0px;
+}
+#main #left_panel .content .shadowcluster .icon_sc_website{
+	background-position:left -16px;
+}
+#main #left_panel .content .shadowcluster .icon_sc_node{
+	background-position:left -32px;
+}
+#main #left_panel .content .shadowcluster .icon_sc_monitor{
+	background-position:left -48px;
+}
+
+
+
+/* --for hovers */
+#main #left_panel .content .shadowcluster a:hover .icon_sc_dns,
+#main #left_panel .content .shadowcluster a.current .icon_sc_dns,
+#main #left_panel .content .shadowcluster a:active .icon_sc_dns{
+	background-position:right -0px;
+}
+#main #left_panel .content .shadowcluster a:hover .icon_sc_website,
+#main #left_panel .content .shadowcluster a.current .icon_sc_website,
+#main #left_panel .content .shadowcluster a:active .icon_sc_website{
+	background-position:right -16px;
+}
+#main #left_panel .content .shadowcluster a:hover .icon_sc_node,
+#main #left_panel .content .shadowcluster a.current .icon_sc_node,
+#main #left_panel .content .shadowcluster a:active .icon_sc_node{
+	background-position:right -32px;
+}
+#main #left_panel .content .shadowcluster a:hover .icon_sc_monitor,
+#main #left_panel .content .shadowcluster a.current .icon_sc_monitor,
+#main #left_panel .content .shadowcluster a:active .icon_sc_monitor{
+	background-position:right -48px;
+}

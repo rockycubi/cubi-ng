@@ -1,0 +1,2 @@
+<MenuWidget Name="DashboardForm" Title="{$module_name|capitalize} Dashboard" Class="menu.widget.MenuWidget" CssCLass="{$module_name|lower}" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='{$module_name|capitalize|replace:'.':''}Top'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="sitemap_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserPreferenceDetailForm.xml 4148 2012-09-09 15:06:28Z hellojixian@gmail.com $
+-->
+<EasyForm Name="UserPreferenceDetailForm" Class="UserPreferenceForm" FormType="" Icon="icon_user_list.gif" jsClass="jbForm" SearchRule="[user_id]='0'" Title="System Preference" Description="You can custom your personal setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="System.Administer_System">
+    <DataPanel>
+        <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
+		<Element Name="fld_system_name"  Class="LabelText" ElementSet="General" FieldName="_system_name" Label="System Name"   />
+		<Element Name="fld_siteurl"  Class="LabelText" ElementSet="General" FieldName="_siteurl" Label="Site URL"   />
+        <Element Name="fld_theme"  Class="LabelText" ElementSet="General" label="Default Theme"  FieldName="_theme" Description=""   />
+        <Element Name="fld_session" ReadOnly="Y" Class="LabelList"  SelectFrom="system.lov.Selection(SessionRestrict)"  ElementSet="Session" FieldName="_sessionstrict" Label="Session Strict"   />
+        <Element Name="fld_session_timeout" ReadOnly="Y" Class="LabelList" SelectFrom="system.lov.Selection(SessionTimeout)"  ElementSet="Session" FieldName="_sessiontimeout" Label="Session Timeout"   />
+        
+        <Element Name="fld_appbuilder"  Class="LabelBool" ElementSet="General" label="App Builder"  FieldName="_appbuilder" Description=""   />
+        <Element Name="fld_debug"  Class="LabelBool" ElementSet="General" label="Debug Mode"  FieldName="_debug" Description=""   />
+        
+		<Element Name="fld_language"  Class="LabelText" Text="{BizSystem::GetObject('service.localeService')->getDefaultLangName()}"  ElementSet="Localization" FieldName="_language" Label="Default Language"   />
+        <Element Name="fld_continent"  Class="LabelText" ElementSet="Localization" Description="" FieldName="_continent" Label="Default Continent"  />
+		<Element Name="fld_timezone"  Class="LabelText" ElementSet="Localization" Description="" FieldName="_timezone" Label="Default Timezone"  />		
+		<Element Name="fld_currency"  Class="LabelText" Text="{BizSystem::GetObject('service.currencyService')->getName(@:Elem[fld_currency].Value)}" ElementSet="Localization" FieldName="_currency" Label="Default Currency"   />
+
+
+		<Element Name="fld_smartcard_auth"  Class="LabelBool" ElementSet="Login"  TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" FieldName="_smartcard_auth" Label="SmartCard Auth"   />
+		<Element Name="fld_anti_spam"  Class="LabelBool" ElementSet="Login" FieldName="_anti_spam" Label="Anti Spam"   />		
+        <Element Name="fld_session_lang"  Class="LabelBool" ElementSet="Login" label="Language Selector"  FieldName="_language_selector"  />
+		<Element Name="fld_session_theme"  Class="LabelBool" ElementSet="Login" Description="" FieldName="_theme_selector" Label="Theme Selector"  />
+		<Element Name="fld_cookies"  Class="LabelBool" ElementSet="Login" Description="" FieldName="_keep_cookies" Label="Keep Cookies"  />
+		
+		<Element Name="fld_allow_register"  Class="LabelBool" ElementSet="Register" Description="" FieldName="_open_register" Label="Open Register"  />
+		<Element Name="fld_allow_find_pass"  Class="LabelBool" ElementSet="Register" Description="" FieldName="_find_password" Label="Find Password"  />
+        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(system.form.UserPreferenceEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_back" Class="LabelText" Text="Back" Link="{@home:url}/system/general_default" CssClass="button_gray_m"/>		
+         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

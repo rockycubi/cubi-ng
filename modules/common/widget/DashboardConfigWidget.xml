@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: TimeoutForm.xml 3355 2012-05-31 05:43:33Z rockyswen@gmail.com $
+-->
+<EasyForm Name="DashboardConfigWidget" Class="DashboardConfigWidget" FormType="Detail" jsClass="jbForm" Title="Session Timeout" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="dashboard_cfg_widget.tpl.html" >
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_add" Class="Button" Text="Add Widgets" CssClass="button_gray_w">
+			<EventHandler Name="add_onclick" Event="onclick" Function="loadDialog(common.form.WidgetPickForm)"/>
+		</Element>        
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

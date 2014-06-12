@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: MenuTreeView.xml 3364 2012-05-31 06:06:21Z rockyswen@gmail.com $
+-->
+<EasyView Name="MenuTreeView" Description="Menu Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Menu.Administer_Menu">
+   <FormReferences>
+   		<Reference Name="menu.form.MenuTreeForm"/>
+   </FormReferences>
+</EasyView>

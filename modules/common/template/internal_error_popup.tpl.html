@@ -1,0 +1,63 @@
+<form id="{$form.name}" name="{$form.name}">
+<div class="register-block server-error" style="{if $form.show_error == false}height:260px;{else}height:300px;{/if}padding:15px;padding-top:25px;padding-left:35px;background-image:url({$resource_url}/common/images/error_form_bg.png);background-repeat:no-repeat;background-position:center bottom" >
+{if $notices.status !='REPORTED'}
+	{if $form.show_error == false}	
+		<div id="form-title" class="form-title" style="padding-left:44px;background-image:url({$theme_url}/images/icon_forbidden.gif);background-repeat:no-repeat;background-position:left top;"><h1 style="line-height:38px;">{$form.title}</h1></div>
+	
+		<div id="notice_msg" style="display:block;">		
+		<p class="input_row" style="height:125px; line-height:20px;padding-top:20px;padding-left:10px;">
+		<span>{t}
+Sorry, our system is encountered an unexpected internal errors . 
+Please REPORT the problem to our system administrator by clicking the below button, 
+Our support team will try to solve the problem as soon as possible.
+
+We are sorry for any inconvenience.
+{/t}
+		</span></p>		
+		</div>
+	{else}
+		<div id="form-title" class="form-title" style="padding-left:44px;background-image:url({$theme_url}/images/icon_forbidden.gif);background-repeat:no-repeat;background-position:left top;padding-bottom:10px;"><h1 style="line-height:38px;" >{$form.title}</h1></div>
+		<div id="detailed_error_msg" >
+		<p class="input_row" style="height:25px; line-height:20px;">
+		<span>{t}The detailed error message are below:{/t}</span>		
+		</p>
+		<div style="height:170px;">
+			<div class="system_error_msg">
+				<div style="width:440px; padding:10px 20px 10px 20px;">{$errors.system}</div>
+		
+			</div>
+		</div>
+		</div>
+	{/if}
+{else}
+<div id="form-title" class="form-title" style="padding-left:44px;background-image:url({$theme_url}/images/icon_forbidden.gif);background-repeat:no-repeat;background-position:left top;"><h1 style="line-height:38px;" >{$form.title}</h1></div>
+	
+		<div id="notice_msg" style="display:block;">		
+		<p class="input_row" style="height:85px; line-height:20px;padding-top:20px;padding-left:20px;">
+		<span>{t}
+Thank you for reporting the problem.
+Our support team will try to solve the problem as soon as possible.
+
+We are sorry for any inconvenience.
+{/t}</span>
+		</p>
+		<p class="input_row" style="padding-top:10px;padding-bottom:0px;font-weight:bold;padding-left:20px;">
+			<span style="color:#999999;">Error Report ID:</span><span style="padding-left:10px;color:#ff0000;">{$notices.report_id}</span>
+		</p>
+</div>
+{/if}				
+		<div style="height:10px;"></div>
+		<p class="input_row" style="padding-left:10px;">
+			{if $notices.status !='REPORTED'}
+			{$actionPanel.btn_report.element} {$actionPanel.btn_showerr.element}
+			{else}
+			{$actionPanel.btn_back.element}
+			{/if}
+		</p>
+</div>
+{if $form.show_error == false}	
+<script>Openbiz.Window.centerDialog(570,300);</script>
+{else}
+<script>Openbiz.Window.centerDialog(570,340);</script>
+{/if}
+</form>

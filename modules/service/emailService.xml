@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="emailService" Package="service" Class="emailService">
+   <Accounts>  
+   			   				   				   				<Account Name="System" Host="smtp.yourcompany.com" FromName="admin" FromEmail="admin@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Port="" Username="admin" Password="xxx" />
+	   				   				<Account Name="SystemNotifier" Host="" FromName="System Notification" FromEmail="notify@yourcompany.com" IsSMTP="Y" SMTPAuth="N" Port="" Username="" Password="" />
+	   				   				<Account Name="CubiNotification" Host="smtp.qq.com" FromName="Openbiz Collaboration" FromEmail="notify@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Port="25" Username="notify" Password="" />
+	   						   </Accounts>  
+   <Logging Type="DB" Object="email.do.EmailLogDO" Enabled="Y" />
+</PluginService>

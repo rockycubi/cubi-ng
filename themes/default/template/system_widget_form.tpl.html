@@ -1,0 +1,42 @@
+<form id='{$form.name}' name='{$form.name}'>
+	<li class="widget">  
+        <div class="widget-head">  
+            <h3>{$form.title}</h3>  
+        </div>  
+        <div class="widget-content">  
+        	<table>
+        	<tr>
+        		<td>
+	  			{foreach item=row from=$dataPanel.data}
+					<div style="width:250px;height:25px;">
+					 {assign var=col_counter value=0}    
+			         {foreach key=name item=cell key=cell_name from=$row}
+			         	{if $col_counter eq 0}
+			         		{assign var=col_class value=' class="row_header" '}    
+			         	{else}
+			         		{assign var=col_class value=' '}
+			         	{/if}
+			         	{if $cell_name != $row_style_name}
+				                  	
+				              <div {$col_class} style="{$row_style};float:left;margin-right:10px;" >{$cell}</div>
+				           
+			            {/if}
+			            {assign var=col_counter value=$col_counter+1}
+			         {/foreach}
+			         {assign var=row_counter value=$row_counter+1}
+					</div>
+			     {/foreach}
+		     	</td>
+		     </tr>
+		     <tr>
+		     	<td>
+					{foreach item=elem from=$actionPanel}
+ 							{if $elem.label} {$elem.label} {/if} {$elem.element}
+ 					{/foreach}
+				</td>	
+			</tr>
+			</table>	     
+        </div>  
+    </li>  
+</form>     
+</form>

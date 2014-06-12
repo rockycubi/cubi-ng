@@ -1,0 +1,73 @@
+<?xml version="1.0"  encoding="UTF-8" ?>
+
+<project name="openbiz-core" basedir="../" default="dist">
+    <property file="build/openbiz.properties" />
+
+    <property name="package"  value="${phing.project.name}" override="true" />
+    <property name="builddir" value="build/src/${package}" override="true" />
+    <property name="srcdir"   value="${project.basedir}" override="true" />
+    <property name="distdir" value="build/dist/${package}" override="true" />
+    <property name="distfile" value="${distdir}/${package}-${build.version}.${build.release}.tar.gz" override="true" />
+
+    <!-- Fileset for base source files -->
+    <fileset dir="${srcdir}" id="basesrc">    
+    	<include name="sample.php" />    
+        <include name="bin/app_init.php" />
+        <include name="modules/service/**" />
+        <include name="openbiz/**" />
+    </fileset>
+
+    <!-- ============================================  -->
+    <!-- Target: build                                 -->
+    <!-- ============================================  -->
+    <target name="build" description="build source">
+        <echo msg="Copy source files..." />
+        <copy todir="${builddir}">
+            <fileset refid="basesrc" />
+        </copy>
+        <echo msg="Files copied and compressed in build directory OK!" />
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: dist                        -->
+    <!-- ============================================  -->
+    <target name="dist" depends="build, tar">
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- Target: tar                                   -->
+    <!-- ============================================  -->
+    <target name="tar">
+        <echo msg="Creating archive at ${builddir}..." />
+        <mkdir dir="${distdir}" />
+        <mkdir dir="build/src/openbiz-core/files" />
+        <mkdir dir="build/src/openbiz-core/files/cache" />
+        <mkdir dir="build/src/openbiz-core/files/tmpfiles" />
+        <mkdir dir="build/src/openbiz-core/files/tpl_cpl" />
+        <mkdir dir="build/src/openbiz-core/files/upload" />
+        <delete file="${distfile}" />
+        <tar destfile="${distfile}" compression="gzip">
+            <fileset dir="build/src/">
+                <include name="openbiz-core/**" />
+            </fileset>
+        </tar>
+        <echo msg="Distribution file is created in build directory OK!" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: Rebuild                               -->
+    <!-- ============================================  -->
+    <target name="rebuild" description="rebuilds this package">
+        <delete dir="${builddir}" />
+        <delete file="${distfile}" />
+        <phingcall target="dist" />
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- Target: Clean                                 -->
+    <!-- ============================================  -->
+    <target name="clean" description="clean this package">
+        <delete dir="${builddir}" />
+        <delete file="${distfile}" />
+    </target>
+</project>

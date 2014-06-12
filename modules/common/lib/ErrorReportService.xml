@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: eventlogService.xml 3371 2012-05-31 06:17:21Z rockyswen@gmail.com $
+-->
+<PluginService Name="ErrorReportService" Package="common" Class="ErrorReportService" ReportServer="http://dev.openbiz.cn"  >
+</PluginService>

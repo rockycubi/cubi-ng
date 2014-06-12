@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="cacheService" Package="service" Class="cacheService">
+	<CacheSetting Mode="Enabled">			
+		<Config Name="lifetime" Value="7200" />		
+		<Config Name="write_control" Value="Y" />				
+		<Config Name="automatic_cleaning_factor" Value="N" />
+	</CacheSetting>	
+	<CacheEngine Type="File">
+		<File>
+			<Config Name="cache_dir" Value="data/" />
+			<Config Name="file_locking" Value="Y" />
+			<Config Name="read_control" Value="Y" />
+			<Config Name="read_control_type" Value="crc32" />
+			<Config Name="hashed_directory_level" Value="0" />
+			<Config Name="hashed_directory_umask" Value="0700" />
+			<Config Name="file_name_prefix" Value="openbiz" />
+		</File>		
+		<!--<Sqlite>
+			<Config Name="cache_db_complete_path" Value="" />
+			<Config Name="automatic_vacuum_factor" Value="" />
+		</Sqlite>
+		<Memcached>
+			<Config Name="server" Value="localhost:11211" />
+			<Config Name="compression" Value="N" />
+			<Config Name="compatibility" Value="N" />
+		</Memcached>
+		<Xcache>
+			<Config Name="user" Value="" />
+			<Config Name="password" Value="" />
+		</Xcache>
+		<APC />		
+		<ZendPlatform />-->
+	</CacheEngine>
+</PluginService>

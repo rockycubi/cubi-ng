@@ -1,0 +1,169 @@
+body {
+	padding-top: 10px;
+}
+table.input_row label{
+	width:80px; text-align:right; color:#222;vertical-align:top;
+	line-height:18px;
+}
+
+.input_text {
+	background-image: none;
+	border:1px solid #6699CC;
+	height:20px;
+	width:202px;	
+	display:block;
+	float:left;
+	line-height:20px;
+	text-indent:2px;
+	overflow:hidden;
+	color:#333333;
+	font-size:12px;
+}
+
+.input_text_error{
+	background-image: none;
+	border-width:1px;
+	height:20px;
+	width:202px;	
+	display:block;
+	float:left;
+	line-height:20px;
+	text-indent:2px;
+	overflow:hidden;
+	color:#ff0000;
+	font-weight:bold;
+	font-size:12px;
+}
+
+.input_text_focus{
+	background-image: none;
+	border-width:1px;
+	height:20px;
+	width:202px;	
+	display:block;
+	float:left;
+	line-height:20px;
+	text-indent:2px;
+	overflow:hidden;
+	color:#333333;
+	font-size:12px;
+}
+
+.input_text:focus{
+	background-position:left -24px;
+}
+
+.input_text_s{
+	background-image: none;
+	border:1px solid #6699CC;
+	height:20px;
+	width:100px;	
+	display:block;
+	float:left;
+	line-height:20px;
+	text-indent2px;
+	overflow:hidden;
+	color:#333333;
+	font-size:12px;
+}
+
+.input_text_s_error{
+	background-image: none;
+	border-width:1px;
+	height:20px;
+	width:100px;	
+	display:block;
+	float:left;
+	line-height:20px;
+	text-indent:2px;
+	overflow:hidden;
+	color:#ff0000;
+	font-weight:bold;
+	font-size:12px;
+}
+
+.input_text_s_focus{
+	background-image: none;
+	border-width:1px;
+	height:20px;
+	width:100px;	
+	display:block;
+	float:left;
+	line-height:20px;
+	text-indent:2px;
+	overflow:hidden;
+	color:#333333;
+	font-size:12px;
+}
+
+.input_textarea{
+	background-image: none;
+	border:1px solid #6699CC;
+	height:50px;
+	width:500px;	
+	display:block;
+	float:left;
+	line-height:18px;
+	padding-left:2px;
+	padding-top:0px;
+	overflow:hidden;
+	color:#333333;
+	font-size:12px;
+}
+
+.input_textarea_error{
+	background-image: none;
+	border-width:1px;
+	height:50px;
+	width:500px;	
+	display:block;
+	float:left;
+	line-height:18px;
+	padding-left:2px;
+	padding-top:0px;
+	overflow:hidden;
+	color:#ff0000;
+	font-weight:bold;
+	font-size:12px;
+}
+
+.input_textarea_focus{
+	background-image: none;
+	border-width:1px;
+	height:50px;
+	width:500px;	
+	display:block;
+	float:left;
+	line-height:18px;
+	padding-left:2px;
+	padding-top:0px;
+	overflow:hidden;
+	color:#333333;
+	font-size:12px;
+}
+
+.input_texareat:focus{
+	background-position:center 0px;
+}
+
+
+.link_highlight{
+	color:#2aa6cc;
+}
+.link_highlight:hover{
+	color:#0286af;
+}
+
+
+.link{
+	color:#999999;
+}
+.link:hover{
+	color:#666666;
+}
+.editcombobox select {
+	height:22px;  
+}
+.editcombobox_l select {
+	height:22px;  
+}

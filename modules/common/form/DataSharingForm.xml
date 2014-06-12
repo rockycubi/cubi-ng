@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: DataSharingForm.xml 3355 2012-05-31 05:43:33Z rockyswen@gmail.com $
+-->
+<EasyForm Name="DataSharingForm" Icon="{RESOURCE_URL}/common/images/icon_data_sharing.gif" Class="DataSharingForm" FormType="Edit" jsClass="jbForm" Title="Data Sharing" Description="Share your data with your group members or others users." BizDataObj="" TemplateEngine="Smarty" TemplateFile="data_sharing_form.tpl.html" >
+    <DataPanel>
+    	
+    	<Element Name="fld_data_record"  Class="LabelText"  ElementSet="Data Sharing"  FieldName="data_record" Label="" Width="400" style="font-size:20px;color:#333333;line-height:24px;" />
+    	<Element Name="fld_data_type"  Class="LabelList" SelectFrom="common.lov.DataSharingLOV(DataType)" ElementSet="Data Sharing"  FieldName="shared_data" Label="Data Type"  />
+    	<Element Name="fld_has_owner_field" Hidden="Y" Class="LabelText"  ElementSet="Data Sharing"  FieldName="hasOwnerField" Label="Data Type"  />
+    	<Element Name="fld_editable" Hidden="Y" Class="LabelText"  ElementSet="Data Sharing"  FieldName="editable" Label="Data Type"  />
+    	<Element Name="fld_data_manage" Hidden="Y" Class="LabelText"  ElementSet="Data Sharing"  FieldName="data_manage" Label="Data Type"  />
+    	<Element Name="fld_has_ref_data" Hidden="Y" Class="LabelText"  ElementSet="Data Sharing"  FieldName="has_ref_data" Label="Data Type"  />
+    	
+		<Element Name="fld_creator" Hidden="{@:Elem[fld_data_manage].Value==1?'Y':'N'}" Class="LabelText"  ElementSet="Data Sharing" width="450" FieldName="creator_name" Label="Data Creator"  />
+		<Element Name="fld_creator_setting" Width="160" Hidden="{@:Elem[fld_data_manage].Value==1?'N':'Y'}"  Class="Listbox" SelectFrom="system.do.UserContactDO[display_name:Id],[group_id]='{@:Elem[fld_group_setting].Value}'"  ElementSet="Data Sharing" FieldName="create_by" Label="Data Creator"  />
+		
+		<Element Name="fld_group" Hidden="{@:Elem[fld_editable].Value==1?'Y':'N'}"  Class="LabelText"  ElementSet="Data Sharing" Description="Data owner's group name " FieldName="group_name" Label="Owner Group"  />    	
+    	<Element Name="fld_group_setting" Width="160" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}"  Class="common.element.DataShareGroupList" SelectFrom="system.do.GroupDO[name:Id]" ElementSet="Data Sharing" Description="Data owner's group name " FieldName="group_id" Label="Owner Group"  >
+    		<EventHandler Name="fld_group_setting_onchange" EventLogMsg="" Event="onchange" Function="UpdateForm()" />
+    	</Element>
+        
+		
+		<Element Name="fld_owner"  Class="LabelText" Hidden="{@:Elem[fld_editable].Value==1?'Y':'N'}" ElementSet="Data Sharing" width="450" FieldName="owner_name" Label="Data Owner"  />  		
+		<Element Name="fld_owner_setting" Width="160"  Hidden="{@:Elem[fld_editable].Value==1 &amp;&amp; @:Elem[fld_has_owner_field].Value=='1'?'N':'Y'}" Class="common.element.DataShareUserList" SelectFrom="system.do.UserContactDO[display_name:Id],[group_id]='{@:Elem[fld_group_setting].Value}'"  ElementSet="Data Sharing" FieldName="owner_id" Label="Data Owner"  >			
+		</Element>
+    	<Element Name="fld_owner_perm"  Hidden="{@:Elem[fld_editable].Value==1?'Y':'N'}"  Class="LabelList"  SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Data permission for owner " FieldName="owner_perm" Label="Owner Perm"  />
+    	<Element Name="fld_owner_perm_setting" Width="160" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}"  Class="Listbox"  SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Data permission for owner " FieldName="owner_perm" Label="Owner Perm"  />
+    	
+    	<Element Name="fld_group_perm" Hidden="{@:Elem[fld_editable].Value==1?'Y':'N'}"   Class="LabelList"  SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Data permission for owner group's users" FieldName="group_perm" Label="Group Perm"  />
+        <Element Name="fld_group_perm_setting" Width="160" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}"   Class="Listbox"  SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Data permission for owner group's users" FieldName="group_perm" Label="Group Perm"  />
+		<Element Name="fld_other_perm" Hidden="{@:Elem[fld_editable].Value==1?'Y':'N'}" Class="LabelList"  SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Data permission for other users " FieldName="other_perm" Label="Other Perm"  />
+		<Element Name="fld_other_perm_setting" Width="160" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}" Class="Listbox"  SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Data permission for other users " FieldName="other_perm" Label="Other Perm"  />		
+        		
+        <Element Name="fld_update_ref_data" Hidden="{@:Elem[fld_has_ref_data].Value==1?'N':'Y'}" Class="Checkbox"  ElementSet="Data Sharing" Description="Cascade update referenced my data" DefaultChecked="N" DefaultValue="0" SelectFrom="1" FieldName="update_ref_data" Label="Cascade"  />
+		<Element Name="fld_notify_users" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}" Class="Checkbox"  ElementSet="Data Sharing" Description="Notify users by email" DefaultChecked="N" DefaultValue="0" SelectFrom="1" FieldName="notify_user" Label="Notify User"  />
+         		
+    </DataPanel>
+    <ActionPanel>
+    	
+        
+        
+        
+    	<Element Name="btn_ok" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}" Class="Button" Text="OK" CssClass="button_gray_m">
+            <EventHandler Name="btn_ok_onclick" EventLogMsg="" Event="onclick" Function="ShareRecord()" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+		<Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+        
+        <Element Name="btn_spacer" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}"  Class="Spacer" width="10" />		
+        
+        <Element Name="btn_adv" Hidden="{@:Elem[fld_editable].Value==1 &amp;&amp; DATA_ACL?'N':'Y'}" Class="Button" Text="Advanced" CssClass="button_gray_w">
+            <EventHandler Name="btn_adv_onclick" EventLogMsg="" Event="onclick" Function="SwitchForm(common.form.DataACLForm)"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

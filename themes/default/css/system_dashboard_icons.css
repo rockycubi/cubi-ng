@@ -1,0 +1,394 @@
+#main #right_panel .dashboard_panel{
+	padding-bottom:15px;
+	padding-top:0px;
+}
+
+#main #right_panel .dashboard_bg_light {
+	width:100%;
+	height:102px;	
+	background-image:url("../images/system_dashboard_bg_light.png");
+}
+#main #right_panel .dashboard_bg_light_header {
+	width:100%;
+	height:100px;	
+	background-image:url("../images/system_dashboard_bg_light_header.png");
+}
+#main #right_panel .dashboard_bg_dark {
+	width:100%;
+	height:102px;	
+	background-image:url("../images/system_dashboard_bg_dark.png");
+}
+
+#main #right_panel .dashboard_panel .title {
+	padding-top:5px;	
+	color:#0e8fba;	
+	padding-left:10px;
+	position:absolute;
+}
+#main #right_panel .dashboard_panel .icons {
+	padding-left:15px;
+	padding-top:18px;
+}
+#main #right_panel .dashboard_panel .icons a {
+	float:left;
+	display:block;
+	height:70px;
+	width:60px;
+	margin-right:35px;
+	text-align:center;
+	color:#666666;
+	text-decoration: none;
+}
+
+#main #right_panel .dashboard_panel .icons a img {
+	display:block;
+	height:50px;
+	width:60px;		
+	background-image:url("../images/system_dashboard_icon.png");
+}
+#main #right_panel .dashboard_panel .icons a:hover {
+	color:#000000;
+}
+#main #right_panel .dashboard_panel .icons a:active {
+	color:#08abe0;
+}
+
+
+#main #right_panel .dashboard_panel .icons .icon_user img {
+	background-position:0px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_user:hover img {
+	background-position:0px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_user:active img {
+	background-position:0px -96px;
+}
+
+
+#main #right_panel .dashboard_panel .icons .icon_role img {
+	background-position:-120px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_role:hover img {
+	background-position:-120px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_role:active img {
+	background-position:-120px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_group img {
+	background-position:-240px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_group:hover img {
+	background-position:-240px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_group:active img {
+	background-position:-240px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_datasharing img {
+	background-position:-300px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_datasharing:hover img {
+	background-position:-300px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_datasharing:active img {
+	background-position:-300px -96px;
+}
+
+
+
+#main #right_panel .dashboard_panel .icons .icon_module img {
+	background-position:-180px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_module:hover img {
+	background-position:-180px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_module:active img {
+	background-position:-180px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_update img {
+	background-position:-1500px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_update:hover img {
+	background-position:-1500px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_update:active img {
+	background-position:-1500px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_menu_list img {
+	background-position:-480px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_menu_list:hover img {
+	background-position:-480px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_menu_list:active img {
+	background-position:-480px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_menu_tree img {
+	background-position:-540px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_menu_tree:hover img {
+	background-position:-540px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_menu_tree:active img {
+	background-position:-540px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_changelog img {
+	background-position:-1440px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_changelog:hover img {
+	background-position:-1440px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_changelog:active img {
+	background-position:-1440px -96px;
+}
+
+
+
+#main #right_panel .dashboard_panel .icons .icon_mail_queue img {
+	background-position:-600px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_mail_queue:hover img {
+	background-position:-600px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_mail_queue:active img {
+	background-position:-600px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_mail_sentlog img {
+	background-position:-660px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_mail_sentlog:hover img {
+	background-position:-660px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_mail_sentlog:active img {
+	background-position:-660px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_mail_account img {
+	background-position:-720px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_mail_account:hover img {
+	background-position:-720px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_mail_account:active img {
+	background-position:-720px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_mail_template img {
+	background-position:-780px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_mail_template:hover img {
+	background-position:-780px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_mail_template:active img {
+	background-position:-780px -96px;
+}
+
+
+
+#main #right_panel .dashboard_panel .icons .icon_preference img {
+	background-position:-60px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_preference:hover img {
+	background-position:-60px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_preference:active img {
+	background-position:-60px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_database img {
+	background-position:-1560px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_database:hover img {
+	background-position:-1560px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_database:active img {
+	background-position:-1560px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_backup img {
+	background-position:-360px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_backup:hover img {
+	background-position:-360px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_backup:active img {
+	background-position:-360px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_webservice img {
+	background-position:-1380px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_webservice:hover img {
+	background-position:-1380px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_webservice:active img {
+	background-position:-1380px -96px;
+}
+
+
+#main #right_panel .dashboard_panel .icons .icon_cache img {
+	background-position:-900px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_cache:hover img {
+	background-position:-900px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_cache:active img {
+	background-position:-900px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_cronjob img {
+	background-position:-840px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_cronjob:hover img {
+	background-position:-840px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_cronjob:active img {
+	background-position:-840px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_security img {
+	background-position:-1080px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_security:hover img {
+	background-position:-1080px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_security:active img {
+	background-position:-1080px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_helpcategory img {
+	background-position:-960px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_helpcategory:hover img {
+	background-position:-960px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_helpcategory:active img {
+	background-position:-960px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_helptips img {
+	background-position:-1020px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_helptips:hover img {
+	background-position:-1020px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_helptips:active img {
+	background-position:-1020px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_theme img {
+	background-position:-1140px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_theme:hover img {
+	background-position:-1140px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_theme:active img {
+	background-position:-1140px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_translation img {
+	background-position:-1200px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_translation:hover img {
+	background-position:-1200px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_translation:active img {
+	background-position:-1200px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_language img {
+	background-position:-1260px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_language:hover img {
+	background-position:-1260px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_language:active img {
+	background-position:-1260px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_backup_device img {
+	background-position:-420px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_backup_device:hover img {
+	background-position:-420px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_backup_device:active img {
+	background-position:-420px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_appstore img {
+	background-position:-1620px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_appstore:hover img {
+	background-position:-1620px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_appstore:active img {
+	background-position:-1620px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_eventlog img {
+	background-position:-1320px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_eventlog:hover img {
+	background-position:-1320px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_eventlog:active img {
+	background-position:-1320px -96px;
+}
+#main #right_panel .dashboard_panel .icons .icon_session img {
+	background-position:-1680px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_session:hover img {
+	background-position:-1680px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_session:active img {
+	background-position:-1680px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_location img {
+	background-position:-1740px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_location:hover img {
+	background-position:-1740px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_location:active img {
+	background-position:-1740px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_oauth img {
+	background-position:-1860px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_oauth:hover img {
+	background-position:-1860px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_oauth:active img {
+	background-position:-1860px -96px;
+}
+
+
+#main #right_panel .dashboard_panel .icons .icon_payment img {
+	background-position:-1800px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_payment:hover img {
+	background-position:-1800px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_payment:active img {
+	background-position:-1800px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_sms img {
+	background-position:-1920px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_sms:hover img {
+	background-position:-1920px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_sms:active img {
+	background-position:-1920px -96px;
+}
+

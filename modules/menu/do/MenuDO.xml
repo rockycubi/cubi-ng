@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: MenuDO.xml 3364 2012-05-31 06:06:21Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="MenuDO" Description="" Class="BizDataObj" DBName="Default" Table="menu" SortRule="[sortorder] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="" CacheLifeTime="7200">
+	<BizFieldList>
+   		<BizField Name="Id" Column="name" Length="255"    Type="Text"/>
+   		<BizField Name="name" Column="name" Length="255"    Type="Text"/>
+   		<BizField Name="PId" Column="parent" Length="255"   Required="N" Type="Text"/>
+		<BizField Name="module" Column="module" Length="100"   Required="N" Type="Text"/>
+		<BizField Name="title" Column="title" Length="255"   Required="Y" Type="Text"/>
+		<BizField Name="link" Column="link"    Required="N" Type="Text"/>
+		<BizField Name="url_match" Column="url_match" Length="255"  Type="Text"/>
+		<BizField Name="description" Column="description"   Type="Text"/>		
+		<BizField Name="view" Column="view"    Required="N" Type="Text"/>
+		<BizField Name="type" Column="type" Length="50"   Required="N" Type="Text"/>
+		<BizField Name="published" Column="published"     Type="Number"/>
+		<BizField Name="parent" Column="parent" Length="255"   Required="N" Type="Text"/>
+		<BizField Name="sortorder" Column="ordering"    Required="N" Type="Number"/>
+		<BizField Name="access" Column="access"    Required="N" Type="Number"/>
+		<BizField Name="icon" Column="icon" Type="Text"/>
+		<BizField Name="icon_css" Column="icon_css" Type="Text"/>
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

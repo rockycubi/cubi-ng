@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ModuleChangeLogForm.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<EasyForm Name="ModuleChangeLogForm"  Class="ModuleChangeLogForm" GroupBy="[version:version]" Icon="{RESOURCE_URL}/system/images/icon_change_log.gif" FormType="List" jsClass="jbForm" Title="Module Change Logs" Description="List the change logs of current module" BizDataObj="system.do.ModuleChangeLogDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform_grouping.tpl.html">
+    <DataPanel>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" />
+        <Element Name="fld_status" Class="ColumnList" SelectFrom="system.lov.ChangeLogLOV(Status)" FieldName="status" Label="Status" Sortable="Y"/>
+        <Element Name="fld_type" Class="ColumnList" SelectFrom="system.lov.ChangeLogLOV(Type)" FieldName="type" Label="Type" Sortable="Y"/>
+        
+        <Element Name="fld_description" Class="ColumnText" MaxLength="70" FieldName="description" Label="Description" Sortable="Y"/>
+        <Element Name="fld_publish_date" Class="ColumnText" FieldName="publish_date" Label="Publish" Sortable="Y"/>
+    </DataPanel>
+    <ActionPanel>
+    </ActionPanel> 
+    <NavPanel>
+        <Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+        	<EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+        	<EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>
+        <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+    
+    </SearchPanel>
+</EasyForm>

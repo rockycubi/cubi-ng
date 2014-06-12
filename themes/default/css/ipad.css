@@ -1,0 +1,41 @@
+#footer_wrap div#footer{
+	height:64px;
+}
+.input_text,.input_text_error,.input_text_focus{
+	height:18px;
+	line-height:18px;
+}
+.input_text_s,.input_text_s_error,.input_text_s_focus{
+	height:18px;
+	line-height:18px;
+}
+.input_text_l,.input_text_l_error,.input_text_l_focus{
+	height:18px;
+	line-height:18px;
+}
+#main #left_panel .content ul li a {
+	height:21px;	
+	line-height:21px;
+}
+.input_text_search{
+	height:15px;	
+	line-height:15px;		
+}
+.input_text_search_focus{
+	height:15px;	
+	line-height:15px;	
+}
+.input_select,.input_select_focus{
+	height:15px;
+	line-height:15px;
+	width:45px;
+}
+.input_select_w,.input_select_w_focus{
+	height:15px;
+	line-height:15px;
+	width:170px;
+}
+.input_select_m,.input_select_m_focus{
+	height:15px;
+	line-height:15px;
+}

@@ -1,0 +1,50 @@
+.tab_form{
+	display:none;
+}
+#tabs_selector {
+	width:700px;
+	height:33px;
+	display:block;
+	padding-left:30px;
+	padding-right:40px;	
+	padding-bottom:10px;
+	padding-top:10px;
+	background-image:url(../images/tabs_panel_bg.gif);
+	background-repeat: no-repeat;
+	background-position: 25px 10px;
+}
+#tabs_selector li{
+	display:block;
+	float:left;
+	height:33px;
+	font-size: 14px;
+	line-height: 33px;
+	margin-right:1px;
+}
+#tabs_selector li a{
+	display:block;
+	height:33px;
+	font-size: 13px;
+	line-height: 28px;
+	text-decoration: none;
+	background-image: url(../images/tabs_bg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	text-align:center;
+	color:#666666;
+	padding-left:20px;
+	padding-right:20px;		
+		font-weight:bold;
+	
+}
+#tabs_selector li a:hover{
+	background-position: left bottom;
+}
+#tabs_selector li a.current{
+
+	background-image: url(../images/tabs_current.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	text-align:center;
+	color:#FFFFFF;
+}

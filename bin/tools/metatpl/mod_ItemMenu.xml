@@ -1,0 +1,3 @@
+			<MenuItem Name="{$module|capitalize}" Title="{$comp|capitalize|replace:'.':' '}" Description="{$module|capitalize|replace:'.':' '} description" URL="" Parent="" Order="10">
+				<MenuItem Name="{$module|capitalize}.List" Title="{$comp|capitalize|replace:'.':' '} Manage" Description=""  URL="/{$module_name|lower|replace:'.':'/'}/{$listview_uri}" Order="10"/>
+			</MenuItem>

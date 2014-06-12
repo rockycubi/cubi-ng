@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: MenuTreeListDO.xml 3364 2012-05-31 06:06:21Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="MenuTreeListDO" Description="" Class="BizDataTree" DBName="Default" Table="menu" SearchRule="" SortRule="[sortorder] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="UUID" CacheLifeTime="">
+	<BizFieldList>
+   		<BizField Name="Id" Column="name" Length="255"    Type="Text"/>
+   		<BizField Name="title" Column="title" Length="255"    Type="Text"/>
+   		<BizField Name="PId" Column="parent" Length="255"   Required="N" Type="Text"/>		
+		<BizField Name="description" Column="description"   Type="Text"/>
+		<BizField Name="published" Column="published"     Type="Number"/>		
+		<BizField Name="sortorder" Column="ordering"    Required="N" Type="Number"/>
+	
+			   		
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

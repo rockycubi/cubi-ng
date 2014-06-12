@@ -1,0 +1,7 @@
+#!/bin/sh
+# cubi builder script. Usage: build app_name
+
+export PHING_HOME=`pwd`/../bin/phing
+export PHP_CLASSPATH=${PHING_HOME}/classes
+
+${PHING_HOME}/bin/phing -buildfile $1.xml $2

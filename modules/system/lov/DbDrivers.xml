@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: DbDrivers.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<SELECTION>   
+   <Driver Text="MySQL" Value="PDO_MYSQL"/>
+   <Driver Text="Microsoft SQL Server" Value="PDO_DBLIB"/>   
+   <Driver Text="Firebird" Value="PDO_FIREBIRD"/>
+   <Driver Text="IBM DB2" Value="PDO_IBM"/>
+   <Driver Text="Oracle" Value="PDO_OCI"/>
+   <Driver Text="PostgreSQL" Value="PDO_PGSQL"/>
+   <Driver Text="SQLite 3" Value="PDO_SQLITE"/>
+   
+   <Charset Text="UTF8" Value="utf8" />
+   <Charset Text="GBK" Value="gbk" />
+   <Charset Text="BIG5" Value="big5" />
+   <Charset Text="Latin-1" Value="latin1" />
+</SELECTION>   

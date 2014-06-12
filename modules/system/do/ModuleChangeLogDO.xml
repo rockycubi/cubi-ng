@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ModuleChangeLogDO.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="ModuleChangeLogDO" Description="" Class="BizDataObj" DBName="Default" Table="module_changelog" SearchRule="" SortRule="[publish_date] DESC" OtherSQLRule="" IdGeneration="Identity">
+	<BizFieldList>
+		<BizField Name="Id" Column="id" Type=""/>
+	    <BizField Name="module" Column="module" Type=""/>        
+        <BizField Name="name" Column="name" Type=""/>
+        <BizField Name="description" Column="description" Type=""/>        
+        <BizField Name="type" Column="type" Type=""/>
+        <BizField Name="status" Column="status" Type=""/>
+        <BizField Name="version" Column="version" Type=""/>
+        <BizField Name="publish_date" Column="publish_date" />
+        <BizField Name="publish_month" SQLExpr="date_format(publish_date,'%Y-%m')" />
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>    
+    </ObjReferences>
+</BizDataObj>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: DatabaseDetailForm.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<EasyForm Name="DatabaseDetailForm" Class="DatabaseForm" icon="{RESOURCE_URL}/system/images/icon_database_detail.png" FormType="" jsClass="jbForm" Title="Database Connection Management" Description="You can review and manage system database connection. " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" ConfigFile="application.xml" ConfigNode="DataSource" Access="System.Administer_System" MessageFile="database.msg">
+    <DataPanel>
+    	<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="author_email" Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />   
+		<Element Name="fld_name" Class="LabelText" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_driver" Class="LabelText" FieldName="DRIVER" Label="Driver"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_server" Class="LabelText" FieldName="SERVER" Label="Server" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_port" Class="LabelText" FieldName="PORT" Label="Port" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_user" Class="LabelText" FieldName="USER" Label="Username"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_password" Class="LabelPassword" FieldName="PASSWORD" Label="Password"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_dbname" Class="LabelText" FieldName="DBNAME" Label="Database"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_charset" Class="LabelText" FieldName="CHARSET" Label="Charset"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_options" Class="LabelText" FieldName="OPTIONS" Label="Options"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_status" Class="LabelBool" FieldName="STATUS" Label="Status"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	        	            
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+			<EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(system.form.DatabaseNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(system.form.DatabaseEditForm,{@:Elem[fld_Id].Value})" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+ 		<Element Name="btn_test" Class="Button" Text="Test" CssClass="button_gray_m" Description="test connection (Ctrl+T)">
+            <EventHandler Name="btn_test_onclick" Event="onclick" EventLogMsg="" Function="TestConnection()"  ShortcutKey="Ctrl+T" ContextMenu="Test" />
+        </Element>                  
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=system.form.DatabaseListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+       
+        <Element Name="btn_back" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="back_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm()" ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element> 
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

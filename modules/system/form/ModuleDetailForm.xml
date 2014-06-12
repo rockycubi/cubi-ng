@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ModuleDetailForm.xml 5507 2014-06-01 00:11:37Z rockyswen@gmail.com $
+-->
+<EasyForm Name="ModuleDetailForm" Icon="icon_modules_l.gif" Class="ModuleForm" FormType="" jsClass="jbForm" Title="Module Details " Description="Detailed attributes of a given module. \nThe module metadata are located at app/modules/module_name folder" DataService="/system/Modules" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" MessageFile="system.msg">
+    <DataPanel>
+        <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>
+        <Element Name="fld_name" Class="LabelText" AllowURLParam="Y" FieldName="name" Label="Name"/>
+        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description"/>
+        <Element Name="fld_status" Class="LabelBool" FieldName="status"  Label="Status" />
+        <Element Name="fld_author" Class="LabelText" FieldName="author" Label="Author"/>
+        <Element Name="fld_version" Class="LabelText" FieldName="version" Label="Version"/>
+        <Element Name="fld_openbiz_version" Class="LabelText" FieldName="openbiz_version" Label="Framework"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_list" Class="LabelText" Text="Back" CssClass="button_gray_m" Link="{@home:url}/system/module_list"/>
+        <Element Name="lnk_edit" Class="LabelText" Text="Edit" CssClass="button_gray_m" Link="{@home:url}/system/module_edit/{{dataobj.Id}}"/>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
+            <!--<EventHandler Name="delete_onclick" Event="onclick" Function="PurgeRecord({@:Elem[fld_Id].Value})"  RedirectPage="{APP_INDEX}/system/module_list"/>-->
+        </Element>
+        <Element Name="btn_unload" Class="Button" Text="Unload" CssClass="button_gray_m">
+            <!--<EventHandler Name="unload_onclick" Event="onclick" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="{APP_INDEX}/system/module_list"/>-->
+        </Element>
+        <Element Name="btn_reload" Class="Button" Text="Reload Module" CssClass="button_gray_m">
+            <!--<EventHandler Name="reload_onclick" Event="onclick" Function="loadModule({@:Elem[fld_name].Value})"/>-->
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

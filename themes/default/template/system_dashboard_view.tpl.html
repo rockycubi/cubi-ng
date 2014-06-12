@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<meta name="description" content="{$description}"/>
+<meta name="keywords" content="{$keywords}"/>
+{$style_sheets}
+{$scripts}
+</head>
+
+<body>
+<div align="center" id="body_warp">
+	<div id="header_warp">
+	{include file='system_header.tpl.html'}
+	</div>
+	<!--main warp-->
+	<div id="main_warp">	
+		<!--main-->
+		<div id="main" >
+			{include file='system_loader.tpl.html'}
+			<table id="main_content" border="0" cellpadding="0" cellspacing="0">
+				<tr><td><img src="{$image_url}/spacer.gif" style="height:15px;" /></td></tr>
+				<tr>
+					<td valign="top" style="width:18px;"><img src="{$image_url}/spacer.gif" style="width:18px;" /></td>
+					<td valign="top" id="left_panel">
+						{include file='system_left_panel.tpl.html'}
+					</td>
+					<td valign="top" id="right_panel">
+						<!-- right block start -->
+						{include file='system_dashboard_panel.tpl.html'}
+						<!-- right block end -->
+					</td>
+				</tr>
+			  </table>		  
+			</div>
+			<!--main-->
+		
+		</div>		
+		<!--main wrap end-->
+		<!--footer-->
+		<div  id="footer_warp">			
+		{include file='system_footer.tpl.html'}
+		</div>
+		<!-- footer end -->
+	
+	</div>
+</div>
+
+<script>
+{php} if (JSLIB_BASE=='JQUERY') : {/php}
+
+{php} else : {/php}
+{literal}
+$('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
+{/literal}
+{php} endif; {/php}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+{literal}
+<script>
+function jq(myid) { 
+   return '#' + myid.replace(/(:|\.)/g,'\\$1');
+}
+
+$j(function(){
+	$j(jq("common.widget.DashboardConfigWidget")).append("<input type='hidden' name='_widgets' id='_widgets'>");
+	// replace idget title with h2
+	$j('.dragbox').each(function(){
+		titledom = $j(this).find('.widget_title')[0];
+		titledom.innerHTML = $j(this).find('h2').html();
+	});
+	// hide form h2 content
+	$j('.dragbox').find('h2').css('display', 'none');
+	$j('a.maxmin').click(
+		function(){
+			$j(this).parent().siblings('.dragbox-content').toggle();
+		}
+	);
+	$j('a.delete').click(
+		function(){
+			widgetName = $j(this).parent().parent().attr('id');
+			var sel = confirm('Do you want to delete the widget '+widgetName+'?');
+			if(sel)
+			{
+				//del code here
+				Openbiz.CallFunction('common.widget.DashboardConfigWidget.removeWidget('+widgetName+')');
+			}
+		}
+	);
+	$j('.column').sortable({
+		connectWith: '.column',
+		handle: '.widget_header',
+		cursor: 'move',
+		placeholder: 'placeholder',
+		forcePlaceholderSize: true,
+		opacity: 0.4,
+		stop: function(event, ui){
+			$j(ui.item).find('.widget_header').click();
+			var sortorder='';
+			$j('.column').each(function(){
+				var itemorder=$j(this).sortable('toArray');
+				var columnId=$j(this).attr('id');
+				sortorder+=columnId+'='+itemorder.toString()+'&';
+			});
+			//alert('SortOrder: '+sortorder);
+			$j('#_widgets').val(sortorder);
+			/*Pass sortorder variable to server using ajax to save state*/
+			Openbiz.CallFunction('common.widget.DashboardConfigWidget.reorderWidgets()');
+		}
+	})
+	.disableSelection();
+});
+</script>
+<style>
+.column{
+	width:48%;
+	margin-right:.5%;
+	min-height:300px;
+	background:#fff;
+	float:left;
+}
+.column .dragbox{
+	margin:5px 5px;
+	background:#fff;
+	position:relative;
+	border:1px solid #ddd;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+.column .dragbox .widget_header{
+	margin:0;
+	font-size:12px;
+	padding:5px;
+	background:#f0f0f0;
+	color:#000;
+	border-bottom:1px solid #eee;
+	font-family:Verdana;
+	cursor:move;
+}
+.dragbox-content{
+	background:#fff;
+	min-height:100px; margin:5px;
+	/*font-family:'Lucida Grande', Verdana; font-size:0.8em; line-height:1.5em;*/
+}
+.column  .placeholder{
+	background: #f0f0f0;
+	border:1px dashed #ddd;
+}
+.dragbox .widget_header .configure{
+	font-size:11px; font-weight:normal;
+	margin-right:30px; float:right;
+}
+.dragbox .widget_header .maxmin {
+	float:right; 
+	margin-right:2px; margin-top:2px;
+	width:16px; height:16px;
+	display:block;
+	opacity:0.8;
+{/literal}
+	background:#f0f0f0 url('{$image_url}/minimize.gif') no-repeat top right;
+{literal}
+}
+.dragbox .widget_header a.maxmin:hover {
+	opacity:1.0;
+}
+.dragbox .widget_header a.delete {
+	float:right;
+	margin-top:2px;
+	width:16px; height:16px;
+	display:block;
+	opacity:0.8;
+{/literal}
+	background:#f0f0f0 url('{$image_url}/close.gif') no-repeat top right;
+{literal}
+}
+.dragbox .widget_header a.delete:hover {
+	opacity:1.0;
+}
+</style>
+{/literal}
+	<!-- right block start -->
+	<div class="content_block">
+		<div class="header"></div>
+		<div class="content">
+			<div style="display:block;margin-left:10px;width:100%;">
+			{php}
+				$cfgForm=BizSystem::getObject("common.widget.DashboardConfigWidget");
+				print $cfgForm->render();
+			{/php}
+			</div>
+			<div style="padding-left:5px;">
+			<div class="column" id="column_1">
+			{foreach item=formname from=$columns[1] name=dashPanel}
+					<div class="dragbox" id="{$formname}_widget" >
+					<div class="widget_header">
+						<span class="widget_title">Handle</span>
+						<a href="javascript:void()" class="delete"> </a>
+						<a href="javascript:void()" class="maxmin"> </a>
+					</div>
+					<div class="dragbox-content" >
+						{$forms[$formname]}
+					</div>
+					</div>
+		    {/foreach}
+			</div>
+			
+			<div class="column" id="column_2">
+			{foreach item=formname from=$columns[2] name=dashPanel}
+					<div class="dragbox" id="{$formname}_widget" >
+					<div class="widget_header">
+						<span class="widget_title">Handle</span>
+						<a href="javascript:void()" class="delete"> </a>
+						<a href="javascript:void()" class="maxmin"> </a>
+					</div>
+					<div class="dragbox-content" >
+						{$forms[$formname]}
+					</div>
+					</div>
+		    {/foreach}
+			</div>
+			</div>
+			<div style="clear:both;"></div>
+
+		</div>
+		<div class="footer"></div>
+
+	</div>
+	<!-- right block end -->

@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ModuleCachedDO.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="ModuleCachedDO" Description="" Class="BizDataObj" DBName="Default" Table="module" SearchRule="" SortRule="" OtherSQLRule="" IdGeneration="Identity" CacheLifeTime="7200">
+	<BizFieldList>
+	    <BizField Name="Id" Column="id" Type=""/>
+        <BizField Name="name" Column="name" Type=""/>
+        <BizField Name="description" Column="description" Type=""/>
+        <BizField Name="status" Column="status" Type=""/>
+        <BizField Name="author" Column="author" Type=""/>
+        <BizField Name="version" Column="version" Type=""/>
+        <BizField Name="openbiz_version" Column="openbiz_version" Type=""/>
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    	<Object Name="system.do.AclActionDO" Relationship="1-M" Table="acl_action" Column="module" FieldRef="name" CascadeDelete="Y"/>
+    	<Object Name="system.do.ModuleChangeLogDO" Relationship="1-M" Table="module_changelog" Column="module" FieldRef="name" CascadeDelete="Y"/>
+    </ObjReferences>
+</BizDataObj>

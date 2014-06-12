@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: SessionTimeLOV.xml 3355 2012-05-31 05:43:33Z rockyswen@gmail.com $
+-->
+<Selection>
+   <ActiveLogic Value="ENTER" Text="Enter the product license code"/>
+   <ActiveLogic Value="FREETRIAL" Text="Get a [strong]FREE[/strong] trial of the product for [strong][days] days[/strong]"/>
+   <ActiveLogic Value="PURCHASE" Text="Purchase a product license from its website"/>
+   <ActiveLogic Value="WEBSITE" Text="Go to the product official website"/>        
+</Selection>

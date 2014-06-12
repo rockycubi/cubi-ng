@@ -1,0 +1,20 @@
+<form id="{$form.name}" name="{$form.name}">
+<div class="register-block not-found" >
+	
+	<div class="form-title"><h1>{$form.title}</h1></div>
+	<p class="input_row form-desc-4" >{t}
+Sorry, the web page your are looking for is not found in our system. 
+Please check your spell of URL and try to open it again.
+
+We are sorry for any inconvenience.
+{/t}
+		</p>
+
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+</div>
+</form>

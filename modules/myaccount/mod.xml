@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: mod.xml 5526 2014-06-12 06:44:11Z rockyswen@gmail.com $
+-->
+<Module Name="myaccount" Description="My Account Module" Version="1.0.2" OpenbizVersion="3.0"  LoadHandler="myaccount.lib.MyAccountLoadHandler">
+	<ACL>
+		<Resource Name="myaccount">
+			<Action Name="access" Description="access my account dashboard"/>
+		</Resource>
+	</ACL>
+    <Menu>
+    	<MenuItem Name="MyAccount" Parent="TopHeader" Title="My Account" Description="" URL="" Order="50">
+            <MenuItem Name="MyAccount.EditAccount" Title="General" Description="General account settings" IconCssClass="icon_myaccount" Order="10">
+				<MenuItem Name="MyAccount.MyProfile" Title="My Profile" Description="" URL="/myaccount/my_profile" Order="10"/>
+				<MenuItem Name="MyAccount.SetPassword" Title="Change Password" Description="" URL="/myaccount/reset_password" Order="40"/>
+            </MenuItem>	
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>      
+</Module>

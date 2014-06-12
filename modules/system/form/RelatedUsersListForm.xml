@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: RelatedUsersListForm.xml 5507 2014-06-01 00:11:37Z rockyswen@gmail.com $
+-->
+<EasyForm Name="RelatedUsersListForm" Icon="icon_user_list.gif" Class="UserForm" FormType="List" jsClass="jbForm" Title="Associated Users Management" Description="Manage user accounts who associated with selected record" DataService="/system/Users" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html"  Access="User.Administer_Users">
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>            
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y"/>
+        <Element Name="fld_username" Class="ColumnText" FieldName="username" Label="Username" Link="{@home:url}/system/user_detail/{{dataobj.Id}}" Sortable="Y"/>
+        <Element Name="fld_email" Class="ColumnText" FieldName="email" Label="Email" Sortable="Y"/>
+		<Element Name="fld_smartcard" Class="ColumnBool" Label="Smart Card" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" />
+		<Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active" />
+		<Element Name="fld_lastlogin" Class="ColumnText" Sortable="Y" FieldName="lastlogin" Label="Last Login"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
+            <EventHandler Name="onclick" Event="onclick" Function="LoadDialog(system.form.UserMultiPickForm)"/>
+        </Element>
+        <Element Name="btn_remove" Class="Button" Text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="onclick" Event="onclick" Function="RemoveRecord()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+        <Element Name="btn_first" Class="Button" CssClass="button_gray_navi first" Click="gotoPage(1)"/>
+        <Element Name="btn_prev" Class="Button" CssClass="button_gray_navi prev" Click="gotoPage(currentPage-1)"/>
+        <Element Name="txt_page" Class="LabelText" Text="{{currentPage}} of {{totalPage}}"/>
+        <Element Name="btn_next" Class="Button" CssClass="button_gray_navi next" Click="gotoPage(currentPage+1)"/>
+        <Element Name="btn_last" Class="Button" CssClass="button_gray_navi last" Click="gotoPage(totalPage)"/></NavPanel> 
+    <SearchPanel>
+        <Element Name="qry_username"  Class="InputText" FuzzySearch="Y" FieldName="username" CssClass="input_text_search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray" Click="search()"/>
+    </SearchPanel>
+</EasyForm>

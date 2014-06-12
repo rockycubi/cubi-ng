@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: LoginForm.xml 5526 2014-06-12 06:44:11Z rockyswen@gmail.com $
+-->
+<EasyForm Name="LoginForm" Class="LoginForm" FormType="edit" jsClass="jbForm" Title="System Login" SearchRule="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="login.tpl.html" MessageFile="login.msg">
+   <DataPanel>
+      <Element Name="username" Class="InputText" Hint="Username" FieldName="username" Label="Username" required="Y" HTMLATTR="maxlength='36'"/>
+      <Element Name="password" Class="Password" Hint="Password" FieldName="password" Label="Password" required="Y" HTMLATTR="maxlength='36'"/>
+      <element Name="forget_pass" label="" Class="LabelText" CssClass="link" text="Forget Password ?" link="{@home:url}/user/forget_pass"/>    
+      <element Name="register_new" label="" Class="LabelText" CssClass="link_highlight" text="Register new account" link="{@home:url}/user/register"/>
+   </DataPanel>
+   <ActionPanel>
+        <Element Name="btn_login" Class="Button" Text="Login" CssClass="button_highlight" Click="login()"/>
+    </ActionPanel> 
+</EasyForm>

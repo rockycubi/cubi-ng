@@ -1,0 +1,15 @@
+; ini file format
+; example
+PASSOWRD_REPEAT_NOTSAME = "%s must be same as the password."
+USER_DATA_UPDATED = "User information is successfully updated."
+USER_CREATED  = "User is successfully created."
+USERNAME_USED = "The username you entered has already been used."
+EMAIL_USED    = "The email address you entered has already been used."
+EMAIL_INVALID = "The username or email address you given is incorrect. we cannot find it in system."
+MODULE_LOAD_ERROR = "Loading %s module occurs errors."
+MODULE_LOAD_COMPLETE = "Loading %s module is completed."
+ACCESS_SAVED = "Access selections are saved."
+SMARTCARD_USED = "this SmartCard was already assigned to another user, Pleace try another card."
+EMAIL_INVALID = "The email address is invalid"
+USERNAME_LENGTH = "Should between 6-20 charactors"
+PASSWORD_LENGTH = "Should between 6-12 charactors"

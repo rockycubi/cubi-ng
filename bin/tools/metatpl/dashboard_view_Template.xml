@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DashboardView" Description="{$module_name|capitalize} Dashboard" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="{$module_name|lower}.Access">
+    <FormReferences>
+        <Reference Name="{$module_name|lower}.widget.DashboardForm"/>
+    </FormReferences>
+</EasyView>

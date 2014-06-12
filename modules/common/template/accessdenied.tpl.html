@@ -1,0 +1,21 @@
+<form id="{$form.name}" name="{$form.name}">
+<div class="register-block access-denied" >
+	
+	<div class="form-title"><h1>{$form.title}</h1></div>
+	<p class="input_row form-desc-4" >
+{t}
+Your access has been denied. 
+Your currently user role does not have permission to access the requested page. 
+
+Please sign in as the user with proper permissions.
+{/t}
+		</p>
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+</div>
+</form>

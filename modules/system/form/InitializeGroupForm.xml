@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: GroupEditForm.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<EasyForm Name="InitializeGroupForm" Class="InitializeGroupForm" FormType="Edit"  Icon="icon_group_add.gif" jsClass="jbForm" Title="Initialize User Groups" Description="Please initialize system groups setting for fit your company's situation." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+    <DataPanel>
+    	<Element Name="fld_rename_default_group" ElementSet="Default Group" Class="Checkbox" DefaultValue="0"  SelectFrom="1" DefaultChecked="Y" FieldName="rename_default_group" Label="Rename Group" Description="Rename system [b]Default Group[/b] to a new name" >
+    			<EventHandler Name="fld_rename_default_group_onclick" Event="onclick" Function="UpdateForm()"  />
+    	</Element>
+		<Element Name="fld_rename_default_group_name" Required="Y" Hidden="{@:Elem[fld_rename_default_group].Value==1?'N':'Y'}" ElementSet="Default Group" Class="InputText" DefaultValue="IT Division" FieldName="rename_default_group_name" Label="Default Group" Description="Rename system default group to this name" />
+		
+		
+		
+		<Element Name="fld_add_group_1" ElementSet="Create More Groups" Class="Checkbox" DefaultValue="0"  SelectFrom="1" DefaultChecked="Y" FieldName="add_group_1" Label="Create [Group 1]" Description="Create a new group for [b]Marketing Division[/b]  and rename it" >
+    			<EventHandler Name="fld_add_group_1_onclick" Event="onclick" Function="UpdateForm()"  />
+    	</Element>
+		<Element Name="fld_add_group_1_name" Required="Y" Hidden="{@:Elem[fld_add_group_1].Value==1?'N':'Y'}" ElementSet="Create More Groups" Class="InputText" DefaultValue="Marketing Division" FieldName="add_group_1_name" Label="Group Name" Description="Rename it to fit for your company" />
+		
+		
+		<Element Name="fld_add_group_2" ElementSet="Create More Groups" Class="Checkbox" DefaultValue="0"  SelectFrom="1" DefaultChecked="Y" FieldName="add_group_2" Label="Create [Group 2]"  Description="Create a new group for [b]Product Division[/b]  and rename it" >
+    			<EventHandler Name="fld_add_group_2_onclick" Event="onclick" Function="UpdateForm()"  />
+    	</Element>
+		<Element Name="fld_add_group_2_name" Required="Y" Hidden="{@:Elem[fld_add_group_2].Value==1?'N':'Y'}" ElementSet="Create More Groups" Class="InputText" DefaultValue="Product Division" FieldName="add_group_2_name" Label="Group Name" Description="Rename it to fit for your company" />
+		
+		
+		<Element Name="fld_add_group_3" ElementSet="Create More Groups" Class="Checkbox" DefaultValue="0"  SelectFrom="1" DefaultChecked="Y" FieldName="add_group_3" Label="Create [Group 3]" Description="Create a new group for [b]Client Service Division[/b]  and rename it" >
+    			<EventHandler Name="fld_add_group_3_onclick" Event="onclick" Function="UpdateForm()"  />
+    	</Element>
+		<Element Name="fld_add_group_3_name" Required="Y" Hidden="{@:Elem[fld_add_group_3].Value==1?'N':'Y'}" ElementSet="Create More Groups" Class="InputText" DefaultValue="Client Service Division" FieldName="add_group_3_name" Label="Group Name" Description="Rename it to fit for your company" />
+		
+		
+		<Element Name="fld_add_group_4" ElementSet="Create More Groups" Class="Checkbox" DefaultValue="0"  SelectFrom="1" DefaultChecked="Y" FieldName="add_group_4" Label="Create [Group 4]" Description="Create a new group for [b]Financial Division[/b]  and rename it" >
+    			<EventHandler Name="fld_add_group_4_onclick" Event="onclick" Function="UpdateForm()"  />
+    	</Element>
+		<Element Name="fld_add_group_4_name" Required="Y" Hidden="{@:Elem[fld_add_group_4].Value==1?'N':'Y'}" ElementSet="Create More Groups" Class="InputText" DefaultValue="Financial Division" FieldName="add_group_4_name" Label="Group Name" Description="Rename it to fit for your company" />
+				
+		
+        <Element Name="fld_add_group_5" ElementSet="Create More Groups" Class="Checkbox" DefaultValue="0"  SelectFrom="1" DefaultChecked="N" FieldName="add_group_5" Label="Create [Group 5]" Description="Create a new group for [b]Management Team[/b]  and rename it" >
+    			<EventHandler Name="fld_add_group_5_onclick" Event="onclick" Function="UpdateForm()"  />
+    	</Element>
+		<Element Name="fld_add_group_5_name" Required="{@:Elem[fld_add_group_5].Value==1?'Y':'N'}" Hidden="{@:Elem[fld_add_group_5].Value==1?'N':'Y'}" ElementSet="Create More Groups" Class="InputText" DefaultValue="Management Team" FieldName="add_group_5_name" Label="Group Name" Description="Rename it to fit for your company" />
+		
+		
+        
+        
+        <Element Name="fld_data_share"  Class="DropDownList" DefaultValue="{GROUP_DATA_SHARE}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Group Data Sharing" Description="" FieldName="_group_data_share" Label="Data Sharing"  >
+        	<EventHandler Name="fld_data_share_onupdate" Event="onchange" Function="UpdateForm()"  />
+        </Element>
+        <Element Name="fld_data_acl" Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}"   Class="DropDownList" DefaultValue="{DATA_ACL}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Group Data Sharing" Description="" FieldName="_data_acl" Label="Data ACL"  >
+        </Element>        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="Initialize()" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

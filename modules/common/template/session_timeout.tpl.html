@@ -1,0 +1,21 @@
+<form id="{$form.name}" name="{$form.name}">
+<div class="register-block session-timeout" >
+	
+	<div class="form-title"><h1>{$form.title}</h1></div>
+		<p class="input_row form-desc-4" >{t}
+Sorry, you stay idle on current page for too long. Your web session is timed out. 
+To keep operating on the current page, please relogin the system.
+
+We are sorry for any inconvenience.
+{/t}
+    </p>
+
+    <div style="height:10px;"></div>
+    <p class="input_row">
+       
+        {foreach item=elem from=$actionPanel}
+            {$elem.element}
+        {/foreach}
+    </p>
+</div>
+</form>

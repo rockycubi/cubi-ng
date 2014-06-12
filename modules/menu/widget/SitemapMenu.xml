@@ -1,0 +1,8 @@
+<MenuWidget Name="SitemapMenu" Title="System Administration" Class="MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='System' AND [published] = 1" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="system_dashboard.tpl.html" CacheLifeTime="0">
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: SitemapMenu.xml 5509 2014-06-01 00:45:38Z rockyswen@gmail.com $
+-->
+</MenuWidget>

@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: GroupDO.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="GroupDO" Description="" Class="BizDataObj" DBName="Default" Table="group" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="id"     Type="Number"/>
+        <BizField Name="name" Column="name" Length="64"   Required="Y" Type="Text"/>
+        <BizField Name="description" Column="description" Length="255"   Required="N" Type="Text"/>
+		<BizField Name="status" Column="status" Type=""/>
+		<BizField Name="default" Column="default" Type=""/>
+        <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    	<Object Name="system.do.UserDO" Description="" Relationship="M-M" Table="user" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_group" XColumn1="user_id" XColumn2="group_id" XDataObj="system.do.UserGroupDO"/>
+    </ObjReferences>
+</BizDataObj>

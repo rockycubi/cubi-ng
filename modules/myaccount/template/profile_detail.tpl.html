@@ -1,0 +1,260 @@
+<form id="{$form.name}" name="{$form.name}">
+{literal}
+<style>
+table.input_row label{
+	height:20px;
+}
+#general table.input_row {
+	height:30px;
+	display:block;
+}
+
+table.input_row {
+	height:26px;
+	display:block;
+}
+</style>
+{/literal}
+<div style="padding-left:25px; padding-right:40px;">
+{include file="system_appbuilder_btn.tpl.html"}
+	<div>
+		{if $form.icon !='' }
+	<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+	{/if}
+		<div ><h2>{$form.title}</h2></div>
+	</div>
+		{if $form.description}
+		<p class="input_row" style="line-height:20px;padding-bottom:20px;height:20px;">		
+		<span>{$form.description}</span>
+		</p>
+		{else}
+		<div style="height:15px;"></div>
+		{/if}
+	<div style="padding-left:10px;" >
+		<div class=" upline" style="height:210px;overflow:hidden;">
+		<h2>{t}General Profile{/t}</h2>
+		<div style="float:left; width:140px; height:150px; text-align:center; padding-top:10px;">
+				{assign var=item value=$dataPanel.fld_photo}
+											
+				<table id="fld_photo_container" class="input_row">								
+					<tr>
+						<td >	
+							<div class="photo_frame">
+								{if $dataPanel.fld_photo_uploaded.element }
+									<img id="photo_placeholder" src="{$app_url}{$dataPanel.fld_photo_uploaded.element}" width="90" height="125"/>
+								{else}
+									<img id="photo_placeholder" src="{$image_url}/profile_photo_icon.gif" width="90" height="125"/>
+								{/if}																
+							</div>
+						</td>					
+					</tr>
+
+				</table>
+		</div>
+		<div style="float:left;width:350px;padding-top:8px">
+				{$dataPanel.fld_Id.element}
+				{assign var=item value=$dataPanel.fld_first_name}					
+				<table  id="fld_first_name_container" class="input_row" style="height:26px;overflow:hidden;padding-bottom:0px;margin:0px;">								
+				<tr>
+					<td >	
+						<label style="text-align:left; width:60px;">{$item.label}</label>
+					</td>
+					<td>				
+						<span class="label_text">{$item.element}</span>					
+					</td>
+				</tr>
+				</table>
+				
+				{assign var=item value=$dataPanel.fld_last_name}					
+				<table  id="fld_last_name_container" class="input_row"  style="height:26px;overflow:hidden;padding-bottom:0px;margin:0px;">								
+				<tr>
+					<td >	
+						<label style="text-align:left; width:60px;">{$item.label}</label>
+					</td>
+					<td>				
+						<span class="label_text">{$item.element}</span>					
+					</td>
+				</tr>
+				</table>
+				
+				{assign var=item value=$dataPanel.fld_company}					
+				<table  id="fld_company_container" class="input_row"  style="height:26px;overflow:hidden;padding-bottom:0px;margin:0px;">								
+				<tr>
+					<td >	
+						<label style="text-align:left; width:60px;">{$item.label}</label>
+					</td>
+					<td>				
+						<span class="label_text" >{$item.element}</span>					
+					</td>
+				</tr>
+				</table>
+				
+				{assign var=item value=$dataPanel.fld_display_name}					
+				<table  id="fld_display_name_container" class="input_row"  style="height:26px;overflow:hidden;padding-bottom:0px;margin:0px;">								
+				<tr>
+					<td >	
+						<label style="text-align:left; width:60px;">{$item.label}</label>
+					</td>
+					<td>				
+						<span class="label_text">{$item.element}</span>					
+					</td>
+				</tr>
+				</table>
+		
+				{assign var=item value=$dataPanel.fld_department}					
+				<table  id="fld_department_container" class="input_row"  style="height:26px;overflow:hidden;padding-bottom:0px;margin:0px;">								
+				<tr>
+					<td >	
+						<label style="text-align:left; width:60px;">{$item.label}</label>
+					</td>
+					<td>				
+						<span class="label_text">{$item.element}</span>					
+					</td>
+				</tr>
+				</table>
+				
+				{assign var=item value=$dataPanel.fld_position}					
+				<table  id="fld_position_container" class="input_row"  style="height:26px;overflow:hidden;padding-bottom:0px;margin:0px;">								
+				<tr>
+					<td >	
+						<label style="text-align:left; width:60px;">{$item.label}</label>
+					</td>
+					<td>				
+						<span class="label_text">{$item.element}</span>					
+					</td>
+				</tr>
+				</table>
+		</div>
+		
+
+				
+		
+		</div>
+
+		<!-- Phone Section -->
+		<div class="upline" style="height:110px;">
+			<h2>{t}Phone{/t}</h2>			
+			{foreach name=phone item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Phone"}			
+					{if $smarty.foreach.phone.index is odd}
+					<table  id="{$itemName}_container" class="input_row" style="float:left;">
+					{else}
+					<table  id="{$itemName}_container" class="input_row" style="float:left;padding-right:65px;">
+					{/if}								
+					<tr>
+						<td >	
+							<label style="text-align:left;width:60px; ">{$item.label}</label>
+						</td>
+						<td>				
+							<span class="label_text" style="width:210px;">{$item.element}</span>					
+						</td>
+					</tr>
+					</table>
+				{/if}						
+			{/foreach}			
+		</div>
+		
+		<!-- Address Section -->
+		<div class="upline" style="height:140px;">
+			<h2>{t}Address{/t}</h2>
+			{foreach name=address item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Address"}			
+					{if $smarty.foreach.address.index is odd}
+					<table  id="{$itemName}_container" class="input_row" style="float:left;padding-right:65px;">
+					{else}
+					<table  id="{$itemName}_container" class="input_row" style="float:left;">
+					{/if}								
+					<tr>
+						<td >	
+							<label style="text-align:left; width:60px;">{$item.label}</label>
+						</td>
+						<td>				
+							<span class="label_text" style="width:210px;">{$item.element}</span>					
+						</td>
+					</tr>
+					</table>
+				{/if}						
+			{/foreach}			
+		</div>
+
+		<!-- Online Contact Section -->
+		<div class="upline" style="height:140px;">
+			<h2>{t}Online Contact{/t}</h2>			
+			{foreach name=contact item=item key=itemName from=$dataPanel}				
+				{if $item.elementsetcode eq "Online Contact"}			
+					{if $smarty.foreach.contact.index is odd}
+					<table  id="{$itemName}_container" class="input_row" style="float:left;">
+					{else}
+					<table  id="{$itemName}_container" class="input_row" style="float:left;padding-right:65px;">
+					{/if}								
+					<tr>
+						<td >	
+							<label style="text-align:left; width:60px;">{$item.label}</label>
+						</td>
+						<td>				
+							<span class="label_text" style="width:210px;">{$item.element}</span>					
+						</td>
+					</tr>
+					</table>
+				{/if}						
+			{/foreach}			
+		</div>
+		
+		<!-- Misc Section -->
+		<div class="upline underline" style="height:170px;">
+			<h2>{t}Miscellaneous{/t}</h2>			
+			{foreach item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Miscellaneous"}
+					{if $item.type eq 'CKEditor' or $item.type eq 'RichText' or $item.type eq 'Textarea'}
+					<table  id="{$itemName}_container" class="input_row">
+					<tr>
+					<td style="width:80px;">	
+						<label style="text-align:left">{$item.label}</label>
+					</td>
+					<td>
+						{if $errors.$itemName}
+						<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+						{elseif $item.description}
+						<span class="input_desc" style="width:240px;">{$item.description}</span>			
+						{/if}
+					</td>
+					</tr>
+					<tr><td colspan="2" align="center" >
+						<span class="label_textarea">{$item.element}</span>
+									
+					</td></tr>
+					</table>		
+					{else}			
+					<table  id="{$itemName}_container" class="input_row">								
+					<tr>
+						<td >	
+							<label style="text-align:left; ">{$item.label}</label>
+						</td>
+						<td>				
+							<span class="label_text" style="width:350px;">{$item.element}</span>					
+						</td>
+					</tr>
+					</table>
+				{/if}	
+				{/if}						
+			{/foreach}			
+		</div>		
+		
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+	</div>
+	
+		<div style="height:15px;">
+		<div id='{$form.name}.load_disp' style="display:none;">
+		<img  src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+		</div>
+	
+</div>
+
+</form>

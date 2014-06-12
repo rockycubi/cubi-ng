@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ModuleNewForm.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<EasyForm Name="ModuleNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New module" Description="Please fill the form below to create a new module" BizDataObj="system.do.ModuleDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
+    <DataPanel>
+        <Element Name="fld_Id"  hidden="Y" Class="Hidden" FieldName="Id" Label="Id"/>
+        <Element Name="fld_name" DefaultValue="New Module" Class="InputText" FieldName="name" Label="Name" />
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" Function="SaveRecord()" RedirectPage="{@home:url}/system/module_detail/{@:Elem[fld_Id].Value}"/>
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="js:history.go(-1)"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

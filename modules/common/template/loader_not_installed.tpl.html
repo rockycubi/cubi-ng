@@ -1,0 +1,30 @@
+<form id="{$form.name}" name="{$form.name}">
+<div style="float:left; width:120px; height:400px;">
+</div>
+<div style="float:left; width:620px; height:400px;">
+	<div style="height:75px;"></div>
+	<div style="height:35px;">
+		<div style="float:left; width:50px;"><img src="{$image_url}/icon_info.gif" /></div>
+		<div style="float:left"><h1>{$form.title}</h1></div>
+	</div>
+	<div style="height:20px;"></div>
+		<p class="input_row" style="height:120px; line-height:20px;">
+		<label style="width:40px; height:110px;"></label>
+		<span>{t}
+The application you are trying to run requires Ioncube loader to decode.
+But system detects the loader is not installed.
+
+Please click Install button and follow the wizard 
+to install loader for this web server.  
+{/t}</span>
+		</p>
+
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			<label style="width:40px; text-align:right"></label>
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+</div>
+</form>

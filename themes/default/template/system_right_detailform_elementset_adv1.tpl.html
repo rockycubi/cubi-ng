@@ -1,0 +1,285 @@
+<form id="{$form.name}" name="{$form.name}">
+<link rel="stylesheet" href="{$js_url}/jquery-ui/ui-openbiz/jquery.css" type="text/css" />
+{literal}
+<style>
+.ui-tabs-panel .input_row{
+width:100%;
+padding-bottom:0px;
+}
+.ui-tabs-panel .odd{
+background-color:#efefef;
+width:100%;
+}
+table.input_row .element_set_panel .label_text{
+padding-top:4px;
+/*height:20px;*/
+
+}
+.ui-tabs-panel .input_row label {
+padding-left:20px;
+padding-top:4px;
+/*line-height:24px;*/
+}
+.ui-widget{
+font-size:auto;
+}
+.ui-widget-content
+{
+color:#666666;
+}
+</style>
+{/literal}
+<div style="padding-left:35px; padding-right:30px;">
+{include file="system_appbuilder_btn.tpl.html"}
+	<div style="padding-left:0px;" >
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+	
+		<div style="float:left; width:600px;">
+			<h2>
+			{$form.title}
+			</h2> 
+			{if $form.description}
+			<p class="input_row" style="line-height:20px;padding-bottom:10px;">		
+			<span>{$form.description}</span>
+			</p>
+			{else}
+			<div style="height:5px;"></div>
+			{/if}
+		</div>
+	</td></tr></table>
+	</div>
+	<div id="element_set_panel_{$es_counter}">
+	{assign var=es_counter value=0}
+	{foreach item=setname name=elemsets  from=$form.elementSets}									
+		{foreach item=item key=itemName from=$dataPanel}
+		{if $es_counter eq 0 }		
+			{if $item.elementset eq $setname}
+			{if $item.type eq 'CKEditor' or $item.type eq 'RichText' 
+				or $item.type eq 'Textarea' or $item.type eq 'LabelTextarea'
+				or $item.type eq 'LabelTextarea' or $item.type eq 'LabelImage'
+				 or $item.type eq 'RawData'
+				 or $item.type eq 'IDCardReader'
+				 or $item.type eq 'FormElement'
+			}
+				<table  id="{$itemName}_container" class="input_row">
+				{if $item.label}
+				<tr>				
+				<td style="width:160px;">	
+					<label style="text-align:left;width:160px;">{$item.label}</label>
+				</td>				
+				<td>
+					{if $errors.$itemName}
+					<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+					{elseif $item.description}
+					<span class="input_desc" style="width:240px;">{$item.description}</span>			
+					{/if}
+				</td>
+				</tr>
+				{/if}
+				<tr><td colspan="2" align="center" >
+					<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:655px;{/if}{/if}">{$item.element}</span>
+								
+				</td></tr>
+				</table>		
+			{else}
+				{if $item.type eq 'Hidden' }
+				<table  id="{$itemName}_container" class="input_row" style="display:none">
+				{else}
+				<table  id="{$itemName}_container" class="input_row">
+				{/if}					
+				<tr>
+				{if $item.label}
+				<td >	
+					<label style="text-align:left">{$item.label}</label>
+				</td>
+				{/if}
+				<td>
+				{if $item.type eq 'Checkbox' }
+					<span class="label_text" >{$item.element} {$item.description}</span>
+				{else}
+					<span class="label_text" style="float:left;{if $item.width}width:{$item.width}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:260px;{/if}{/if}">{$item.element}</span>
+					{if $errors.$itemName}
+					<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+					{elseif $item.description}
+					<span class="input_desc" style="width:240px;">{$item.description}</span>			
+					{/if}				
+				{/if}					
+					</td>
+				</tr>
+				</table>
+			{/if}
+								
+			{/if}
+		{/if}
+		{/foreach}
+		{assign var=es_counter value=$es_counter+1}
+	{/foreach}
+		
+			</div>
+	<div style="padding-left:20px;display:none;" id="{$form.name}_tabs">
+	<ul style="border-radius: none;">
+	{assign var=es_counter value=0}
+	{foreach item=setname name=elemsets  from=$form.elementSets}			
+		{if $es_counter != 0 }
+		<li><a href="#element_set_panel_{$es_counter}">{$setname}</a></li>
+		{/if}
+		{assign var=es_counter value=$es_counter+1}
+	{/foreach}
+	</ul>
+	{assign var=es_counter value=0}
+	{foreach item=setname name=elemsets  from=$form.elementSets}
+
+		{if $es_counter eq 0 }
+		
+		
+		{else}
+        <div id="element_set_panel_{$es_counter}" class="ui-tabs-panel">			
+		<div>
+		{assign var=es_elem_counter value=0}
+		{foreach item=item key=itemName from=$dataPanel}						
+			{if $item.elementset eq $setname}
+			{if $item.type eq 'CKEditor' or $item.type eq 'RichText' 
+				or $item.type eq 'Textarea' or $item.type eq 'LabelTextarea'
+				or $item.type eq 'LabelTextarea' or $item.type eq 'LabelImage'
+				 or $item.type eq 'RawData'
+				 or $item.type eq 'IDCardReader'
+				 or $item.type eq 'FormElement'
+			}
+				<table  id="{$itemName}_container" class="input_row">
+				{if $item.label}
+				<tr>				
+				<td style="width:160px;">	
+					<label style="text-align:left;width:160px;">{$item.label}</label>
+				</td>				
+				<td>
+					{if $errors.$itemName}
+					<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+					{elseif $item.description}
+					<span class="input_desc" style="width:240px;">{$item.description}</span>			
+					{/if}
+				</td>
+				</tr>
+				{/if}
+				<tr><td colspan="2" align="center" >
+					<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:655px;{/if}{/if}">{$item.element}</span>
+								
+				</td></tr>
+				</table>		
+			{else}
+				{if $item.type eq 'Hidden' }
+				<table  id="{$itemName}_container" class="input_row" style="display:none">
+				{else}
+					{if $es_elem_counter is odd}
+					<table   id="{$itemName}_container" class="input_row odd">
+					{else}
+					<table   id="{$itemName}_container" class="input_row ">
+					{/if}
+				{/if}					
+				<tr>
+				{if $item.label}
+				<td style="width:120px;" >	
+					<label style="text-align:left">{$item.label}</label>
+				</td>
+				{/if}
+				<td>
+				{if $item.type eq 'Checkbox' }
+					<span class="label_text" >{$item.element} {$item.description}</span>
+				{else}
+					<span class="label_text" style="float:left;{if $item.width}width:{$item.width}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:270px;{/if}{/if}">{$item.element}</span>
+					{if $errors.$itemName}
+					<span class="input_error_msg" style="width:200px;">{$errors.$itemName}</span>
+					{elseif $item.description}
+					<span class="input_desc" style="width:200px;">{$item.description}</span>			
+					{/if}				
+				{/if}					
+					</td>
+				</tr>
+				</table>
+			{/if}
+			{assign var=es_elem_counter value=$es_elem_counter+1}					
+			{/if}
+		{/foreach}
+        	</div>
+	 			
+		</div>
+		{/if}
+
+
+	
+	{assign var=es_counter value=$es_counter+1}			
+	{/foreach}
+		<div style="height:10px;"></div>
+	 	{if $actionPanel|@count > 0}
+	 		{if $form.ActionElementSets|@count > 0}
+	 		<div class="action_panel_set">
+	 			{assign var=es_counter value=0}
+			 	{foreach item=setname name=elemsets  from=$form.ActionElementSets}		 		
+					 	{if $es_counter is odd}
+						<p  class="input_row odd">
+						{else}
+						<p  class="input_row ">
+						{/if}
+						{foreach item=elem from=$actionPanel}
+							{if $elem.elementset eq $setname}
+								{$elem.element}
+							{/if}
+						{/foreach}
+						</p>		
+						{assign var=es_counter value=$es_counter+1}			
+			 	{/foreach}
+			 </div>
+		 	{else}
+			<p class="input_row">			
+				{foreach item=elem from=$actionPanel}
+					{$elem.element}
+				{/foreach}
+			</p>
+			{/if}
+		{/if}
+
+	{if $errors}
+	    <div id='errorsDiv' class='innerError errorBox'>
+	    {foreach item=errMsg from=$errors}
+	        <div>{$errMsg}</div>
+	    {/foreach}
+	    {literal}<script>try{setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);}catch(e){}</script>{/literal}
+	    </div>
+	{/if}
+	
+	{if $notices}
+	    <div id='noticeDiv' class='noticeBox' >
+	    {foreach item=noticeMsg from=$notices}
+	        <div>{$noticeMsg}</div>
+	    {/foreach}
+	    </div>
+	    {literal}<script>try{setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);}catch(e){};</script>{/literal}
+	{/if}
+
+	</div>
+	
+		<div style="height:15px;">
+		<div id='{$form.name}.load_disp' style="display:none;">
+		<img  src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+		</div>
+	
+</div>
+</form>
+
+	<script>
+	var formname = '{$form.name}';
+	{literal}
+	var c = new Cookies();		
+	var $tabs = $j( jq(formname+"_tabs") ).tabs({
+		select: function(event, ui)
+		{				
+			c.set(formname+'_lastTab',ui.panel.id);			
+		}
+	}).css({'padding-left':'0px','width':'680px','display':'block'});		
+	lastViewedTab = c.get(formname+'_lastTab');
+	$tabs.tabs('select','#'+lastViewedTab);
+	{/literal}
+	</script>

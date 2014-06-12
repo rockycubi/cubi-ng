@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ProfileDetailForm.xml 3365 2012-05-31 06:07:55Z rockyswen@gmail.com $
+-->
+<EasyForm Name="ProfileDetailForm" Class="ProfileForm" Icon="icon_my_profile.gif" SearchRule="[Id]='{@profile:profile_Id}'" FormType="" jsClass="jbForm" Title="My Profile " Description="Detailed information about my profile" DataService="/myaccount/users" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="myaccount.ini" EventName="CONTACT" >
+    <DataPanel>
+        <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>
+        <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username"/>
+        <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email"/>
+		<Element Name="fld_status" Class="LabelBool" FieldName="status" Label="Status"/>
+		<Element Name="fld_lastlogin" Class="LabelText" FieldName="lastlogin" Label="Last Login" />
+		<Element Name="fld_lastlogout" Class="LabelText" FieldName="lastlogout" Label="Last Logout" />
+	</DataPanel>
+    <ActionPanel>       
+		<!--<Element Name="lnk_edit" Class="Button" Text="Change Email" CssClass="button_gray_w" Link="{@home:url}/myaccount/profile_edit/{{dataobj.Id}}"/>-->
+        <!--<Element Name="btn_back" Class="Button" Text="Back" CssClass="button_gray_m" Click="back()"/>-->
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

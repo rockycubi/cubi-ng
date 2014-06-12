@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: RoleEditForm.xml 5511 2014-06-01 00:52:54Z rockyswen@gmail.com $
+-->
+<EasyForm Name="RoleEditForm" Icon="icon_roles_edit.gif" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit role" Description="Edit atributes of a given role in the application" BizDataObj="system.do.RoleDO" DataService="/system/roles" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
+    <DataPanel>
+        <Element Name="fld_Id"  hidden="Y"  Class="LabelText" FieldName="Id" Label="Id"/>
+        <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name" />
+        <Element Name="fld_startpage" Class="InputText" FieldName="startpage" Label="Default Page" />        
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
+        <Element Name="fld_default" Class="Listbox" FieldName="default" Label="Default" SelectFrom="system.lov.Selection(Default)"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m" Click="save('/system/role_detail/')"/>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m" Click="back()"/>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

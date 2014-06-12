@@ -1,0 +1,5 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="userService" Class="userService" MessageFile="user/message/login.msg">
+    <PublicMethod Name="login" Access=""/>
+	<PublicMethod Name="register" Access=""/>
+</PluginService>

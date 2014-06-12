@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserDetailView.xml 5494 2014-05-23 05:28:02Z rockyswen@gmail.com $
+-->
+<EasyView Name="UserDetailView" Description="User Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_right_panel.tpl.html" PageTemplate="view.tpl.html" Access="User.Administer_Users">
+    <FormReferences>
+		<!--<Reference Name="system.form.UserDetailForm"/>-->
+        <Reference Name="system.form.UserDetailForm" SubForms="system.form.UserRolesForm;system.form.UserGroupsForm"/>
+        <Reference Name="system.form.UserRolesForm"/>
+        <Reference Name="system.form.UserGroupsForm"/>
+    </FormReferences>
+</EasyView>

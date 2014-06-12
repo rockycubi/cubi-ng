@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+-->
+<BizDataObj Name="UserDO" class="BizDataObj" DBName="Default" Table="user" SearchRule="" SortRule="" OtherSQLRule="" IdGeneration="Identity">
+	<BizFieldList>
+	    <BizField Name="Id" Column="id" Type=""/>
+        <BizField Name="username" Column="username" Type=""/>
+        <BizField Name="password" Column="password" Type=""/>
+        <BizField Name="enctype" Column="enctype"/>        
+        <BizField Name="smartcard" Column="smartcard" Type=""/>
+        <BizField Name="email" Column="email" Type=""/>
+        <BizField Name="status" Column="status" Type=""/>
+        <BizField Name="lastlogin" Column="lastlogin" Type="Datetime"/>
+        <BizField Name="lastlogout" Column="lastlogout" Type="Datetime"/>
+        <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+        <Object Name="system.do.RoleDO" Description="" Relationship="M-M" Table="role" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_role" XColumn1="user_id" XColumn2="role_id" XDataObj="system.do.UserRoleDO"/>
+        <Object Name="system.do.RolePickerDO" Description="" Relationship="M-M" Table="role" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_role" XColumn1="user_id" XColumn2="role_id" XDataObj="system.do.UserRoleDO"/>
+        <Object Name="system.do.GroupDO" Description="" Relationship="M-M" Table="group" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_group" XColumn1="user_id" XColumn2="group_id" XDataObj="system.do.UserGroupDO"/>
+		<Object Name="system.do.GroupPickerDO" Description="" Relationship="M-M" Table="group" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_group" XColumn1="user_id" XColumn2="group_id" XDataObj="system.do.UserGroupDO"/>
+		<Object Name="myaccount.do.WidgetDO" Description="" Relationship="M-M" Table="widget" Column="name" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_widget" XColumn1="user_id" XColumn2="widget" XDataObj="myaccount.do.UserWidgetDO"/>
+       <!-- <Object Name="system.do.UserGroupDO" Description="" Relationship="1-M" Table="user_group" Column="user_id" FieldRef="Id" OnDelete="Cascade" OnUpdate="Restrict"/> -->
+	    <Object Name="contact.do.ContactDO" Relationship="1-M" Table="contact" Column="user_id" FieldRef="Id" onDelete="SetNull"/>
+	    <Object Name="system.do.UserOAuthDO" Relationship="1-M" Table="user_oauth" Column="user_id" FieldRef="Id" onDelete="SetNull"/>
+   </ObjReferences>
+</BizDataObj>

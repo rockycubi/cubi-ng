@@ -1,0 +1,21 @@
+#main #right_panel .dashboard div.icon_user{
+	background-image:url("../images/icon_user_m.gif");	
+}
+#main #right_panel .dashboard div.icon_role{
+	background-image:url("../images/icon_roles_m.gif");	
+}
+#main #right_panel .dashboard div.icon_module{
+	background-image:url("../images/icon_modules_m.gif");	
+}
+#main #right_panel .dashboard div.icon_eventlog{
+	background-image:url("../images/icon_eventlog_m.gif");	
+}
+#main #right_panel .dashboard div.icon_email_queue{
+	background-image:url("../images/icon_email_m.gif");	
+}
+#main #right_panel .dashboard div.icon_help{
+	background-image:url("../images/icon_help_m.gif");	
+}
+#main #right_panel .dashboard div.icon_cronjob{
+	background-image:url("../images/icon_cronjob_m.gif");	
+}

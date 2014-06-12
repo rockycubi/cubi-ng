@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserNewView.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<EasyView Name="InitializeView" Description="System Initialization" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="user_view.tpl.html" Access="Site.Administer_General">
+    <FormReferences>
+        <Reference Name="system.form.InitializeForm"/>
+    </FormReferences>
+</EasyView>

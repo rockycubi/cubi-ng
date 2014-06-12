@@ -1,0 +1,9 @@
+<ul>	
+	{foreach item=item from=$widget.menu}
+		{if $item|in_array:$widget.breadcrumb }	
+			<li><a class="current"  href="{$item->m_URL}" >{$item->m_Name}</a></li>
+		{else}    	
+	    	<li><a href="{$item->m_URL}" >{$item->m_Name}</a></li>
+	    {/if}
+	{/foreach}
+</ul>	

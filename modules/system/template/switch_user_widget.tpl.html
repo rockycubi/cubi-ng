@@ -1,0 +1,19 @@
+<form id='{$form.name}' name='{$form.name}'>
+<span style="display:block;float:right;padding-top:2px;text-align:left;">{php}
+		$profile_display = BizSystem::GetProfileName(BizSystem::getUserProfile("Id"));
+		$this->assign('profile', $profile_display);
+		{/php}
+		{if $form.show_widget }
+		{foreach item=elem from=$dataPanel}
+			{if $elem.label} 
+				<span style="display:block;float:left;padding-right:5px;padding-top:2px;">{$elem.label}</span> 
+			{/if} 
+			{$elem.element}
+		{/foreach}
+		{else}
+			<span style="display:block;float:left;padding-right:5px;padding-top:2px;">
+			{$profile}
+			</span>
+		{/if}
+</span>
+</form>

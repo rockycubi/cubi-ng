@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<Module Name="service" 
+		Description="Shared Serivce Library" 
+		Version="0.6" 
+		OpenbizVersion="3.0" 
+		Author="Jixian Wang, Rocky Swen"
+		LoadHandler="" >
+	<ACL>
+
+	</ACL>
+	<Menu>
+		
+	</Menu>
+	<Dependency>
+		<Module Name="system" /> 
+		<Module Name="menu" />
+	</Dependency>	
+	<ChangeLog>
+	    
+	</ChangeLog>    
+</Module>

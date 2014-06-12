@@ -1,0 +1,53 @@
+<form id='{$form.name}' name='{$form.name}'>
+<div style="padding-left:25px;padding-right:20px;">
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+	
+		<div style="float:left; width:600px;">
+			<h2>
+			{$form.title}
+			</h2> 
+			{if $form.description}
+			<p >		
+			<span>{$form.description}</span>
+			</p>
+			{else}
+			<div style="height:15px;"></div>
+			{/if}
+		</div>
+	</td></tr></table>
+{if $actionPanel or $searchPanel }	
+	<div class="form_header_panel">	
+				<div class="action_panel">
+		{foreach item=elem from=$actionPanel}
+		    	{$elem.element}
+		{/foreach}
+				</div>
+				<div class="search_panel">
+		
+		{foreach item=elem from=$searchPanel}
+			{if $elem.label} {$elem.label} {/if} {$elem.element}
+		{/foreach}
+				</div>
+	</div>
+{/if}
+<div>{$form.data}</div>
+	<div class="form_footer_panel">
+		<div class="ajax_indicator">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel">
+{if $navPanel}
+   {foreach item=elem from=$navPanel}
+   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+    	{$elem.element}
+   {/foreach}
+{/if}					
+		</div>	
+	</div>
+</div>
+</form>

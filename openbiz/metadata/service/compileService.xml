@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="compileService" Package="service" Class="compileService">
+	<ObjLoaderTemplate>
+		<![CDATA[<?php
+		final class {$className}{
+			final public function getObject()
+			{
+				$metadata_code = '{$metadata}';
+				$metadata = base64_decode(base64_decode($metadata_code));
+				$xmlArr = unserialize($metadata);
+				if(!is_array($xmlArr)){return;}
+				$keys = array_keys($xmlArr);
+           		$root = $keys[0];
+				$class = $xmlArr[$root]["ATTRIBUTES"]["CLASS"];
+				$classPackage = $xmlArr[$root]["ATTRIBUTES"]["PACKAGE"];				
+		        if (!class_exists($class, false))
+		        {        	
+		            $classFile= BizSystem::getLibFileWithPath($class, $classPackage);
+		            if (!$classFile){return;}
+		            include_once($classFile);
+		        }
+		        if (class_exists($class, false))
+		        {
+		            $obj_ref = new $class($xmlArr);
+		            if ($obj_ref){return $obj_ref;}
+		        }				
+			}		
+		}
+?>]]>	
+	</ObjLoaderTemplate>
+	<XmlLoaderTemplate>
+		<![CDATA[<?php
+		final class {$className}{
+			final public function getArray()
+			{
+				$metadata_code = '{$metadata}';
+				$metadata = base64_decode(base64_decode($metadata_code));
+				$xmlArr = unserialize($metadata);
+				if(!is_array($xmlArr)){return;}
+				return 	$xmlArr;		
+			}		
+		}
+?>]]>	
+	</XmlLoaderTemplate>	
+</PluginService>

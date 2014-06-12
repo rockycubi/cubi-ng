@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: mod.xml 5523 2014-06-06 03:27:04Z rockyswen@gmail.com $
+-->
+<Module Name="menu" Description="menu management module" Author="Jixian, Rocky" Version="0.4" OpenbizVersion="3.0">
+	<ACL>
+		<Resource Name="Menu">
+			<Action Name="Administer_Menu" Description="Can manage menu content for the application"/>
+		</Resource>
+</ACL>
+	<Menu>
+    <!-- System menus -->
+		<MenuItem Name="System.Menu" Title="Menu" Description="System Menu Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_menu" Order="30">			
+			<MenuItem Name="System.Menu.List" Title="Manage Menu by List" Description=""  URL="/menu/menu_list" Order="20"/>
+		</MenuItem>
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>

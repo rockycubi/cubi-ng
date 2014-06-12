@@ -1,0 +1,36 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: MenuTreeDO.xml 5512 2014-06-03 08:06:47Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="MenuTreeDO" Description="" Class="MenuTreeDO" DBName="Default" Table="menu" SearchRule="" SortRule="[sortorder] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="UUID" CacheLifeTime="0">
+	<BizFieldList>
+   		<BizField Name="Id" Column="name" Length="255"    Type="Text"/>
+   		<BizField Name="name" Column="name" Length="255"    Type="Text"/>
+   		<BizField Name="PId" Column="parent" Length="255"   Required="N" Type="Text"/>
+		<BizField Name="module" Column="module" Length="100"   Required="N" Type="Text"/>
+		<BizField Name="title" Column="title" Length="255"   Required="Y" Type="Text"/>
+		<BizField Name="link" Column="link"    Required="N" Type="Text"/>
+		<BizField Name="url_match" Column="url_match" Length="255"  Type="Text"/>
+		<BizField Name="description" Column="description"   Type="Text"/>
+		<BizField Name="view" Column="view"    Required="N" Type="Text"/>
+		<BizField Name="type" Column="type" Length="50"   Required="N" Type="Text"/>
+		<BizField Name="published" Column="published"     Type="Number"/>
+		<BizField Name="parent" Column="parent" Length="255"   Required="N" Type="Text"/>
+		<BizField Name="sortorder" Column="ordering"    Required="N" Type="Number"/>
+		<BizField Name="access" Column="access"    Required="N" Type="Text"/>
+		<BizField Name="icon" Column="icon" Type="Text"/>
+		<BizField Name="icon_css" Column="icon_css" Type="Text"/>
+		
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>		
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

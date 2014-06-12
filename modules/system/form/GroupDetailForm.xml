@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: GroupDetailForm.xml 5507 2014-06-01 00:11:37Z rockyswen@gmail.com $
+-->
+<EasyForm Name="GroupDetailForm" Class="EasyForm" FormType=""  Icon="icon_group_list.gif" jsClass="jbForm" Title="Group Detail" Description="User Group controls users data level visibility in the system." DataService="/system/Groups" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+       	<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
+       	<Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N"/>
+		<Element Name="fld_status" Class="LabelBool" ElementSet="General" FieldName="status" Label="Status"/>
+		<Element Name="fld_default" Class="LabelBool" ElementSet="General" FieldName="default" Label="Default"/>
+    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record" Link="{@home:url}/f/system/group_new"/>          
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record" Link="{@home:url}/f/system/group_edit/{{dataobj.Id}}"/>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record" Click="delete('/system/group_list')"/>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m" Click="back()"/>
+    </ActionPanel> 
+    <NavPanel>
+	</NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,8 @@
+<MenuWidget Name="DashboardWidget" Title="My Account Features" Class="menu.widget.MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='MyAccount'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="widget_menu.tpl.html" CacheLifeTime="0">
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: DashboardForm.xml 3365 2012-05-31 06:07:55Z rockyswen@gmail.com $
+-->
+</MenuWidget>

@@ -1,0 +1,17 @@
+	<!-- right block start -->
+	<div class="content_block">
+		<div class="header"></div>
+		<div class="content">	
+			<div>							
+			{foreach key=formname item=form from=$forms}							    
+		         <div>
+		         	{if !preg_match("/LeftWidget$/si",$formname)}
+		         	{$form}
+					{/if}
+		         </div>
+		    {/foreach}		
+			</div>
+		</div>
+		<div class="footer"></div>														
+	</div>
+	<!-- right block end -->

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: GroupDataShareDetailForm.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<EasyForm Name="GroupDataShareDetailForm" Class="UserPreferenceForm" FormType="" Icon="icon_group_list.gif" jsClass="jbForm"  Title="Group Data Sharing" Description="You can set system default setting for group based data sharing feature." BizDataObj="myaccount.do.PreferenceDO"  SearchRule="[user_id]='0'"  TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl">
+    <DataPanel>
+        <Element Name="fld_data_share"  Class="LabelBool" DefaultValue="{GROUP_DATA_SHARE}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_group_data_share" Label="Data Sharing"  >
+        </Element>
+        <Element Name="fld_data_acl"  Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}"  Class="LabelBool" DefaultValue="{DATA_ACL}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_data_acl" Label="Data ACL"  >
+        </Element>
+        <Element Name="fld_owner_perm" Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}" Class="LabelList" DefaultValue="{DEFAULT_OWNER_PERM}" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Default permission for data owner " FieldName="_owner_perm" Label="Owner Perm"  />
+        <Element Name="fld_group_perm" Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}"  Class="LabelList" DefaultValue="{DEFAULT_GROUP_PERM}" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Default permission for owner group's users" FieldName="_group_perm" Label="Group Perm"  />
+		<Element Name="fld_other_perm"  Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}" Class="LabelList" DefaultValue="{DEFAULT_OTHER_PERM}" SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Default permission for other users " FieldName="_other_perm" Label="Other Perm"  />		
+ 
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(system.form.GroupDataShareEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_back" Class="LabelText" Text="Back" Link="{@home:url}/system/general_default" CssClass="button_gray_m"/>		
+         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

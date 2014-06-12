@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: DataPermLOV.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<Selection>
+   <OwnerPerm Value="3" text="Full Control"/>
+   
+   <ACLPerm Value="1" text="Read Only"/>
+   <ACLPerm Value="2" text="Read and Modify"/>
+   <ACLPerm Value="3" text="Full Control"/>
+   
+   <GroupPerm Value="0" text="Invisible"/>
+   <GroupPerm Value="1" text="Read Only"/>
+   <GroupPerm Value="2" text="Read and Modify"/>
+   <GroupPerm Value="3" text="Full Control"/>
+   
+   <OtherPerm Value="0" text="Invisible"/>
+   <OtherPerm Value="1" text="Read Only"/>
+   <OtherPerm Value="2" text="Read and Modify"/>
+   <OtherPerm Value="3" text="Full Control"/>   
+</Selection>

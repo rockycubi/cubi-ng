@@ -1,0 +1,8 @@
+<MenuWidget Name="MainTabMenu" Title="Tab Menu" Class="MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" DataService="/menu/menus" QueryString="depth=1&amp;PId=&amp;published=1" SearchRule="[PId]=''" GlobalSearchRule="[published] = 1" MenuDeep="1" TemplateEngine="Smarty" TemplateFile="tab_menu.tpl" CacheLifeTime="0">
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: MainTabMenu.xml 5439 2014-05-06 13:48:58Z rockyswen@gmail.com $
+-->
+</MenuWidget>

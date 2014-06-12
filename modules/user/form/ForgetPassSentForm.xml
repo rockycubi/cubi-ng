@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ForgetPassSentForm.xml 3375 2012-05-31 06:23:11Z rockyswen@gmail.com $
+-->
+<EasyForm Name="ForgetPassSentForm" Class="EasyForm" FormType="edit" jsClass="jbForm" Title="Password Email Sent" SearchRule="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="passwordsent.tpl.html" MessageFile="system.msg" >
+   <DataPanel>
+    
+   </DataPanel>
+   <ActionPanel>
+        <Element Name="btn_back" Class="LabelText" Text="Back" CssClass="button" Link="{@home:url}/user/login" >            			
+        </Element> 
+    </ActionPanel> 
+</EasyForm>

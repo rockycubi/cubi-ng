@@ -1,0 +1,62 @@
+<form id="{$form.name}" name="{$form.name}">
+<br/>
+<div style="padding-left:35px; ">
+
+	<table ><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon" style="float:left;padding-right:10px;"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+		<div style="float:left; width:450px;">
+		<h2>
+		{$form.title}
+		</h2> 
+		<p class="form_desc" style="padding-top:10px;">{$form.description}</p>
+		</div>
+	</td></tr></table>
+	<br/>
+	<div style="padding-left:10px;">
+	{foreach item=item key=itemName from=$dataPanel}
+		<table class="input_row">
+		<tr>
+		{if $item.label}
+		<td >	
+			<label style="text-align:left;line-height:24px;">{$item.label}</label>
+		</td>
+		{/if}
+		<td>
+			<span class="label_text" style="display:block;height:20px;padding-bottom:5px;line-height:24px;overflow:hidden;float:left;{if $item.width}width:{$item.width}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:160px;{/if}{/if}">{$item.element}</span>
+			{if $errors.$itemName}
+			<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+			{elseif $item.description}
+			<span class="input_desc" style="width:240px;">{$item.description}</span>			
+			{/if}
+		</td>
+		</tr>
+		</table>
+	{/foreach}
+		
+		<div style="height:10px;"></div>
+		<p class="input_row" style="height:28px;">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+	</div>
+	
+		<div style="height:15px;">
+		<div id='{$form.name}.load_disp' style="display:none;">
+		<img  src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+		</div>
+	
+</div>
+
+</form>
+{if $dataPanel.fld_group_setting || $dataPanel.fld_group}
+<script>Openbiz.Window.centerDialog(625,345);</script>
+{elseif $dataPanel.fld_other_perm || $dataPanel.fld_other_perm_setting }
+<script>Openbiz.Window.centerDialog(625,325);</script>
+{else}
+<script>Openbiz.Window.centerDialog(625,265);</script>
+{/if}

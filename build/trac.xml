@@ -1,0 +1,125 @@
+<?xml version="1.0"  encoding="UTF-8" ?>
+
+<project name="trac" basedir="../" default="dist">
+    <property file="build/trac/trac.properties" />
+
+    <property name="package"  value="${phing.project.name}" override="true" />
+    <property name="builddir" value="build/src/${package}" override="true" />
+    <property name="srcdir"   value="${project.basedir}" override="true" />
+    <property name="distdir" value="build/dist/${package}" override="true" />
+    <property name="distfile" value="${distdir}/${package}-${build.version}.${build.release}.tar.gz" override="true" />
+
+    <!-- Fileset for base source files -->
+    <fileset dir="." id="basesrc">
+        <include name=".htaccess" />
+        <include name="Config.xml" />
+        <include name="index.php" />
+        <include name="favicon.ico" />
+        <exclude name="install.lock" />
+        <include name="bin/**" />
+        <include name="files/cache" />
+        <include name="files/sec_upload" />
+        <include name="files/tmpfiles" />
+        <include name="files/upload" />
+        <include name="images/*" />
+        <include name="images/nations/16x12/*" />
+        <include name="images/nations/22x14/*" />
+        <include name="js/**" />
+        <include name="languages/dictionary/**" />
+        <include name="languages/en_US/**" />
+        <include name="languages/zh_CN/**" />
+        <include name="log/.htaccess" />
+        <include name="messages/**" />
+        <include name="pages/*.html" />
+        <include name="session/.htaccess" />
+        <include name="themes/default/**" />
+        <include name="modules/cache/**" />
+        <include name="modules/common/**" />
+        <include name="modules/contact/**" />
+        <include name="modules/corp/**" />
+        <include name="modules/cronjob/**" />
+        <include name="modules/email/**" />
+        <include name="modules/eventlog/**" />
+        <include name="modules/help/**" />
+        <include name="modules/menu/**" />
+        <include name="modules/security/**" />
+        <include name="modules/service/**" />
+        <include name="modules/system/**" />
+        <include name="modules/theme/**" />
+        <include name="modules/tool/**" />
+        <include name="modules/tranlation/**" />
+        <include name="modules/user/**" />
+        <include name="modules/trac/**" />
+    </fileset>
+    
+    <fileset dir="${builddir}" id="sys_install_sql">
+        <include name="modules/system/mod.install.sql" />
+    </fileset>
+
+    <!-- ============================================  -->
+    <!-- Target: build                                 -->
+    <!-- ============================================  -->
+    <target name="build" description="build source">
+        <echo msg="Copy license file..." />
+        <copy file="build/trac/trac.license.txt" tofile="${builddir}/license.txt" />
+        <echo msg="Copy source files..." />
+        <copy todir="${builddir}">
+            <fileset refid="basesrc" />
+        </copy>
+        <copy todir="${builddir}" overwrite="true">
+            <fileset dir="build/trac">
+                <include name="install/**"/>
+                <include name="images/**"/>
+            </fileset>
+        </copy>
+        <echo msg="Replace role default landing page..." />
+        <reflexive>
+            <fileset refid="sys_install_sql"/>
+            <filterchain>
+                <replaceregexp>
+                    <regexp pattern="/system/general_default" replace="/trac/ticket_list" ignoreCase="true"/>
+                </replaceregexp>
+            </filterchain>
+         </reflexive>
+        <echo msg="Files copied and compressed in build directory OK!" />
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: dist                        -->
+    <!-- ============================================  -->
+    <target name="dist" depends="build, tar">
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- Target: tar                                   -->
+    <!-- ============================================  -->
+    <target name="tar">
+        <echo msg="Creating archive at ${builddir}..." />
+        <mkdir dir="${distdir}" />
+        <delete file="${distfile}" />
+        <tar destfile="${distfile} " compression="gzip">
+            <fileset dir="build/src/">
+                <include name="trac/**" />
+                <include name="openbiz/**" />
+            </fileset>
+        </tar>
+        <echo msg="Distribution file is created in build directory OK!" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: Rebuild                               -->
+    <!-- ============================================  -->
+    <target name="rebuild" description="rebuilds this package">
+        <delete dir="${builddir}" />
+        <delete file="${distfile}" />
+        <phingcall target="dist" />
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- Target: Clean                                 -->
+    <!-- ============================================  -->
+    <target name="clean" description="clean this package">
+        <delete dir="${builddir}" />
+        <delete file="${distfile}" />
+    </target>
+</project>

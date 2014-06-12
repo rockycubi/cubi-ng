@@ -1,0 +1,36 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="{$module_name}" Description="{$module_name} module" Version="0.1.0" OpenbizVersion="3.0">
+	<ACL>
+		<Resource Name="{$module_name|lower}">
+			<Action Name="Access" Description="Access {$module_name|capitalize|replace:'.':' '} Module Dashboard"/>
+		</Resource>
+{if $acl.option != 3}
+		<Resource Name="{$acl.resource}">
+{if $acl.option == 1}
+            <Action Name="{$acl.access|replace:$acl.resource:''|replace:'.':''}" Description="Access {$module|capitalize|replace:'.':' '}"/>
+            <Action Name="{$acl.manage|replace:$acl.resource:''|replace:'.':''}" Description="Manage {$module|capitalize|replace:'.':' '}"/>
+{else if $acl.option == 2}
+            <Action Name="{$acl.access|replace:$acl.resource:''|replace:'.':''}" Description="Access {$module|capitalize|replace:'.':' '}"/>
+            <Action Name="{$acl.create|replace:$acl.resource:''|replace:'.':''}" Description="Create {$module|capitalize|replace:'.':' '}"/>
+            <Action Name="{$acl.update|replace:$acl.resource:''|replace:'.':''}" Description="Update {$module|capitalize|replace:'.':' '}"/>
+            <Action Name="{$acl.delete|replace:$acl.resource:''|replace:'.':''}" Description="Delete {$module|capitalize|replace:'.':' '}"/>
+{/if}
+		</Resource>
+{/if}
+    </ACL>
+    <Menu>
+{if $dashboard_enable == 1}
+		<MenuItem Name="{$module_name|capitalize|replace:'.':''}Top" Title="{$module_name|capitalize|replace:'.':' '}" Description="{$module_name|capitalize|replace:'.':' '} Description" URL="{literal}{/literal}/{$module_name|replace:'.':'/'}/dashboard" Parent="" Order="10">
+{/if}
+			<MenuItem Name="{$module|capitalize}" Title="{$comp|capitalize|replace:'.':' '}" Description="{$module|capitalize|replace:'.':' '} description" URL="" Order="10">
+				<MenuItem Name="{$module|capitalize}.List" Title="{$comp|capitalize|replace:'.':' '} Manage" Description=""  URL="{literal}{/literal}/{$module_name|lower|replace:'.':'/'}/{$listview_uri}" Order="10"/>
+			</MenuItem>	
+{if $dashboard_enable == 1}
+		</MenuItem>	
+{/if}
+
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>

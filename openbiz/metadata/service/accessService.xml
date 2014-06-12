@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="accessService" Package="service" Class="accessService">
+   <access-constraint>
+     <view-collection>
+   <!--<view name="view pattern support regular expression">
+         <role name="role name 1"/>
+         <role name="role name 2"/>
+         <role name=""/>
+       </view>
+       <view name="demo*">
+         <role name="admin"/>
+         <role name="member"/>
+         <role name=""/>
+       </view>-->
+     </view-collection>
+   </access-constraint>
+</PluginService>

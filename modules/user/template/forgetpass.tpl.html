@@ -1,0 +1,33 @@
+<form id="{$form.name}" name="{$form.name}">
+
+<div class="register-block forget-passwd">
+
+	<div class="form-title-forgetpass"><h1>{$form.title}</h1></div>
+		<p class="input_row form-desc" >
+		{t}Don't worry if you just forgot your password. 
+		Please fill in following form and we will send you an email with a link 
+		which you can reset your password by clicking the link.{/t}
+		</p>
+	{foreach item=item key=itemName from=$dataPanel}
+		<p class="input_row" style="height:40px;">
+			<label >{$item.label}</label>
+			<span>{$item.element}</span>
+			{if $errors.$itemName}
+			<span class="input_error_msg" >{$errors.$itemName}</span>
+			{elseif $item.description}
+			<span class="input_desc" >{$item.description}</span>			
+			{/if}			
+		</p>
+	{/foreach}
+		
+		<p class="input_row">
+			<label ></label>
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+</div>
+</form>
+
+
+

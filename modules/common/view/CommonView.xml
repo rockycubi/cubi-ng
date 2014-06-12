@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserListView.xml 5488 2014-05-21 07:08:50Z rockyswen@gmail.com $
+-->
+<EasyView Name="CommonView" Title="" Description="" class="EasyView" TemplateEngine="Smarty" TemplateFile="system_right_panel.tpl.html" PageTemplate="view.tpl.html" Access="">
+    <FormReferences>
+    </FormReferences>
+</EasyView>

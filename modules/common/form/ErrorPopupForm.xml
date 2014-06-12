@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ErrorForm.xml 4718 2012-11-14 03:29:17Z hellojixian@gmail.com $
+-->
+<EasyForm Name="ErrorPopupForm" Class="ErrorForm" FormType="Edit" jsClass="jbForm" Title="System Internal Error" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="internal_error_popup.tpl.html" >
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_report" Class="Button" Text="Report Error" CssClass="button_w_highlight" DataRole="button" >
+        	<EventHandler Name="btn_report_onclick" Event="onclick" Function="Report()"/>
+        </Element>
+		<Element Name="btn_showerr"  Class="Button" Text="Detail" CssClass="button" DataRole="button">
+            <EventHandler Name="onclick" Event="onclick" Function="showError()"/>            
+        </Element> 
+        <Element Name="btn_back"   Class="Button" Text="Close" CssClass="button" DataRole="button">
+            <EventHandler Name="onclick" Event="onclick" Function="close()"/>            
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

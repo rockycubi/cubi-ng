@@ -1,0 +1,36 @@
+<form id="{$form.name}" name="{$form.name}">
+<div style="float:left; width:110px; height:400px;">
+</div>
+<div style="float:left; width:620px; height:400px;">
+	<div style="height:45px;"></div>
+	<div style="height:35px;">
+		<div style="float:left; width:35px;"><img src="{$image_url}/icon_lock.gif" /></div>
+		<div style="float:left"><h1>{$form.title}</h1></div>
+	</div>
+	<div style="height:20px;"></div>
+		<p class="input_row" style="height:50px; line-height:20px;">
+		<label style="width:25px; height:50px;"></label>
+		<span>{t} There are all your account information.
+		You may change your profile and password in below forms.{/t}</span>
+		</p>
+	{foreach item=item key=itemName from=$dataPanel}
+		<p class="input_row" >
+			<label style="width:120px; text-align:right; color:#14a8f1;">{$item.label}</label>
+			<span class="label_text">{$item.element}</span>
+			{if $errors.$itemName}
+			<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+			{elseif $item.description}
+			<span class="input_desc" style="width:240px;">{$item.description}</span>			
+			{/if}			
+		</p>
+	{/foreach}
+		
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			<label style="width:120px; text-align:right"></label>
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+</div>
+</form>

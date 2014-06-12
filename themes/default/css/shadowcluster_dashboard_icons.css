@@ -1,0 +1,12 @@
+#main #right_panel .dashboard div.icon_sc_dns{
+	background-image:url("../images/icon_dns_m.gif");	
+}
+#main #right_panel .dashboard div.icon_sc_website{
+	background-image:url("../images/icon_website_m.gif");	
+}
+#main #right_panel .dashboard div.icon_sc_node{
+	background-image:url("../images/icon_node_m.gif");	
+}
+#main #right_panel .dashboard div.icon_sc_monitor{
+	background-image:url("../images/icon_monitor_m.gif");	
+}

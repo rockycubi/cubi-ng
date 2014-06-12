@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="securityService" Package="service" Class="securityService">
+   <Security Mode="Enabled">
+   		<UrlFilter Mode="Enabled" >
+   			<Rule Name="url_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" />
+   			<Rule Name="url_filter_2" Action="Deny" Match="'" EffectiveTime="0000-2359" />
+   		</UrlFilter>
+   		
+   		<DomainFilter Mode="Disabled" >
+   			<Rule Name="domain_filter_1" Action="Allow" Match="openbiz.cn" EffectiveTime="0000-2400" />
+   		</DomainFilter>
+   		
+   		<IPFilter Mode="Enabled" >
+   			<Rule Name="ip_filter_1" Action="Deny" Match="210.72.214.*" EffectiveTime="0000-2400" />
+   		</IPFilter>
+   		
+   		<AgentFilter Mode="Disabled" >
+   			<Rule Name="agent_filter_1" Action="Deny" Match="Spider" EffectiveTime="0700-2000" />
+   		</AgentFilter>
+
+   		<PostFilter Mode="Disabled" >
+   			<Rule Name="post_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" />
+   		</PostFilter>
+
+   		<GetFilter Mode="Enabled" >
+   			<Rule Name="get_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" />
+   		</GetFilter>
+   		<!--
+   		<ThresholdSetting Mode="Enabled" >
+   			<Threshold Name="Threshold_1" Method="POST" 	Threshold="30" TTL="60" />
+   			<Threshold Name="Threshold_2" Method="REQUEST"	Threshold="30" TTL="60" />
+   		</ThresholdSetting>
+   		-->
+   </Security>
+</PluginService>

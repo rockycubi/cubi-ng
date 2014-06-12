@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+ *
+ * Openbiz Cubi Application Platform
+ *
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   \
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id: application.xml 5526 2014-06-12 06:44:11Z rockyswen@gmail.com $
+ *
+-->
+<Application>
+    <DataSource>
+        <Database Name="Default" Driver="Pdo_Mysql" Server="127.0.0.1" Port="3306" DBName="cubi_ng1" User="root" Password="root" Charset="utf8"/>
+        <Database Name="Session" Driver="Pdo_Mysql" Server="127.0.0.1" Port="3306" DBName="cubi_ng1" User="root" Password="root" Charset="utf8"/>
+        <Database Name="Sample" Driver="Pdo_Mysql" Server="localhost" Port="3306" DBName="cubi_3b3" User="root" Password="root" Charset="utf8" Options="unix_port=/usr/local/mysql.socket;a=x"/>
+    </DataSource>
+</Application>

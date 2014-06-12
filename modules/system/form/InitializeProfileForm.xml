@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: LoginForm.xml 3628 2012-07-16 12:36:19Z hellojixian@gmail.com $
+-->
+<EasyForm Name="InitializeProfileForm" Class="InitializeProfileForm" FormType="Detail" jsClass="jbForm" Title="Adminstrator Profile" Description="Please initialize the profile for administrator and send to Openbiz Center" SearchRule="[user_id]='0'" BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="initialize_profile.tpl.html" MessageFile="system.msg">
+   <DataPanel>
+      <Element Name="fld_full_name" FieldName="fullname" Hint="FirstName LastName" ElementSet="General" Label="Your Name" Required="Y" Class="InputText" Description="Your full name" />
+      <Element Name="fld_company" FieldName="company" Hint="Your Company Name LLC" ElementSet="General" Label="Company Name" Required="Y" Class="InputText" Description="Your working company name" />
+      <Element Name="fld_email" FieldName="email" Hint="yourname@gmail.com" ElementSet="General" Label="Email Address" Required="Y" Class="InputText" Description="Used for recived system notification" />
+      <Element Name="fld_mobile" FieldName="mobile" Hint="+86 186 1185 0606"  ElementSet="General" Label="Mobile Num." Required="Y" Class="InputText" Description="Your mobile phone number" />
+      <Element Name="fld_phone" FieldName="phone" Hint="+86 010 6491 0001"  ElementSet="General" Label="Phone Num."  Class="InputText" Description="Your line phone number" />
+      <Element Name="fld_subscribe" FieldName="subscribe" ElementSet="General" Label="Subscribe" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Class="Checkbox" Text="Subscribe Openbiz Update Notification" />
+   </DataPanel>
+   <ActionPanel>
+        <Element Name="btn_init" Class="Button" Text="Save" CssClass="button_highlight">
+            <EventHandler Name="onclick" Event="onclick" Function="ProfileInit()" RedirectPage="{APP_INDEX}/system/general_default"  ShortcutKey="Ctrl+Enter"/>            
+        </Element>         
+              
+    </ActionPanel> 
+</EasyForm>

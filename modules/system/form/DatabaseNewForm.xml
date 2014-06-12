@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: DatabaseNewForm.xml 4550 2012-11-02 06:07:21Z hellojixian@gmail.com $
+-->
+<EasyForm Name="DatabaseNewForm" Class="DatabaseForm" icon="{RESOURCE_URL}/system/images/icon_database_add.png" FormType="New" jsClass="jbForm" Title="Database Connection Management" Description="You can review and manage system database connection. "  BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl"  ConfigFile="application.xml" ConfigNode="DataSource" Access="System.Administer_System" MessageFile="database.msg">
+    <DataPanel>
+		<Element Name="fld_name" DefaultValue="New_DB" Class="InputText" Required="Y" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_driver" Class="Listbox" SelectFrom="system.lov.DbDrivers(Driver)" FieldName="DRIVER" Label="Driver"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_server" DefaultValue="localhost" Class="InputText" FieldName="SERVER" Label="Server" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_port" DefaultValue="3306" Class="InputText" FieldName="PORT" Label="Port" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_username" DefaultValue="root" Class="InputText" FieldName="USER" Label="Username"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_password" Class="Password" FieldName="PASSWORD" Label="Password"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="btn_load" Class="Button" Text="Load Database" HTMLattr="style='color:#666666';" CssClass="button_gray_w">
+            <EventHandler Name="load_onclick" EventLogMsg="" Event="onclick" Function="UpdateForm()" />
+        </Element>
+        <Element Name="fld_db_name" Class="system.form.DBListbox" Required="Y" FieldName="DBNAME" Label="Database"  AllowURLParam="N" />
+        <Element Name="fld_charset" Class="Listbox" SelectFrom="system.lov.DbDrivers(Charset)" FieldName="CHARSET" Label="Charset"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_options" Class="InputText" FieldName="OPTIONS" Label="Options"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=system.form.DatabaseDetailForm&amp;fld:Id={@:m_RecordId}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

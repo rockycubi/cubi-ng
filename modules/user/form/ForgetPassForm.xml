@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ForgetPassForm.xml 3375 2012-05-31 06:23:11Z rockyswen@gmail.com $
+-->
+<EasyForm Name="ForgetPassForm" Class="ForgetPassForm" FormType="edit" jsClass="jbForm" Title="Forget password" SearchRule="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="forgetpass.tpl.html" MessageFile="system.msg" >
+   <DataPanel>
+      <Element Name="username" FieldName="fld_username" label="Username" Required="Y" Class="InputText"/> 
+      <Element Name="email"  FieldName="fld_email" label="Email Adress"  Required="Y" Validator="{@validate:email('[email]')}"  Class="InputText"/>
+   </DataPanel>
+   <ActionPanel>
+        <Element Name="btn_restpass" Class="Button" Text="Send Email" CssClass="button_m_highlight">
+            <EventHandler Name="onclick" Event="onclick" Function="ResetPassword()" RedirectPage="form=user.form.ForgetPassSentForm" ShortcutKey="Enter"/>
+        </Element>
+        <Element Name="btn_back" Class="LabelText" Text="Back" CssClass="button" Link="{@home:url}/user/login" >            			
+        </Element> 
+    </ActionPanel> 
+</EasyForm>

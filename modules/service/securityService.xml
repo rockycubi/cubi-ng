@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="securityService" Package="service" Class="securityService">
+   <Security Mode="Disabled">
+      		      		   		<URLFILTER Mode="Disabled" >
+   				   				   				<Rule Name="url_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" Status="Enable" />
+	   				   				<Rule Name="url_filter_2" Action="Deny" Match="'" EffectiveTime="0000-2359" Status="Enable" />
+	   				   				<Rule Name="url_filter_3" Action="Deny" Match="''" EffectiveTime="0000-2359" Status="Enable" />
+	   						   		</URLFILTER>
+   		      		   		<DOMAINFILTER Mode="Disabled" >
+   			   				<Rule Name="domain_filter_1" Action="Allow" Match="openbiz.cn" EffectiveTime="0000-2400" Status="Enable" />
+   			   		</DOMAINFILTER>
+   		      		   		<IPFILTER Mode="Disabled" >
+   			   				<Rule Name="ip_filter_1" Action="Allow" Match="210.72.214.*" EffectiveTime="0000-0000" Status="Enable" />
+   			   		</IPFILTER>
+   		      		   		<AGENTFILTER Mode="Disabled" >
+   			   				<Rule Name="agent_filter_1" Action="Deny" Match="Spider" EffectiveTime="0700-2000" Status="Enable" />
+   			   		</AGENTFILTER>
+   		      		   		<POSTFILTER Mode="Disabled" >
+   			   				<Rule Name="post_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" Status="Enable" />
+   			   		</POSTFILTER>
+   		      		   		<GETFILTER Mode="Disabled" >
+   			   				<Rule Name="get_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" Status="Enable" />
+   			   		</GETFILTER>
+   		      </Security>
+</PluginService>

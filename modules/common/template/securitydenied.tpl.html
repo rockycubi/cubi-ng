@@ -1,0 +1,23 @@
+<form id="{$form.name}" name="{$form.name}">
+<div class="register-block security-denied" >
+	
+	<div class="form-title"><h1>{$form.title}</h1></div>
+	<p class="input_row form-desc-4" >
+	{t}
+For security reason and system self protection, 
+your access has been denied. 
+
+Your currently request is violated system security policies. 
+And your this request with IP address information has been recorded.
+
+{/t}
+		</p>
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			<label style="width:40px; text-align:right"></label>
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+</div>
+</form>

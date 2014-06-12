@@ -1,0 +1,165 @@
+.ui-helper-hidden {
+    display: none;
+}
+.ui-helper-hidden-accessible {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+}
+.ui-helper-reset {
+    border: 0 none;
+    font-size: 100%;
+    line-height: 1.3;
+    list-style: none outside none;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    text-decoration: none;
+}
+.ui-helper-clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.ui-helper-clearfix {
+    display: inline-block;
+}
+* html .ui-helper-clearfix {
+    height: 1%;
+}
+.ui-helper-clearfix {
+    display: block;
+}
+.ui-helper-zfix {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.ui-widget-overlay {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.ui-widget {
+    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+}
+.ui-widget .ui-widget {
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+}
+.ui-widget-content {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+}
+.ui-widget-content a {
+}
+.ui-widget-header {
+    background: none repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #14A8F1;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.ui-widget-header a {
+    color: #FFFFFF;
+}
+
+.ui-dialog .ui-widget-content { border: 1px solid #dddddd; background: #ffffff; color: #333333; }
+.ui-dialog .ui-widget-header { border: 1px solid #0033CC; background: #5C9CCC; color: #ffffff; font-weight: bold; }
+.ui-dialog .ui-dialog-content { position: relative; border: 0; padding: 0; background: #ffffff; padding-bottom: 20px; overflow: auto; zoom: 1; }
+
+.ui-daterangepickercontain  .ui-widget-content { border: 1px solid #dddddd; background: #ffffff; color: #333333; }
+.ui-daterangepickercontain  .ui-widget-header { border: 1px solid #0033CC; background: #5C9CCC; color: #ffffff; font-weight: bold; }
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background-color:#efefef;
+    border: 1px solid #CCCCCC;
+    color: #666666;
+    font-weight: bold;
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+    color: #999999;
+    text-decoration: none;
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    background-color:#DDDDDD;
+    border: 1px solid #999999;
+    color: #666666;
+    font-weight: bold;
+}
+.ui-state-hover a, .ui-state-hover a:hover {
+    color: #666666;
+    text-decoration: none;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    background-color: #ffffff;
+    border: 1px solid #14A8F1;
+    color: #149BC8;
+    font-weight: bold;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+    color: #149BC8;
+    text-decoration: none;
+}
+.ui-widget *:active {
+    outline: medium none;
+}
+
+.ui-dialog .ui-dialog-titlebar { padding: .1em .1em; position: relative;  }
+
+.ui-tabs {
+    padding: 0;
+    position: relative;
+}
+.ui-tabs .ui-tabs-nav {
+    margin: 0;
+    padding: 2px 20px 0px 0px;
+}
+.ui-tabs .ui-tabs-nav li {
+    border-bottom: 0 none !important;
+    float: left;
+    list-style: none outside none;
+    margin: 0 0.2em 1px 0;
+    padding: 0;
+    position: relative;
+    top: 1px;
+    white-space: nowrap;
+}
+.ui-tabs .ui-tabs-nav li a {
+    float: left;
+    padding: 0.5em 1em;
+    text-decoration: none;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+    margin-bottom: 0;
+    padding-bottom: 1px;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a {
+    cursor: text;
+}
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
+    cursor: pointer;
+}
+.ui-tabs .ui-tabs-panel {
+    background: none repeat scroll 0 0 transparent;
+    border-width: 0;
+    display: block;
+    padding: 15px 10px 15px 10px;    
+     border-radius: 0px 0px 4px 4px;
+     border:1px solid #14A8F1;
+     border-top:none;
+}
+.ui-tabs .ui-tabs-hide {
+    
+	display: block;
+    position: absolute;
+    top: -999em;
+    left: -999em;
+}

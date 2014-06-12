@@ -1,0 +1,29 @@
+<form id="{$form.name}" name="{$form.name}">
+<div class="register-block new-user-success" >
+	
+	<div class="form-title"><h1>{$form.title}</h1></div>
+	<p class="input_row form-desc-4" >
+		{t} An email which contians below information has been sent to you 
+				Please remember your account information and keep the email in a safe place.{/t}
+		</p>
+	{foreach item=item key=itemName from=$dataPanel}
+		<p class="input_row" >
+			<label>{$item.label}</label>
+			<span class="label_text_underline">{$item.element}</span>
+			{if $errors.$itemName}
+			<span class="input_error_msg" >{$errors.$itemName}</span>
+			{elseif $item.description}
+			<span class="input_desc" >{$item.description}</span>			
+			{/if}			
+		</p>
+	{/foreach}
+		
+		<div style="height:15px;"></div>
+		<p class="input_row">
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+</div>
+{literal}<script>try{_gaq.push(['_trackEvent', "Registration","ManualCreated"]);}catch(e){};</script>{/literal}
+</form>

@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: MyAccountDO.xml 3364 2012-05-31 06:06:21Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="MyAccountDO" Description="" Class="MenuDataObj" CacheLifeTime="0">
+<MenuItem Id="0" Name="Root" Description="" URL="" Target="" CssClass="" IconImage="" IconCssClass="" >		
+	<MenuItem Id="0-0" Name="My Account" Description="" URL="{@home:url}/contact/contact_list" Target="" CssClass="" IconImage="" IconCssClass="" >
+			<MenuItem Id="0-0-1" Name="Account" Description=""  URL="{@home:url}/email/email_queue_list" >
+				<MenuItem Id="0-0-1-1" Name="My Profile" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+				<MenuItem Id="0-0-1-2" Name="My Login Info" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+				<MenuItem Id="0-0-1-2" Name="My Preference" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+			</MenuItem>
+			<MenuItem Id="0-0-2" Name="Personal Message" Description=""  URL="{@home:url}/email/email_log_list" >
+				<MenuItem Id="0-0-2-1" Name="Compose Message" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+				<MenuItem Id="0-0-2-2" Name="Read Message" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+				<MenuItem Id="0-0-2-3" Name="Message Setting" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+			</MenuItem>	
+	</MenuItem>
+</MenuItem>	
+</BizDataObj>	

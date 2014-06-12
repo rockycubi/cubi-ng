@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserMultiPickForm.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<EasyForm Name="UserMultiPickForm" Class="PickerForm" Icon="icon_user_list.gif" FormType="List" jsClass="jbForm" InheritFrom="system.form.UserPickForm" BizDataObj="system.do.UserPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_pickform.tpl.html">
+    <DataPanel>
+    	<Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>        
+    </DataPanel>
+    
+</EasyForm>

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+{include file='ios_webapp.tpl.html'}
+{php}}{/php}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<meta name="description" content="{$description}"/>
+<meta name="keywords" content="{$keywords}"/>
+{$style_sheets}
+{$scripts}
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+<link rel="stylesheet" href="{$css_url}/ipad.css" type="text/css" />
+{php}}{/php}
+{php}if(preg_match('/Android/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+<link rel="stylesheet" href="{$css_url}/andriod.css" type="text/css" />
+{php}}{/php}
+
+</head>
+
+<body>
+<div align="center" id="body_warp">
+	<div id="header_warp">
+	{include file='system_header.tpl.html'}
+	</div>
+	<!--main warp-->
+	<div id="main_warp">	
+		<!--main-->
+		<div id="main" >
+			
+			{include file='system_loader.tpl.html'}
+				<table id="main_content" border="0" cellpadding="0" cellspacing="0">
+					<tr><td><img src="{$image_url}/spacer.gif" style="height:15px;" /></td></tr>
+					<tr>
+						<td valign="top" style="width:18px;"><img src="{$image_url}/spacer.gif" style="width:18px;" /></td>
+						<td valign="top" id="left_panel">
+							{include file='system_left_panel.tpl.html'}					
+						</td>
+						<td valign="top" id="right_panel">
+							<!-- right block start -->
+							<div class="content_block">
+								<div class="header"></div>
+								<div class="content">	
+									<div>
+										<ul id="tabs_selector">
+											{foreach key=formname name=tabs item=formtitle from=$formtabs}	
+										    	{if $formname !='help.form.HelpBlockForm' and  
+										    		'/^menu\.widget\..*Menu$/si'|preg_match:$formname eq 0}							    
+										         <li id="tab_{$formname}" class="tab_link">
+										         	<a id="tab_link_{$formname}" href="javascript:" onclick="ShowTab('{$formname}');SwitchTab();">{$formtitle}</a>
+										         </li>
+										       {/if}
+										    {/foreach}										
+										</ul>
+														
+									{foreach key=formname item=form from=$forms}	
+								    	{if $formname !='help.form.HelpBlockForm' and  
+								    		'/^menu\.widget\..*Menu$/si'|preg_match:$formname eq 0}							    
+								         <div id="tab_form_{$formname}" class="tab_form" >
+								         	<div>
+								         	{$form}
+								         	</div>
+								         </div>
+								       {/if}
+								    {/foreach}	
+								    	
+									</div>									
+								</div>
+								<div class="footer"></div>														
+							</div>
+							<!-- right block end -->
+						</td>
+					</tr>
+			  </table>		  
+			</div>
+			<!--main-->
+		
+		</div>		
+		<!--main wrap end-->
+		<!--footer-->
+		<div  id="footer_warp">			
+ 		{include file='system_footer.tpl.html'}
+		</div>
+		<!-- footer end -->
+	
+	</div>
+</div>
+
+<script>
+{php} if (JSLIB_BASE=='JQUERY') : {/php}
+{literal}
+$('#main_loader_bg')[0].style.height = $('#main_content')[0].offsetHeight+'px';
+//document.bind("Form:Load",SwitchTab);
+var targetTabname;
+function SwitchTab(){
+	if(targetTabname){
+		HideTabs();
+		$(jq('tab_form_'+targetTabname)).show();
+		$(jq('tab_form_'+targetTabname)).show();
+		$(jq('tab_link_'+targetTabname)).attr('class','current');
+	}	
+}
+
+function ShowTab(tabname,formname,id){	
+	targetTabname = tabname;
+}
+function HideTabs(){
+	$('.tab_form').hide();
+	$('.tab_link').children().attr('class','');
+}
+function InitTabs(){
+	fade_loader();
+	$('.tab_form').hide();
+	$('.tab_form').first().show();
+
+	$('.tab_link').children().attr('class','');
+	$('.tab_link').children().first().attr('class','current');
+}
+window.onload=InitTabs;
+{/literal}
+{php} else : {/php}
+{literal}
+$('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
+document.observe("Form:Load",SwitchTab);
+var targetTabname;
+function SwitchTab(){
+	if(targetTabname){
+		HideTabs();
+		$('tab_form_'+targetTabname).show();
+		$('tab_form_'+targetTabname).style.display='block';
+		$('tab_link_'+targetTabname).className='current';
+	}	
+}
+function ShowTab(tabname,formname,id){	
+	targetTabname = tabname;
+	Openbiz.CallFunction(formname+'.SelectRecord('+id+')');	
+//	if(formname){	
+//		if(Openbiz.getFormObject(formname).selectedId == Openbiz.getFormObject(formname).lastSelectedId){
+//			SwitchTab();
+//		}	
+//	}
+}
+function HideTabs(){
+	var tabs = $$('.tab_form');	
+	for(i=0;i<tabs.length;i++) {	
+	    tabs[i].style.display='none';	    
+	}	
+
+	var tab_links = $$('.tab_link');
+	for(i=0;i<tab_links.length;i++) {
+		tab_links[i].children[0].className='';
+	}
+}
+function InitTabs(){
+	fade_loader();
+	var tabs = $$('.tab_form');
+	for(i=0;i<tabs.length;i++) {	
+	    tabs[i].style.display='none'; 		  
+	}
+	tabs[0].style.display='block';
+
+	var tab_links = $$('.tab_link');
+	for(i=0;i<tab_links.length;i++) {
+		tab_links[i].children[0].className='';
+	}
+	tab_links[0].children[0].className='current';
+//	window.setTimeout("init_first_tab()",1500);
+}
+window.onload=InitTabs;
+{/literal}
+{php} endif; {/php}
+</script>
+
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+<script src="{$js_url}/ios_webapp.js"></script>
+{php}}{/php}
+</body>
+</html>

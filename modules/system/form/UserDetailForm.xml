@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserDetailForm.xml 5520 2014-06-05 06:20:06Z rockyswen@gmail.com $
+-->
+<EasyForm Name="UserDetailForm" Icon="icon_user_list.gif" Description="Detailed attributes of a user account" Class="UserForm" FormType="" jsClass="jbForm" Title="User Detail" DataService="/system/users" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
+    <DataPanel>
+        <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>
+        <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username"/>
+        <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email"/>
+		<Element Name="fld_smartcard" Class="LabelBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}" Sortable="Y" Label="ID Card" />
+		<Element Name="fld_smartcardcode" Hidden="{@:Elem[fld_smartcardcode].Value?'N':'Y'}"  Class="LabelText" FieldName="smartcard" Label="ID Card Code" />
+		<Element Name="fld_status" Class="LabelBool" FieldName="status" Label="Status" Link="javascript:;">
+			<!--<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>	-->	
+		</Element>
+		<Element Name="fld_lastlogin" Hidden="{@:Elem[fld_lastlogin].Value?'N':'Y'}" Class="LabelText" FieldName="lastlogin" Label="Last Login" />
+		<Element Name="fld_lastlogout" Hidden="{@:Elem[fld_lastlogout].Value?'N':'Y'}" Class="LabelText" FieldName="lastlogout" Label="Last Logout" />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="LabelText" Text="Add" CssClass="button_gray_add" Link="{@home:url}/system/user_new">
+        </Element>
+        <Element Name="lnk_edit" Class="LabelText" Text="Edit" CssClass="button_gray_m" Link="{@home:url}/system/user_edit/{{dataobj.Id}}">
+        </Element>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" HTMLAttr="ng-click='delete(dataobj.Id)'">
+            <!--<EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="{@home:url}/system/user_list"/>-->
+        </Element>
+        <!--<Element Name="btn_profile" Class="Button" Text="Profile" CssClass="button_gray_m">
+            <EventHandler Name="profile_onclick" Event="onclick" Function="Profile({@:Elem[fld_Id].Value})" ContextMenu="Profile" ShortcutKey="Ctrl+P"/>
+        </Element>-->
+		<Element Name="btn_idcard" Class="LabelText" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" Text="Set ID Card" CssClass="button_gray_w">
+        </Element>         
+		<Element Name="lnk_list" Class="LabelText" Text="Back" CssClass="button_gray_m" Link="{@home:url}/system/user_list">
+        </Element>					
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

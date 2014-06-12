@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: AccountEditForm.xml 3375 2012-05-31 06:23:11Z rockyswen@gmail.com $
+-->
+<EasyForm Name="AccountEditForm" Class="AccountEditForm" FormType="Edit" jsClass="jbForm" Title="Edit My Account" Description="" BizDataObj="system.do.UserDO" TemplateEngine="Smarty" TemplateFile="myaccount.tpl.html" MessageFile="system.msg">
+    <DataPanel>
+        <Element Name="fld_Id" Hidden="Y" Class="Hidden" FieldName="Id" Label="User Id"/>
+        <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username"  CssClass=""/>        
+		<Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email Address"  CssClass=""/>
+        <Element Name="fld_password" Class="Password" label="New Password" Description="Input a new password "  />
+		<Element Name="fld_password_repeat" Class="Password" Description="Input new password again" FieldName="" Label="Password Repeat" />
+        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_highlight">
+            <EventHandler Name="save_onclick" Event="onclick" Function="UpdateAccount()" ShortcutKey="Enter"/>
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="js:history.go(-1)"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

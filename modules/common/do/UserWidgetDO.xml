@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserWidgetDO.xml 3365 2012-05-31 06:07:55Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="UserWidgetDO" Description="" Class="BizDataObj" DBName="Default" Table="user_widget" SearchRule="" SortRule="[column], [ordering] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="id"     Type="Number"/>
+		<BizField Name="user_id" Column="user_id"     Type="Number"/>
+        <BizField Name="widget" Column="widget" Length="255"   Required="Y" Type="Text"/>
+		<BizField Name="view" Column="view" Length="255"   Type="Text"/>
+		<BizField Name="column" Column="column"/>
+        <BizField Name="ordering" Column="ordering"/>
+        <BizField Name="config" Column="config"  />
+	    <BizField Name="status" Column="status"  />
+	    
+		<BizField Name="module" Column="module" Join="join_widget" />
+		<BizField Name="title" Column="title" Join="join_widget" />
+		<BizField Name="description" Column="description"  Join="join_widget" />		
+		<BizField Name="configable" Column="configable"    Join="join_widget"/>
+			    
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time" Column="create_time"  Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
+		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+		<Join Name="join_widget" Table="widget" Column="name" ColumnRef="widget" JoinType="INNER JOIN"/>
+    </TableJoins>
+    <ObjReferences>    	
+    </ObjReferences>
+</BizDataObj>

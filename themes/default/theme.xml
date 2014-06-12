@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metafile version="2.0"  client="site" >
+	<name>Openbiz Blue</name>
+	<preview>theme_screenshot.gif</preview>
+	<icon>theme_icon.gif</icon>
+	<version>2.0</version>
+	<creationDate>2010-06-20</creationDate>
+	<author>Jixian</author>
+	<authorEmail>jixian2003@qq.com</authorEmail>
+	<authorUrl></authorUrl>
+	<copyright>Copyright (C) 2005 - 2010 Open Source Matters. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>Cubi default theme in light blue style.</description>
+</metafile>

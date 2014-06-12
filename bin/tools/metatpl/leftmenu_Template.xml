@@ -1,0 +1,2 @@
+<MenuWidget Name="LeftMenu" Title="{$module_name|capitalize}" Class="menu.widget.MenuWidget" CssCLass="{$module_name|lower}" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='{$module_name|capitalize|replace:'.':''}Top'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="vertical_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

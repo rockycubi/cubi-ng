@@ -1,0 +1,8 @@
+<MenuWidget Name="BreadcrumbMenu" Title="Breadcrumb Menu" Class="MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='System'"  MenuDeep="2" TemplateEngine="Smarty" TemplateFile="breadcrumb_menu.tpl" CacheLifeTime="0">
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: BreadcrumbMenu.xml 3364 2012-05-31 06:06:21Z rockyswen@gmail.com $
+-->
+</MenuWidget>

@@ -1,0 +1,102 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: SystemMenuDO.xml 3364 2012-05-31 06:06:21Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="SystemMenuDO" Description="" Class="MenuDataObj" CacheLifeTime="0">
+<MenuItem Id="0" Name="Root" Description="" URL="" Target="" CssClass="" IconImage="" IconCssClass="" >	
+	
+	<MenuItem Id="0-1" Name="System Admin" Description="" URL="{@home:url}/system/general_default" Target="" CssClass="" IconImage="" IconCssClass="" >
+		<MenuItem Id="0-1-1" Name="Users" Description="User Management Module"  URL="" IconImage="spacer.gif" IconCssClass="icon_user">
+			<MenuItem Id="0-1-1-1" Name="Users Management" Description=""  URL="{@home:url}/system/user_list" >
+				<MenuItem Id="0-1-1-1-1" Name="Users Profile Detail" Description=""  URL="" URLMATCH="system\/user_detail.*" ></MenuItem>			
+				<MenuItem Id="0-1-1-1-2" Name="Create New Users " Description=""  URL="" URLMATCH="system\/user_new.*" ></MenuItem>
+				<MenuItem Id="0-1-1-1-3" Name="Edit Users Profile" Description=""  URL="" URLMATCH="system\/user_edit.*" ></MenuItem>
+			</MenuItem>
+		</MenuItem>
+		<MenuItem Id="0-1-2" Name="Roles" Description="Role Management Module"  URL="" IconImage="spacer.gif" IconCssClass="icon_role">
+			<MenuItem Id="0-1-2-1" Name="Role Management" Description=""  URL="{@home:url}/system/role_list" >
+				<MenuItem Id="0-1-2-1-1" Name="Role Detail" Description=""  URL="" URLMATCH="system\/role_detail.*" ></MenuItem>			
+				<MenuItem Id="0-1-2-1-2" Name="Create New Role " Description=""  URL="" URLMATCH="system\/role_new.*" ></MenuItem>
+				<MenuItem Id="0-1-2-1-3" Name="Edit Role" Description=""  URL="" URLMATCH="system\/role_edit.*" ></MenuItem>			
+			</MenuItem>
+		</MenuItem>		
+		<MenuItem Id="0-1-3" Name="Modules" Description="Modules Management"  URL="" IconImage="spacer.gif" IconCssClass="icon_module">
+			<MenuItem Id="0-1-3-1" Name="Module Management" Description=""  URL="{@home:url}/system/module_list" >
+				<MenuItem Id="0-1-3-1-1" Name="Module Detail" Description=""  URL="" URLMATCH="system\/module_detail.*" ></MenuItem>			
+				<MenuItem Id="0-1-3-1-2" Name="Create New Modlue " Description=""  URL="" URLMATCH="system\/module_new.*" ></MenuItem>
+				<MenuItem Id="0-1-3-1-3" Name="Edit Module" Description=""  URL="" URLMATCH="system\/module_edit.*" ></MenuItem>
+			</MenuItem>
+		</MenuItem>	
+		<MenuItem Id="0-1-4" Name="EventLog" Description="Event Logs Management"  URL="" IconImage="spacer.gif" IconCssClass="icon_eventlog">
+			<MenuItem Id="0-1-4-1" Name="Manage EventLog" Description=""  URL="{@home:url}/system/event_log_list" ></MenuItem>
+		</MenuItem>	
+		<!--<MenuItem Id="0-1-5" Name="Cache" Description="Cache Management"  URL="" IconImage="spacer.gif" IconCssClass="icon_cache">
+			<MenuItem Id="0-1-5-1" Name="Manage EventLog" Description=""  URL="{@home:url}/system/module_list" ></MenuItem>
+		</MenuItem>-->
+		<MenuItem Id="0-1-6" Name="Cronjob" Description="Cronjob Management"  URL="" IconImage="spacer.gif" IconCssClass="icon_cronjob">
+			<MenuItem Id="0-1-6-1" Name="Manage CronjobLog" Description=""  URL="{@home:url}/cronjob/cronjob_list" ></MenuItem>
+		</MenuItem>	
+		<MenuItem Id="0-1-7" Name="Email" Description="Email Management"  URL="" IconImage="spacer.gif" IconCssClass="icon_email_queue" >
+			<MenuItem Id="0-1-7-1" Name="Manage Email Queue" Description=""  URL="{@home:url}/email/email_queue_list" ></MenuItem>
+			<MenuItem Id="0-1-7-2" Name="Manage Email Log" Description=""  URL="{@home:url}/email/email_log_list" >
+				<MenuItem Id="0-1-7-2-1" Name="Manage 1 Email Log" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+				<MenuItem Id="0-1-7-2-2" Name="Manage 2 Email Log" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+				<MenuItem Id="0-1-7-2-3" Name="Manage 3 Email Log" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+			</MenuItem>
+		</MenuItem>	
+		<MenuItem Id="0-1-8" Name="Help" Description="Help Management"  URL="" IconImage="spacer.gif" IconCssClass="icon_help" >
+			<MenuItem Id="0-1-8-1" Name="Manage Help Category" Description=""  URL="{@home:url}/help/help_category" ></MenuItem>
+			<MenuItem Id="0-1-8-2" Name="Manage Help Tips" Description=""  URL="{@home:url}/help/help_list" >
+				<MenuItem Id="0-1-8-2-1" Name="List By Category" Description=""  URLMATCH="\/help\/help_list\/c.*" ></MenuItem>
+			</MenuItem>			
+		</MenuItem>					
+	</MenuItem>
+	<MenuItem Id="0-2" Name="Company" Description="" URL="{@home:url}/company/company_list" Target="" CssClass="" IconImage="" IconCssClass="" >
+	</MenuItem>
+	<MenuItem Id="0-3" Name="Collaboration" Description="" URL="{@home:url}/collaboration/dashboard" Target="" CssClass="" IconImage="" IconCssClass="" >
+			<MenuItem Id="0-3-1" Name="Calender" Description=""  URL="" IconImage="spacer.gif" IconCssClass="icon_calender">
+				<MenuItem Id="0-3-1-0" Name="New Calender Event" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+				<MenuItem Id="0-3-1-1" Name="Calender Monthly View" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+				<MenuItem Id="0-3-1-2" Name="Calender Weekly View" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+				<MenuItem Id="0-3-1-3" Name="Calender Daily View" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+			</MenuItem>
+			<MenuItem Id="0-3-2" Name="Contact" Description=""  URL="" IconImage="spacer.gif" IconCssClass="icon_contact">				
+				<MenuItem Id="0-3-2-6" Name="New Contact Profile" Description=""  URL="{@home:url}/contact/contact_new" ></MenuItem>
+				<MenuItem Id="0-3-2-1" Name="View General Card" Description=""  URL="{@home:url}/contact/contact_general_card" ></MenuItem>
+				<MenuItem Id="0-3-2-2" Name="View Detailed Card" Description=""  URL="{@home:url}/contact/contact_detail_card" ></MenuItem>
+				<MenuItem Id="0-3-2-3" Name="View Phone Book" Description=""  URL="{@home:url}/contact/contact_list" ></MenuItem>
+				<MenuItem Id="0-3-2-4" Name="View Company" Description=""  URL="{@home:url}/contact/company_list" ></MenuItem>
+				<MenuItem Id="0-3-2-5" Name="View By Contact Type" Description=""  URL="{@home:url}/contact/contact_type_list" ></MenuItem>				
+				<MenuItem Id="0-3-2-7" Name="Contact Type Manage" Description=""  URL="{@home:url}/contact/type_manage" ></MenuItem>
+			</MenuItem>	
+			<MenuItem Id="0-3-3" Name="Task" Description=""  URL="" IconImage="spacer.gif" IconCssClass="icon_task">
+					
+					<MenuItem Id="0-3-3-1" Name="View General List" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+					<MenuItem Id="0-3-3-2" Name="View Detailed List" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+					<MenuItem Id="0-3-3-3" Name="View Current Event" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+					<MenuItem Id="0-3-3-4" Name="View Future Event" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+					<MenuItem Id="0-3-3-5" Name="View Past Event" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+					<MenuItem Id="0-3-3-6" Name="View By Type" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+					<MenuItem Id="0-3-3-7" Name="View By Assignment" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+					<MenuItem Id="0-3-3-8" Name="View By Finished" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+					<MenuItem Id="0-3-3-9" Name="Task Type Manage" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+			</MenuItem>
+			<MenuItem Id="0-3-4" Name="Message" Description=""  URL="" IconImage="spacer.gif" IconCssClass="icon_message">
+					<MenuItem Id="0-3-4-1" Name="Compose Message" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+					<MenuItem Id="0-3-4-2" Name="Read Message" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>					
+					<MenuItem Id="0-3-4-3" Name="Folder Manage" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+					<MenuItem Id="0-3-4-4" Name="Message Setting" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+			</MenuItem>	
+			<MenuItem Id="0-3-5" Name="Note" Description=""  URL="" IconImage="spacer.gif" IconCssClass="icon_note">
+					<MenuItem Id="0-3-5-1" Name="Category Manage" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>
+					<MenuItem Id="0-3-5-2" Name="Note Manage" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>					
+					<MenuItem Id="0-3-5-3" Name="Compose Note" Description=""  URL="{@home:url}/email/email_log_list" ></MenuItem>					
+			</MenuItem>						
+	</MenuItem>
+	<MenuItem Id="0-4" Name="Reports" Description="" URL="{@home:url}/system/user_list" Target="" CssClass="" IconImage="" IconCssClass="" >
+	</MenuItem>
+</MenuItem>	
+</BizDataObj>

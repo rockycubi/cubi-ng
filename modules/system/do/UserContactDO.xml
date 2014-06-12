@@ -1,0 +1,55 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserContactDO.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="UserContactDO" class="BizDataObj" DBName="Default" Table="user" SearchRule="" SortRule="" OtherSQLRule="" IdGeneration="Identity">
+	<BizFieldList>
+	    <BizField Name="Id" Column="id" Type=""/>
+        <BizField Name="username" Column="username" Type=""/>
+        <BizField Name="password" Column="password" Type=""/>
+        <BizField Name="enctype" Column="enctype"/>        
+        <BizField Name="smartcard" Column="smartcard" Type=""/>
+        <BizField Name="email" Column="email" Type=""/>
+        <BizField Name="status" Column="status" Type=""/>
+        <BizField Name="lastlogin" Column="lastlogin" Type="Datetime"/>
+        <BizField Name="lastlogout" Column="lastlogout" Type="Datetime"/>
+        <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+        
+        <BizField Name="first_name" Column="first_name" Required="N" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="last_name" Column="last_name" Required="N" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="display_name" Column="display_name" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="company" Column="company" Required="Y" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="department" Column="department" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="position" Column="position" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="fast_index" Column="fast_index" Length="10"  Type="Text" Join="JoinContact" />
+        <BizField Name="photo" Column="photo" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="phone" Column="phone" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="mobile" Column="mobile" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="fax" Column="fax" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="zipcode" Column="zipcode" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="province" Column="province" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="city" Column="city" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="street" Column="street" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="country" Column="country" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="email" Column="email" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="webpage" Column="webpage" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="qq" Column="qq" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="icq" Column="icq" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="skype" Column="skype" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="yahoo" Column="yahoo" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="misc" Column="misc"   Type="Text" Join="JoinContact" />
+        
+        <BizField Name="group_id" Column="group_id"  Join="JoinUserGroup" />        
+                
+    </BizFieldList>
+    <TableJoins>
+		<Join Name="JoinContact" Table="contact" Column="user_id" ColumnRef="Id" JoinType="INNER JOIN"/>
+		<Join Name="JoinUserGroup" Table="user_group" Column="user_id" ColumnRef="Id" JoinType="INNER JOIN"/>
+    </TableJoins>
+</BizDataObj>

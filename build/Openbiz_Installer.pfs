@@ -1,0 +1,43 @@
+active-help-url "http://www.openbiz.me/"
+package-name "Openbiz Cubi"
+product-version "2.0"
+package-dir "C:\cubi"
+output-file "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\dist\cubi.exe"
+license-file "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\src\cubi\license.txt"
+image-side-panel "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\images\side_panel.png"
+image-motif "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\images\\motif.png"
+ping-php "C:\Program Files\ionCube Package Foundry\Drivers\ping.php"
+untar-php "C:\Program Files\ionCube Package Foundry\Drivers\UnTar.php"
+encoded-php-test "C:\Program Files\ionCube Package Foundry\Drivers\version.php"
+php-config-test "C:\Program Files\ionCube Package Foundry\Drivers\loader-test.php"
+auto-install-loaders no
+all-encoded-files-binary no
+upload-as-archive no
+use-server-permissions no
+allow-pfn-edit no
+disable-local-installs no
+with "SSL"
+add-language-pack "de"
+add-language-pack "fr"
+add-language-pack "ko"
+add-language-pack "nl"
+add-language-pack "pt_BR"
+add-language-pack "ru"
+add-language-pack "zh_CN"
+default-file-mode "666"
+default-folder-mode "777"
+main-page "/index.php"
+compression-type "gzip"
+default-file-mode "666"
+compression-level 0
+log-url "http://downloads.ioncube.com/mailer.php"
+contact-email "team@openbiz.me"
+stub-version "3.0"
+stub-product "Openbiz Cubi"
+stub-copyright "Openbiz LLC"
+stub-description "Openbiz Installer"
+stub-icon "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\images\icon.ico"
+post-install-php-interactive no
+disable-permissions-warning no
+hide-product-info yes
+use-package-file no

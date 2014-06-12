@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<meta name="description" content="{$description}"/>
+<meta name="keywords" content="{$keywords}"/>
+{$style_sheets}
+{$scripts}
+</head>
+
+<body ng-app="cubiViewApp">
+
+<script>
+var APP_INDEX = '{$app_index}';
+var APPMENU_URL = '{$appmenu_url}';
+var APPMENUS;
+{literal}
+var cubiViewApp = angular.module('cubiViewApp',['ngResource','ngRoute','Openbiz.services']);
+cubiViewApp.config(['$routeProvider', '$locationProvider',
+	function($routeProvider, $locationProvider) {
+	  $routeProvider
+		.when(APP_INDEX+'/f/:module/:form/:id', {
+		  templateUrl: function(params){ return APP_INDEX+'/f/'+params.module+'/'+params.form+'/'+params.id+'?partial=1'; }
+		})
+		.when(APP_INDEX+'/:module/:view/:id', {
+		  templateUrl: function(params){ return APP_INDEX+'/'+params.module+'/'+params.view+'/'+params.id+'?partial=1'; }
+		})
+		.when(APP_INDEX+'/:module/:view', {
+		  templateUrl: function(params){ return APP_INDEX+'/'+params.module+'/'+params.view+'/?partial=1'; }
+		});
+		//.otherwise({ redirectTo: '' });;
+
+	  // configure html5 to get links working on jsfiddle
+	  $locationProvider.html5Mode(true);
+	}]);
+{/literal}
+</script>
+
+<div align="center" id="body_warp">
+	<div id="header_warp">
+	{include file='system_header.tpl.html'}
+	</div>
+	<!--main warp-->
+	<div id="main_warp">	
+		<!--main-->
+		<div id="main" >
+			<table id="main_content" border="0" cellpadding="0" cellspacing="0">
+				<tr><td><img src="{$image_url}/spacer.gif" style="height:15px;" /></td></tr>
+				<tr>
+					<td valign="top" style="width:18px;"><img src="{$image_url}/spacer.gif" style="width:18px;" /></td>
+					<td valign="top" id="left_panel">
+						{include file='system_left_panel.tpl.html'}
+					</td>
+					<td valign="top" id="right_panel">
+						<!-- right block start -->
+						<div ng-view></div>
+						<!-- right block end -->
+					</td>
+				</tr>
+			  </table>		  
+			</div>
+			<!--main-->
+		
+		</div>		
+		<!--main wrap end-->
+		<!--footer-->
+		<div  id="footer_warp">			
+		{include file='system_footer.tpl.html'}
+		</div>
+		<!-- footer end -->
+	
+	</div>
+</div>
+
+
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+<script src="{$js_url}/ios_webapp.js"></script>
+{php}}{/php}
+</body>
+</html>

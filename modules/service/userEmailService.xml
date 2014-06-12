@@ -1,0 +1,133 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: userEmailService.xml 4560 2012-11-03 02:05:44Z hellojixian@gmail.com $
+-->
+<PluginService Name="userEmailService" Package="service" Class="userEmailService" 
+				BizDataObj="email.do.EmailQueueDO" 
+				SendtoQueue="Y" >
+	
+	<Template   Name="WelcomeEmail" 
+				Title="欢迎您加入 Openbiz 中国" 
+				EmailAccount="SystemNotifier" 
+				Template="welcome_email.tpl" />
+				
+	<Template   Name="ForgetPasswordEmail" 
+				Title="Reset Your Password" 
+				EmailAccount="SystemNotifier" 
+				Template="forget_pass_email.tpl" />
+				
+	<Template   Name="SystemInternalError" 
+				Title="System Internal Error" 
+				EmailAccount="SystemNotifier" 
+				Template="system_internal_error.tpl" />		
+				
+	<Template   Name="CronjobEmail" 
+				Title="Execute cron job" 
+				EmailAccount="SystemNotifier" 
+				Template="execute_cron_job.tpl" />	
+	
+	<Template   Name="DataSharingEmail" 
+				Title="Your collegue has shared data to you" 
+				EmailAccount="CubiNotification" 
+				Template="data_sharing_email.tpl" />	
+				
+	<Template   Name="DataPublishEmail" 
+				Title="Your collegue has published data to you" 
+				EmailAccount="CubiNotification" 
+				Template="data_publish_email.tpl" />
+				
+	<Template   Name="DataAssignedEmail" 
+				Title="Your collegue has assigned data to you" 
+				EmailAccount="CubiNotification" 
+				Template="data_assigned_email.tpl" />
+				
+	<Template   Name="TaskUpdateEmail" 
+				Title="Your collegue has updated your task progress" 
+				EmailAccount="CubiNotification" 
+				Template="task_update_email.tpl" />		
+						
+	<Template   Name="NewMessageEmail" 
+				Title="Your collegue has send you a new message" 
+				EmailAccount="CubiNotification" 
+				Template="new_message_email.tpl" />
+				
+	<Template   Name="TaskRemindEmail" 
+				Title="You have a planned task about to start" 
+				EmailAccount="CubiNotification" 
+				Template="task_remind_email.tpl" />
+	
+	<Template   Name="TaskDeferredEmail" 
+				Title="You have a task has been auto deferred" 
+				EmailAccount="CubiNotification" 
+				Template="task_deferred_email.tpl" />
+				
+	<Template   Name="EventRemindEmail" 
+				Title="You have a planned event about to start" 
+				EmailAccount="CubiNotification" 
+				Template="event_remind_email.tpl" />
+				
+	<Template   Name="EventNoticeEmail" 
+				Title="Would you have time for this planned event" 
+				EmailAccount="CubiNotification" 
+				Template="event_notice_email.tpl" />						
+	
+	
+	<Template   Name="ProfileVerifyEmail" 
+				Title="您在 Openbiz 的电子邮件身份验证码" 
+				EmailAccount="SystemNotifier" 
+				Template="profile_verify_email.tpl" />
+	
+	<Template   Name="ProductActivedEmail" 
+				Title="您在 Openbiz 购买的产品已被激活" 
+				EmailAccount="SystemNotifier" 
+				Template="product_actived_email.tpl" />
+
+	<Template   Name="ProductAboutToExpireEmail" 
+				Title="您在 Openbiz 购买的产品即将到期，请尽快续费" 
+				EmailAccount="SystemNotifier" 
+				Template="product_about_to_expire_email.tpl" />
+
+	<Template   Name="ProductAboutToDeleteEmail" 
+				Title="您在 Openbiz 购买的产品即将被删除，请尽快续费" 
+				EmailAccount="SystemNotifier" 
+				Template="product_about_to_delete_email.tpl" />
+
+	<Template   Name="ProductRenewedEmail" 
+				Title="您在 Openbiz 购买的产品已成功续费" 
+				EmailAccount="SystemNotifier" 
+				Template="product_renewed_email.tpl" />
+
+	<Template   Name="OrderPaidEmail" 
+				Title="您在 Openbiz 的产品订单已付款" 
+				EmailAccount="SystemNotifier" 
+				Template="order_paid_email.tpl" />			
+
+	<Template   Name="OrderCreatedEmail" 
+				Title="您在 Openbiz 的产品订单已提交成功" 
+				EmailAccount="SystemNotifier" 
+				Template="order_created_email.tpl" />	
+	
+	<Template   Name="OrderPendingEmail" 
+				Title="您在 Openbiz 的产品订单尚未付款" 
+				EmailAccount="SystemNotifier" 
+				Template="order_pending_email.tpl" />
+				
+	<Template   Name="OrderPaidEmail" 
+				Title="您在 Openbiz 的产品订单已交付" 
+				EmailAccount="SystemNotifier" 
+				Template="order_paid_email.tpl" />					
+				
+	<Template   Name="TransactionDebitEmail" 
+				Title="您在 Openbiz 的财务帐户充值确认" 
+				EmailAccount="SystemNotifier" 
+				Template="transcation_debit_email.tpl" />
+				
+	<Template   Name="TransactionCreditEmail" 
+				Title="您在 Openbiz 的财务帐户消费通知" 
+				EmailAccount="SystemNotifier" 
+				Template="transcation_credit_email.tpl" />		
+											
+</PluginService>

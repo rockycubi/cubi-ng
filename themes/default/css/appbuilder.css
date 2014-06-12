@@ -1,0 +1,49 @@
+.appbuilder_btn{
+	display:block;
+	height:16px;
+	width:16px;
+	overflow:hidden;
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+}
+.appbuilder_btn:hover{
+	background-position:-16px 0px;
+}
+.appbuilder_btn:active{
+	background-position:-32px 0px;
+}
+.appbuilder_btn_app_wizard{
+	/*background-image:url(../images/application_builder.gif);*/
+	background-image:url(../images/system_backend_icons.gif);
+	background-position:0px -380px;
+}
+.appbuilder_btn_app_wizard:hover{
+	background-position:-16px -380px;
+}
+.appbuilder_btn_app_wizard:active{
+	background-position:-32px -380px;
+}
+
+.appbuilder_btn_view_edit{
+	/*background-image:url(../images/application_edit.gif);*/
+	background-image:url(../images/system_backend_icons.gif);
+	background-position:0px -396px;
+}
+
+.appbuilder_btn_view_edit:hover{
+	background-position:-16px -396px;
+}
+.appbuilder_btn_view_edit:active{
+	background-position:-32px -396px;
+}
+.appbuilder_btn_form_edit{
+	/* background-image:url(../images/application_form_edit.gif); */	
+	background-image:url(../images/system_backend_icons.gif);
+	background-position:0px -412px;
+}
+.appbuilder_btn_form_edit:hover{
+	background-position:-16px -412px;
+}
+.appbuilder_btn_form_edit:active{
+	background-position:-32px -412px;
+}

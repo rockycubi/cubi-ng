@@ -1,0 +1,182 @@
+/* CSS Document */
+div#login_box {
+	background-image:url(../images/login_box_bg.png);
+	background-repeat:no-repeat;
+	width:792px;
+	height:456px;
+	overflow:hidden;
+	text-align:left;
+} 
+
+.cubi_logo_large{
+	background-image:url(../../../images/cubi_logo_large.png);
+	background-repeat:no-repeat;
+	background-position:125px 90px;
+	text-align:left;
+	width:300px;
+	height:400px;
+	float:left;
+}
+.cubi_login_banner{
+	background-image:url(../../../images/login_banner.png);
+	background-repeat:no-repeat;
+	background-position:1px top;
+	text-align:left;
+	height:75px;
+	height:80px;width:auto;padding-bottom:20px;
+}
+.cubi_login_banner h1{
+	line-height: 38px;
+	font-size: 38px;
+    padding-top: 26px;
+    color:#149BC8;
+    font-weight:normal;
+}
+.login_form{
+	text-align:left;
+	width:410px;
+	height:400px;
+	float:left;
+}
+.login-top-padding{
+	height:300px;padding-top:40px;
+}
+.v_line{
+	height:400px;
+	padding-left:35px;
+	background-image:url(../images/v_line.jpg);
+	background-repeat:no-repeat;
+	background-position:left 100px;
+}
+span#login_indicator{
+	float:left;
+	color:#BEBEBE;
+	text-indent:10px;
+	height:22px;
+	line-height:22px;
+	font-size:9pt;
+}
+#loader{
+ height:456px; 
+ width:792px; 
+ position:absolute;
+}
+#loader_bg{
+ height:456px; 
+ width:792px; 
+ position:absolute;
+ background-color:#eef0ef;
+}
+#forms{
+ position:absolute;
+ height:456px; 
+ width:792px; 
+}
+.register-block
+{
+width:620px; height:365px;
+padding-left:130px;
+padding-top:45px;
+}
+.register-block-oauth-connect
+{
+width:620px; height:365px;
+padding-left:100px;
+padding-top:45px;
+}
+.register-block .form-title
+{
+	
+background-image:url(../images//icon_lock.gif);
+background-repeat:no-repeat;
+background-position:0px 2px;	
+padding-left:35px;
+padding-bottom:28px;
+}
+.access-denied .form-title
+{
+background-image:url(../images/icon_forbidden.gif);
+padding-left:45px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
+.security-deiend .form-title
+{
+background-image:url(../images/icon_forbidden_by_security.gif);
+padding-left:45px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
+.session-timeout .form-title
+{
+background-image:url(../images/icon_no_access.gif);
+padding-left:45px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
+.not-found .form-title
+{
+background-image:url(../images/icon_no_access.gif);
+padding-left:45px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
+.server-error .form-title
+{
+background-image:url(../images/icon_forbidden.gif);
+padding-left:48px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
+.server-error p.input_row,
+.access-denied p.input_row,
+.security-deiend p.input_row,
+.session-timeout p.input_row,
+.not-found p.input_row{
+padding-left:40px;
+}
+.register-block .form-desc
+{
+padding-bottom:30px;display:block;line-height:20px;padding-left:25px;
+}
+.register-block .form-desc-2
+{
+padding-bottom:25px;display:block;line-height:22px;padding-left:0px;height:auto;
+}
+.register-block .form-desc-3
+{
+padding-bottom:15px;display:block;line-height:22px;padding-left:0px;height:auto;
+}
+.register-block .form-desc-4
+{
+padding-bottom:15px;display:block;line-height:22px;padding-left:0px;height:auto;
+}
+.forget-passwd-sent .input_row
+{
+	padding-left:20px;
+}
+.forget-passwd-sent .top_line
+{
+	height:20px; width:550px;
+	border-bottom:1px solid #eeeeee;
+	background-image:none;
+}
+.register-block .form-title-forgetpass
+{
+	
+background-image:url(../images//icon_profile.gif);
+background-repeat:no-repeat;
+background-position:0px 10px;	
+padding-left:35px;
+padding-bottom:20px;
+}
+.register-block .form-label
+{
+width:120px;
+text-align:right;
+}

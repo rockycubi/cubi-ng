@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: AccessDenyForm.xml 5501 2014-05-28 05:45:40Z rockyswen@gmail.com $
+-->
+<EasyForm Name="AccessDenyForm" Class="AccessDenyForm" FormType="Edit" jsClass="jbForm" Title="Access Denied" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="accessdenied.tpl.html" >
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+		<Element Name="btn_login" Hidden="{(@:m_isDefaultPage==1)?'Y':'N'}" Class="Button" Text="Goto Login" CssClass="button_m_highlight" Link="{@home:url}/user/login" DataRole="button">    
+        </Element> 
+        
+        <!--<Element Name="btn_logout" Hidden="{(@:m_isDefaultPage==1)?'N':'Y'}" Class="Button" Text="Goto Login" CssClass="button_m_highlight" DataRole="button">
+            <EventHandler Name="onclick" Event="onclick" Function="js:Openbiz.Net.loadPage('{@home:url}/user{CLIENT_DEVICE=='mobile'?'_mob':''}/logout')"/>            
+        </Element> 
+        
+        <Element Name="btn_back" Class="Button" Text="Back" CssClass="button" DataRole="button">
+            <EventHandler Name="onclick" Event="onclick" Function="history.go(-1)"/>     
+        </Element> -->
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

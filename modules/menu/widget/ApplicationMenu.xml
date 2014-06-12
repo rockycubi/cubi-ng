@@ -1,0 +1,8 @@
+<MenuWidget Name="ApplicationMenu" Title="Cubi Admin" Class="MenuWidget" CssCLass="system" DataService="/menu/menus" QueryString="depth=2&amp;PId=System&amp;published=1" TemplateEngine="Smarty" TemplateFile="vertical_menu.tpl" CacheLifeTime="0" Access="">
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ApplicationMenu.xml 5520 2014-06-05 06:20:06Z rockyswen@gmail.com $
+-->
+</MenuWidget>

@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: MyProfileView.xml 5072 2013-01-07 08:15:11Z hellojixian@gmail.com $
+-->
+<EasyView Name="MyProfileView" Description="My Account Profile" class="EasyView" TemplateEngine="Smarty" TemplateFile="system_right_panel.tpl.html" PageTemplate="view.tpl.html" Access="myaccount.access">
+    <FormReferences>
+        <Reference Name="myaccount.form.ProfileDetailForm"/>
+    </FormReferences>
+</EasyView>

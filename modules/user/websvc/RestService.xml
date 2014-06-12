@@ -1,0 +1,5 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="RestService" Class="UserRestService" MessageFile="">
+    <PublicMethod Name="foo" Access=""/>
+    <PublicMethod Name="getByRegion" Access=""/>
+</PluginService>

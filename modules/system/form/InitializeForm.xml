@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: LoginForm.xml 3628 2012-07-16 12:36:19Z hellojixian@gmail.com $
+-->
+<EasyForm Name="InitializeForm" Class="InitializeForm" FormType="Detail" jsClass="jbForm" Title="System Initialization" Description="Please initialize the Cubi system to fit your environment." SearchRule="[user_id]='0'" BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="initialize.tpl.html" MessageFile="">
+   <DataPanel>
+      <Element Name="fld_system_name" FieldName="_system_name"  ElementSet="General" Label="System Name" Required="Y" Class="InputText" Description="e.g. ABC Company System" />
+      <Element Name="fld_site_url" FieldName="_siteurl"  ElementSet="General" Label="Site URL" Required="Y" Class="InputText" Description="The URL for access system" />  
+	  <Element Name="fld_password" FieldName="password" Label="Password" Class="Password" Required="Y" Description="Setup a new password "/>          
+	  <Element Name="fld_language" ReadOnly="Y" KeepCookie="Y" ElementSet="Localization" FieldName="_language" Label="Language" Class="myaccount.form.LanguageSelector" Description="System default language" ></Element>	  
+	  <Element Name="fld_session" ReadOnly="Y" Class="DropDownList" ElementSet="Session"  SelectFrom="system.lov.Selection(SessionRestrict)"  FieldName="_sessionstrict" Label="Session Strict"  Description="System session security setting" />	  
+   </DataPanel>
+   <ActionPanel>
+        <Element Name="btn_init" Class="Button" Text="Initialize" CssClass="button_highlight">
+            <EventHandler Name="onclick" Event="onclick" Function="SystemInit()" RedirectPage="{APP_INDEX}/system/initialize_profile"  ShortcutKey="Ctrl+Enter"/>            
+        </Element>         
+              
+    </ActionPanel> 
+</EasyForm>

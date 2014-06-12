@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: RegisterForm.xml 3835 2012-08-06 09:54:05Z hellojixian@gmail.com $
+-->
+<EasyForm Name="RegisterForm" Class="RegisterForm" FormType="New" jsClass="jbForm" Title="User Register" Description="" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="register.tpl.html" MessageFile="system.msg">
+    <DataPanel>
+        <Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id" Hidden="Y"/>
+		<Element Name="fld_username" Class="InputText"  Description="between 3-10 letters or numbers" FieldName="username" Label="Username" required="Y"  Required="Y" Validator="{@validate:betweenLength([fld_username], 3, 10)}" HTMLAttr="maxlength='10'"/>
+        <Element Name="fld_password" Class="Password" Description="between 4-20 any charactors" label="Password" FieldName="password"  required="Y" Validator="{@validate:betweenLength([fld_password], 4, 20)}" HTMLAttr="maxlength='20'"/>
+		<Element Name="fld_password_repeat" Class="Password"  Description="Input password again " FieldName="password_repeat" Label="Repeat"  required="Y" HTMLAttr="maxlength='20'"/>
+        <Element Name="fld_email" required="Y" Class="InputText" Description="For receive system notice" FieldName="email" Label="Email"  Validator="{@validate:email('[fld_email]')}" HTMLAttr="maxlength='50'"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_register" Class="Button" Text="Register" CssClass="button_highlight">
+            <EventHandler Name="btn_register_onclick" Event="onclick" Function="CreateUser()" RedirectPage="form=user.form.RegisterSuccessedForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Enter"/>
+        </Element>
+        <Element Name="btn_back" Class="LabelText" Text="Back" CssClass="button" Link="{@home:url}/user/login" >            			
+        </Element>        
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

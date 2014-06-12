@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserEditForm.xml 5474 2014-05-15 05:18:14Z rockyswen@gmail.com $
+-->
+<EasyForm Name="UserEditForm" Class="UserForm" Icon="icon_user_edit.gif" FormType="Edit" jsClass="jbForm" Title="Edit user" Description="Edit attributes of a given user account" BizDataObj="system.do.UserDO" DataService="/system/users" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg"> 
+    <DataPanel>
+        <Element Name="fld_Id"  hidden="Y" Class="LabelText" FieldName="Id" Label="User Id" HTMLAttr="ng-model='formData.Id'"/>
+        <Element Name="fld_username" Class="InputText" FieldName="username" Label="Username"  Validator="{@validate:betweenLength({tx}[fld_username]{/tx}, 3, 36)}" HTMLAttr="maxlength='36' ng-model='formData.username'"/>
+        <Element Name="fld_password" Class="InputPassword" label="Password" Validator="{@validate:betweenLength({tx}[fld_password]{/tx}, 4, 36)}" HTMLAttr="maxlength='36'"/>
+		<Element Name="fld_password_repeat" Class="InputPassword" Description="Input password again for confirmation" label="Repeat" />
+        <Element Name="fld_email" Class="InputText" FieldName="email" Label="Email"  Validator="{@validate:email('[fld_email]')}" HTMLAttr="ng-model='formData.email'"/>
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)" HTMLAttr="ng-model='formData.status'"/>
+		<Element Name="fld_lastlogin" Class="LabelText" FieldName="lastlogin" Label="Last Login" />
+		<Element Name="fld_lastlogout" Class="LabelText" FieldName="lastlogout" Label="Last Logout" />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" Function="save('/system/user_detail/')"/>
+        </Element>
+        <!-- <Element Name="btn_save_notify" Class="Button" Text="Save and notify user" CssClass="button_gray_w">
+            <EventHandler Name="save2_onclick" Event="onclick" Function="UpdateNotify()" RedirectPage="controller.php?view=system.view.UserDetailView&amp;fld:Id={@:Elem[fld_Id].Value}"/>
+        </Element> -->
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="back()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,106 @@
+<form id="{$form.name}" name="{$form.name}">
+<style>
+{literal}
+.license_form{
+padding-left:100px;
+padding-top:50px;
+height:340px;
+background-repeat:no-repeat;
+background-position:510px 105px;
+}
+.license_form .preview{
+float:right;
+margin-right:80px;
+margin-top:20px;
+}
+.license_form h1{
+font-size:20px;
+line-height:20px;
+display:block;
+font-weight:normal;
+padding-top:10px;
+padding-bottom:10px;
+}
+.license_form .label{
+color:#14A8F1;
+line-height:30px;
+}
+.license_form .eula{
+height:60px;
+padding-top:15px;
+
+width:400px;
+}
+.license_form .active_logic label{
+float:none;
+}
+.license_form .active_logic label strong{
+color:#ff0000;
+}
+.license_form .upline
+{
+background-image:url({/literal}{$resource_url}{literal}/common/images/h_line_short.png);
+background-repeat:no-repeat;
+background-position:0px 10px;
+}
+.license_form .button_buy
+{
+	background-image:url({/literal}{$resource_url}{literal}/common/images/blue-button-buy_bg.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    display: block;
+    height: 27px;
+    line-height: 26px;
+    padding-right: 20px;
+    text-align: center;
+    width: 78px;
+    text-decoration:none;
+    margin-left:18px;
+}
+.license_form .button_buy:hover {
+    background-position: left -27px;
+}
+.license_form .button_buy:active {
+    background-position: left -54px;
+}
+{/literal}
+</style>
+<div class="license_form" >
+{if $form.appInfo.APP_PREVIEW}
+	<div class="preview" >
+	<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_PREVIEW}" style="display:block;padding-top:15px;" border="0" /></a>
+	<a href="{$form.appInfo.APP_PURCHASE}" class="button_buy" >{t}Purchase{/t}</a>
+	</div>
+{/if}	
+
+{if $form.appInfo.APP_WEBSITE}
+	<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_LOGO}" style="display:block;padding-bottom:0px;" border="0" /></a>
+{else}
+	<img src="{$resource_url}/common/images/license/app_logo.png" style="display:block;padding-bottom:0px;" border="0" />
+{/if}
+{if !$form.appInfo.APP_PREVIEW}
+	<img class="preview" src="{$resource_url}/common/images/license/app_preview.png" style="display:block;padding-bottom:10px;" border="0" />
+{/if}	
+	<h1>{$form.title}</h1>
+	<div class="active_logic">
+		<div class="label">{$dataPanel.fld_how_to_active.label}</div>
+		<div>{$dataPanel.fld_how_to_active.element}</div>
+	</div>
+	
+	{if $dataPanel.fld_eula.label}
+	<div class="eula upline" {if $errors.fld_eula}style="height:70px;"{/if}>
+		<div class="label">{$dataPanel.fld_eula.label}</div>		
+		<div class="{if $errors.fld_eula}innerError errorBox{/if}" style="width:300px;height:20px;background-position:8px 5px;padding-bottom:8px;">
+		<label style="min-width:none;width:auto;">{$dataPanel.fld_eula.element}</label>
+		</div>
+	</div>
+	{/if}
+	
+	<div style="padding-top:5px;">
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+	</div>
+</div>
+</form>

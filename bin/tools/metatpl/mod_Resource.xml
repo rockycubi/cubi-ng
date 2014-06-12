@@ -1,0 +1,13 @@
+{if $acl.option != 3}
+		<Resource Name="{$acl.resource}">
+{if $acl.option == 1}
+            <Action Name="{$acl.access|replace:$acl.resource:''|replace:'.':''}" Description="Access {$module|capitalize|replace:'.':''}"/>
+            <Action Name="{$acl.manage|replace:$acl.resource:''|replace:'.':''}" Description="Manage {$module|capitalize|replace:'.':''}"/>
+{else if $acl.option == 2}
+            <Action Name="{$acl.access|replace:$acl.resource:''|replace:'.':''}" Description="Access {$module|capitalize|replace:'.':''}"/>
+            <Action Name="{$acl.create|replace:$acl.resource:''|replace:'.':''}" Description="Create {$module|capitalize|replace:'.':''}"/>
+            <Action Name="{$acl.update|replace:$acl.resource:''|replace:'.':''}" Description="Update {$module|capitalize|replace:'.':''}"/>
+            <Action Name="{$acl.delete|replace:$acl.resource:''|replace:'.':''}" Description="Delete {$module|capitalize|replace:'.':''}"/>
+{/if}
+		</Resource>
+{/if}

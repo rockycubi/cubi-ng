@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: EventLogListForm.xml 3365 2012-05-31 06:07:55Z rockyswen@gmail.com $
+-->
+<EasyForm Name="EventLogWidget" Class="EasyForm" SearchRule="[user_id]='{@profile:Id}'" FormType="List" jsClass="jbForm" Title="My Event Logs" Description="" BizDataObj="eventlog.do.EventlogDO" EventName="EVENT_LOG" PageSize="5" TemplateEngine="Smarty" TemplateFile="widget_grid.tpl.html" MessageFile="eventlogService.msg">
+    <DataPanel>
+	     <Element Name="fld_timestamp" Class="ColumnText" MAXLENGTH="10" FieldName="timestamp" Label="Timestamp" Sortable="Y"/>
+	     <!--<Element Name="fld_ipaddr" Class="ColumnText" FieldName="ipaddr" Label="IP Address" Sortable="Y"/>-->
+         <Element Name="fld_event" Class="ColumnText" MAXLENGTH="10" FieldName="event" Label="Type" Sortable="Y" Translatable="Y"/>
+         <Element Name="fld_message" Class="ColumnText" MAXLENGTH="20" FieldName="message" Label="Message" Sortable="Y" Translatable="Y"> 
+		 </Element>
+		 <Element Name="fld_user_id" Class="Hidden" Hidden="Y" FieldName="user_id" Label="UserID" Sortable="Y"/>
+		 <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="UserID" Sortable="Y"/>
+   </DataPanel>
+    <ActionPanel>
+    </ActionPanel> 
+   <NavPanel>
+        <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>               
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,39 @@
+<form id="{$form.name}" name="{$form.name}">
+
+<div style="padding-left:25px; padding-right:20px;">
+{include file="system_appbuilder_btn.tpl.html"}
+
+	<div>
+		<div ><h2>{$widget.title}</h2></div>
+	</div>
+		
+		{if $widget.description}
+		<p class="input_row" style="line-height:20px;padding-bottom:20px;">		
+		<span>{$widget.description}</span>
+		</p>
+		{else}
+		<div style="height:15px;"></div>
+		{/if}
+		
+		<table class="dashboard" >
+			<tr>
+				<td>
+			   {foreach item=item from=$widget.menu}
+				<div class="{$item->m_IconCSSClass}">
+					<h3>{$item->m_Name}</h3>
+					<p>{$item->m_Description}</p>	
+							{if $item->m_ChildNodes|@count > 0}
+							<ul>
+							{foreach item=subitem from=$item->m_ChildNodes}													
+									<li><a href="{if $subitem->m_URL}{$subitem->m_URL}{else}javascript:{/if}">{$subitem->m_Name}</a></li>						
+							{/foreach}	
+							</ul>
+							{/if}
+				</div>
+				{/foreach}
+				</td>	
+			</tr>			
+		</table>
+</div>
+
+</form>		

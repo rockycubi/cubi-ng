@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ChangeLogLOV.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<Selection>   
+   <Status Value="Planning" text="Planning"/>
+   <Status Value="Developing" text="Developing"/>
+   <Status Value="Finished" text="Finished"/>
+   
+   <Type Value="Bug_Fixed" text="Bug Fixed"/>
+   <Type Value="New_Feature" text="New Feature"/>
+   <Type Value="Security" text="Security"/>
+   
+</Selection>

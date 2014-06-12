@@ -1,0 +1,21 @@
+{php}
+$this->assign('template_file', 'system_right_listform.tpl.html');
+{/php}
+{literal}
+<style>
+#main #right_panel .content table.input_row td .label_text{
+width:350px;
+}
+#system\.form\.AclRoleActionsForm .action_panel{
+width:240px;
+}
+#system\.form\.AclRoleActionsForm .search_panel{
+width:450px;
+}
+.search_panel select{
+float:left;
+margin-right:5px;
+}
+</style>
+{/literal}
+{include file=$template_file}

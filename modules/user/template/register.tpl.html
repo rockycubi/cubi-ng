@@ -1,0 +1,26 @@
+<form id="{$form.name}" name="{$form.name}">
+
+<div class="register-block new-user" >
+	
+	<div class="form-title"><h1>{$form.title}</h1></div>
+	
+	{foreach item=item key=itemName from=$dataPanel}
+		<p class="input_row" style="height:40px;">
+			<label class="form-label">{$item.label}</label>
+			<span>{$item.element}</span>
+			{if $errors.$itemName}
+			<span class="input_error_msg" >{$errors.$itemName}</span>
+			{elseif $item.description}
+			<span class="input_desc" >{$item.description}</span>			
+			{/if}			
+		</p>
+	{/foreach}
+
+		<p class="input_row">
+			<label class="form-label"></label>
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+</div>
+</form>

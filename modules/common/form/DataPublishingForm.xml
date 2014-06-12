@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: DataPublishingForm.xml 3355 2012-05-31 05:43:33Z rockyswen@gmail.com $
+-->
+<EasyForm Name="DataPublishingForm" Icon="{RESOURCE_URL}/common/images/icon_data_publishing.gif" Class="DataPublishingForm" FormType="Edit" jsClass="jbForm" Title="Data Publishing" Description="Publish your data to specified group or global groups." BizDataObj="" TemplateEngine="Smarty" TemplateFile="data_publishing_form.tpl.html" >
+    <DataPanel>
+    	
+    	<Element Name="fld_data_record"  Class="LabelText"  ElementSet="Data Sharing"  FieldName="data_record" Label="" Width="400" style="font-size:20px;color:#333333;line-height:24px;" />
+    	<Element Name="fld_has_owner_field" Hidden="Y" Class="LabelText"  ElementSet="Data Sharing"  FieldName="hasOwnerField" Label="Data Type"  />
+    	<Element Name="fld_editable" Hidden="Y" Class="LabelText"  ElementSet="Data Sharing"  FieldName="editable" Label="Data Type"  />
+    	<Element Name="fld_has_ref_data" Hidden="Y" Class="LabelText"  ElementSet="Data Sharing"  FieldName="has_ref_data" Label="Data Type"  />
+    	
+		<Element Name="fld_creator"  Class="LabelText"  ElementSet="Data Sharing" width="450" FieldName="creator_name" Label="Data Creator"  />
+
+		<Element Name="fld_group_perm" Hidden="{@:Elem[fld_editable].Value==1?'Y':'N'}"   Class="LabelList"  SelectFrom="common.lov.DataPublishingLOV(PublishStatus)" ElementSet="Data Sharing" Description="Publish status of data" FieldName="group_perm" Label="Status"  />
+        <Element Name="fld_group_perm_setting" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}"   Class="Listbox"  SelectFrom="common.lov.DataPublishingLOV(PublishStatus)" ElementSet="Data Sharing" Description="Publish status of data" FieldName="group_perm" Label="Status"  >
+        	<EventHandler Name="fld_group_perm_setting_onchange" EventLogMsg="" Event="onchange" Function="UpdateForm()"  />
+		</Element>	
+		
+
+        <Element Name="fld_other_perm" Hidden="{(@:Elem[fld_editable].Value==0 &amp;&amp; @:Elem[fld_group_perm_setting].Value==1)?'N':'Y'}" Class="LabelList"  SelectFrom="common.lov.DataPublishingLOV(PublishLevel)" ElementSet="Data Sharing" Description="Publish the data to all users" FieldName="other_perm" Label="Level"  />		
+		<Element Name="fld_other_perm_setting" Hidden="{(@:Elem[fld_editable].Value==1 &amp;&amp; @:Elem[fld_group_perm_setting].Value==1)?'N':'Y'}" Class="Listbox"  SelectFrom="common.lov.DataPublishingLOV(PublishLevel)" ElementSet="Data Sharing" Description="Publish the data to all users" FieldName="other_perm" Label="Level"  >
+			<EventHandler Name="fld_other_perm_setting_onchange" EventLogMsg="" Event="onchange" Function="UpdateForm()"  />
+		</Element>		
+
+		
+    	<Element Name="fld_group" Hidden="{(@:Elem[fld_editable].Value==0 &amp;&amp; @:Elem[fld_other_perm_setting].Value==0 &amp;&amp; @:Elem[fld_group_perm_setting].Value==1)?'N':'Y'}"  Class="LabelText"  ElementSet="Data Sharing" Description="Publish the data to specified group users " FieldName="group_name" Label="Group"  />    	
+    	<Element Name="fld_group_setting" Hidden="{(@:Elem[fld_editable].Value==1 &amp;&amp; @:Elem[fld_other_perm_setting].Value==0  &amp;&amp; @:Elem[fld_group_perm_setting].Value==1)?'N':'Y'}"  Class="Listbox" SelectFrom="system.do.GroupDO[name:Id]" ElementSet="Data Sharing" Description="Publish the data to specified group users " FieldName="group_id" Label="Group"  />
+        
+        		
+        <Element Name="fld_notify_users" Class="Checkbox"  ElementSet="Data Sharing" Description="Notify users by email" DefaultChecked="N" DefaultValue="0" SelectFrom="1" FieldName="notify_user" Label="Notify User"  />
+         		
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="btn_ok" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}" Class="Button" Text="OK" CssClass="button_gray_m">
+            <EventHandler Name="btn_ok_onclick" EventLogMsg="" Event="onclick" Function="ShareRecord()" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+		<Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: RoleDetailForm.xml 5503 2014-05-28 14:24:23Z rockyswen@gmail.com $
+-->
+<EasyForm Name="RoleDetailForm" Icon="icon_roles.gif" Class="EasyForm" FormType="" jsClass="jbForm" Title="Role Details" Description="Detailed attributes of a given role" DataService="/system/roles" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
+    <DataPanel>
+        <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>
+        <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name"/>
+                <Element Name="fld_startpage" Class="LabelText" FieldName="startpage" Label="Default Page"/>        
+        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description"/>
+        
+        <Element Name="fld_status" Class="LabelBool" FieldName="status" Label="Status" Link="javascript:;">
+			<!--<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>-->
+		</Element>
+        <Element Name="fld_default" Class="LabelBool" FieldName="default" Label="Default" Link="javascript:;">
+			<!--<EventHandler Name="fld_default_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_default,{@:Elem[fld_default].Value})"/>-->		
+		</Element>		
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="LabelText" Text="Add" CssClass="button_gray_add" Link="{@home:url}/system/role_new">
+        </Element>    
+        <Element Name="lnk_list" Class="LabelText" Text="Back" CssClass="button_gray_m" Link="{@home:url}/system/role_list">
+        </Element>
+        <Element Name="lnk_edit" Class="LabelText" Text="Edit" CssClass="button_gray_m" Link="{@home:url}/system/role_edit/{{dataobj.Id}}">
+        </Element>
+		<!--
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="{@home:url}/system/role_list"/>
+        </Element>-->
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,8 @@
+<MenuWidget Name="MainLeftCollaborationMenu" Title="Collaboration" Class="MenuWidget" CssCLass="collaboration" BizDataObj="menu.do.SystemMenuDO" StartMenuID="0-3"  MenuDeep="2" TemplateEngine="Smarty" TemplateFile="system_left_menu.tpl.html" CacheLifeTime="0">
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: MainLeftCollaborationMenu.xml 3364 2012-05-31 06:06:21Z rockyswen@gmail.com $
+-->
+</MenuWidget>

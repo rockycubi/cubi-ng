@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: AccountEditView.xml 3375 2012-05-31 06:23:11Z rockyswen@gmail.com $
+-->
+<EasyView Name="AccountEditView" Description="Edit My Account" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="user_view.tpl.html"  Access="UserAccount.Edit_Own_Account">
+   <FormReferences>
+       <Reference Name="user.form.AccountEditForm"/>
+   </FormReferences>
+</EasyView>

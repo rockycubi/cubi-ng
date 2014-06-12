@@ -1,0 +1,191 @@
+<?xml version="1.0"  encoding="UTF-8" ?>
+
+<!-- todo
+jsMin, SvnCheckout, Version, Documentor
+-->
+
+<project name="cubi" basedir="../" default="dist">
+    <property file="build/cubi.properties" />
+
+    <property name="package"  value="cubi-ex" override="true" />
+    <property name="builddir" value="build/src/${package}" override="true" />
+    <property name="srcdir"   value="${project.basedir}" override="true" />
+    <property name="distdir" value="build/dist/${package}" override="true" />
+    <property name="distfile" value="${distdir}/${package}-${build.version}.${build.release}.tar.gz" override="true" />
+
+    <!-- Fileset for base source files -->
+    <fileset dir="." id="cubisrc">
+        <include name=".htaccess" />
+        <include name="application.xml" />
+        <include name="*.php" />
+        <include name="favicon.ico" />
+        <exclude name="install.lock" />
+        <include name="bin/**" />
+        <include name="example/**" />        
+        <include name="build/*" />
+        <include name="build/src" />
+        <include name="build/dist" />
+        <include name="build/encoded" />
+        <include name="files/cache" />
+        <include name="files/sec_upload" />
+        <include name="files/tpl_cpl" />
+        <include name="files/tmpfiles" />
+        <include name="files/upload" />
+        <include name="images/*.gif" />
+        <include name="images/*.jpg" />
+        <include name="images/*.png" />
+        <include name="images/nations/16x12/*" />
+        <include name="images/nations/22x14/*" />
+        <include name="install/**" />
+        <include name="js/**" />       
+        <include name="languages/dictionary/**" />
+        <include name="languages/en_US/**" />
+        <include name="languages/zh_CN/**" />
+        <include name="languages/id_ID/**" />
+        <include name="log/.htaccess" />
+        <include name="messages/**" />
+        <include name="docs/**" />
+        <include name="pages/*.html" />
+        <include name="session/.htaccess" />
+        <include name="resources/.htaccess" />
+        <include name="themes/default/**" />
+        <include name="themes/fullwidth/**" />
+        <include name="modules/attachment/**" />
+		<include name="modules/backup/**" />
+		<include name="modules/cache/**" />
+        <include name="modules/changelog/**" />
+        <include name="modules/chart/**" />
+        <include name="modules/common/**" />        
+        <include name="modules/contact/**" />
+        <include name="modules/cronjob/**" />
+        <include name="modules/email/**" />
+        <include name="modules/eventlog/**" />
+        <include name="modules/extend/**" />
+        <include name="modules/help/**" />
+        <include name="modules/location/**" />
+        <include name="modules/market/**" />
+        <include name="modules/menu/**" />
+        <include name="modules/myaccount/**" />
+        <include name="modules/notification/**" />
+        <include name="modules/picture/**" />  
+		<include name="modules/security/**" />
+        <include name="modules/service/**" />
+        <include name="modules/system/**" />
+		<include name="modules/theme/**" />        
+		<include name="modules/translation/**" />		
+        <include name="modules/user/**" />	
+        <include name="modules/websvc/**" />
+        
+        <!-- Cubi Ex modules -->
+        <include name="modules/oauth/**" />
+        <include name="modules/sms/**" />
+        <include name="modules/payment/**" />
+        <include name="modules/repository/**" />
+        <include name="modules/account/**" />
+        <include name="modules/product/**" />
+    </fileset>
+    
+    <fileset dir="openbiz" id="openbizsrc">
+        <include name="license.txt" />
+        <include name="bin/**" />
+        <include name="messages/**" />
+        <include name="metadata/**" />
+        <include name="others/Smarty/**" />
+        <include name="others/Zend/*.php"/>
+        <include name="others/Zend/Cache/**"/>
+        <include name="others/Zend/Crypt/**"/>
+        <include name="others/Zend/Db/**"/>
+        <include name="others/Zend/Json/**"/>
+        <include name="others/Zend/Loader/**"/>
+        <include name="others/Zend/Locale/**"/>
+        <include name="others/Zend/Log/**"/>
+        <include name="others/Zend/Mail/**"/>
+        <include name="others/Zend/Mime/**"/>
+        <include name="others/Zend/Translate/**"/>
+        <include name="others/Zend/Validate/**"/>
+        <include name="others/Zend/View/**"/>
+        <include name="others/ZendX/**"/>
+    </fileset>
+
+    <fileset dir="." id="asset">
+        <include name="build/encoded/cubi_asset/modules/asset/**" />
+    </fileset>
+
+	<fileset dir="." id="calendar">
+        <include name="build/encoded/cubi_calendar/modules/calendar/**" />
+    </fileset>
+    
+    <fileset dir="." id="project">
+        <include name="build/encoded/cubi_project/modules/project/**" />
+    </fileset>
+    
+    <fileset dir="." id="collab">
+        <include name="build/encoded/cubi_collab/modules/collab/**" />
+    </fileset>
+    
+    <!-- ============================================  -->
+    <!-- Target: build                                 -->
+    <!-- ============================================  -->
+    <target name="build" description="build source">
+        <echo msg="Copy license file..." />
+        <copy file="build/cubi.license.txt" tofile="${builddir}/license.txt" />
+        <echo msg="Copy cubi source files..." />
+        <copy todir="${builddir}">
+            <fileset refid="cubisrc" />
+        </copy>
+        <echo msg="Copy encoded module files..." />
+        <copy todir="${builddir}/modules/asset">
+            <fileset refid="asset" />
+        </copy>     
+        <copy todir="${builddir}/modules/calendar">
+            <fileset refid="calendar" />
+        </copy>
+        <copy todir="${builddir}/modules/project">
+            <fileset refid="project" />
+        </copy>
+        <copy todir="${builddir}/modules/collab">
+            <fileset refid="collab" />
+        </copy>   
+        <echo msg="Copy openbiz source files..." />
+        <copy todir="${builddir}/openbiz">
+            <fileset refid="openbizsrc" />
+        </copy>
+        <echo msg="Files copied and compressed in build directory OK!" />
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: dist                        -->
+    <!-- ============================================  -->
+    <target name="dist" depends="build, tar">
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- Target: tar                                   -->
+    <!-- ============================================  -->
+    <target name="tar">
+        <echo msg="Creating archive at ${builddir}..." />
+        <mkdir dir="${distdir}" />
+        <delete file="${distfile}" />
+        <tar destfile="${distfile}" compression="gzip">
+            <fileset dir="${builddir}" />                
+        </tar>
+        <echo msg="Distribution file is created in build directory OK!" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: Rebuild                               -->
+    <!-- ============================================  -->
+    <target name="rebuild" description="rebuilds this package">
+        <delete dir="${builddir}" />
+        <delete file="${distfile}" />
+        <phingcall target="dist" />
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- Target: Clean                                 -->
+    <!-- ============================================  -->
+    <target name="clean" description="clean this package">
+        <delete dir="${builddir}" />
+        <delete file="${distfile}" />
+    </target>
+</project>

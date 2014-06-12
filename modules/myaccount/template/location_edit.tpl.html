@@ -1,0 +1,55 @@
+<form id="{$form.name}" name="{$form.name}">
+<div style="padding-left:25px; padding-right:40px;">
+{include file="system_appbuilder_btn.tpl.html"}
+	<div>
+		{if $form.icon !='' }
+	<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+	{/if}
+		<div ><h2>{$form.title}</h2></div>
+	</div>
+		{if $form.description}
+		<p class="input_row" style="line-height:20px;padding-bottom:0px;height:25px;">		
+		<span>{$form.description}</span>
+		</p>
+		{else}
+		<div style="height:15px;"></div>
+		{/if}
+	<div style="padding-left:10px;" >
+
+		<!-- Location Section -->
+		<div class="upline" style="height:auto;">
+			{foreach name=phone item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Locations"}			
+					{if $smarty.foreach.phone.index is odd}
+					<table  id="{$itemName}_container" class="input_row" style="height:auto;">
+					{else}
+					<table  id="{$itemName}_container" class="input_row" style="padding-right:65px;height:auto;">
+					{/if}
+					<tr>
+						<td>				
+							<span class="label_text" style="float:none;width:auto;height:auto;">{$item.element}</span>					
+						</td>
+					</tr>
+					</table>
+				{/if}						
+			{/foreach}			
+		</div>
+		
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+	</div>
+	
+		<div style="height:15px;">
+		<div id='{$form.name}.load_disp' style="display:none;">
+		<img  src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+		</div>
+	
+</div>
+
+</form>

@@ -1,0 +1,54 @@
+<form id="{$form.name}" name="{$form.name}">
+<br/>
+<div style="padding-left:25px; ">
+	<table ><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon" style="float:left;padding-right:10px;"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+		<div style="float:left; width:350px;">
+		<h2>
+		{$form.title}
+		</h2> 
+		<p class="form_desc" style="padding-top:10px;">{$form.description}</p>
+		</div>
+	</td></tr></table>
+	<div style="padding-left:30px;">
+	{foreach item=item key=itemName from=$dataPanel}
+		<table class="input_row">
+		<tr>
+		<td >	
+			<label style="text-align:left;width:300px;">{$item.label}</label>
+		</td>
+		</tr>
+		<tr>
+		<td>
+			<span class="label_text">{$item.element}</span>
+			{if $errors.$itemName}
+			<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+			{elseif $item.description}
+			<span class="input_desc" style="width:240px;">{$item.description}</span>			
+			{/if}
+		</td>
+		</tr>
+		</table>
+	{/foreach}
+		
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+	</div>
+	
+		<div style="height:15px;">
+		<div id='{$form.name}.load_disp' style="display:none;">
+		<img  src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+		</div>
+	
+</div>
+
+</form>
+<script>Openbiz.Window.centerDialog(500,200); </script>

@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserNewView.xml 5489 2014-05-21 07:22:53Z rockyswen@gmail.com $
+-->
+<EasyView Name="UserNewView" Description="User Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_right_panel.tpl.html" PageTemplate="view.tpl.html" Access="User.Administer_Users">
+    <FormReferences>
+        <Reference Name="system.form.UserNewForm"/>
+    </FormReferences>
+</EasyView>

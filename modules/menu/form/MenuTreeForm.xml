@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: MenuTreeForm.xml 3364 2012-05-31 06:06:21Z rockyswen@gmail.com $
+-->
+<EasyForm Name="MenuTreeForm" icon="icon_menu_tree.gif" Class="EasyFormTree" RootSearchRule="[PId]=''"  TitleField="title" FormType="List" jsClass="jbForm" Title="Manage Menu by Tree" Description="Menu Management by list view,\n The menu stucture in this view is a b-tree." BizDataObj="menu.do.MenuTreeListDO" PageSize="10" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="MENU" MessageFile="">
+    <DataPanel>
+	        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Hidden="Y" Class="Hidden" FieldName="Id" Label="Name" Sortable="Y" AllowURLParam="N" />
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(menu.form.MenuDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>		
+        <Element Name="fld_desc" Class="ColumnText" MaxLength="30" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+	
+        <Element Name="fld_published" Class="ColumnBool" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_published,{@:Elem[fld_published].Value})"/>		
+		</Element>	
+        <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
+        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
+        </Element>        
+               		
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+			<EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(menu.form.MenuNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=menu.form.MenuEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)" >
+            <EventHandler Name="btn_copy_onclick" Event="onclick" EventLogMsg="" Function="CopyRecord()" RedirectPage="form=menu.form.MenuCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element>
+                
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+   
+    </NavPanel> 
+    <SearchPanel>
+
+    </SearchPanel>
+</EasyForm>

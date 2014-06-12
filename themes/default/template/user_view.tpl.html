@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+{$style_sheets}
+{$scripts}
+<link rel="stylesheet" href="{$css_url}/general.css" type="text/css" />
+<link rel="stylesheet" href="{$css_url}/login.css" type="text/css" />
+<link rel="stylesheet" href="{$css_url}/openbiz.css" type="text/css" />
+<link rel="stylesheet" href="{$app_url}/languages/{$lang_name}/localization.css" type="text/css" />
+<script src="{$js_url}/angular/angular.js"></script>
+</head>
+
+<body ng-app="cubiViewApp">
+
+<script>
+var cubiViewApp = angular.module('cubiViewApp',[]);
+</script>
+
+<div align="center">
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) ){ {/php}
+<div id="wrap_header_padding" style="height:80px;"></div>
+{php}}{/php}
+	<div id="wrap">
+		<div id="login_box">
+				<div id="forms" >
+					<div style="height:25px;"></div>
+					{foreach item=form from=$forms}
+					   <div>{$form}</div>
+					{/foreach}
+				</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

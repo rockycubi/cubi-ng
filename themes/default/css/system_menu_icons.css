@@ -1,0 +1,237 @@
+/* CSS Document */
+
+#main #left_panel .content .system li img,
+#main #nav li img{
+	background-image:url(../images/left_menu_icon_system.gif);
+}
+
+#main #left_panel .content .system .icon_user,
+#main #nav .icon_user{
+	background-position:left -16px;
+}
+#main #left_panel .content .system .icon_role,
+#main #nav .icon_role{
+	background-position:left -32px;
+}
+#main #left_panel .content .system .icon_module,
+#main #nav .icon_module{
+	background-position:left -48px;
+}
+#main #left_panel .content .system .icon_eventlog,
+#main #nav .icon_eventlog{
+	background-position:left -64px;
+}
+#main #left_panel .content .system .icon_cache,
+#main #nav .icon_cache{
+	background-position:left -80px;
+}
+#main #left_panel .content .system .icon_cronjob,
+#main #nav .icon_cronjob{
+	background-position:left -96px;
+}
+#main #left_panel .content .system .icon_email_queue,
+#main #nav .icon_email_queue{
+	background-position:left -112px;
+}
+#main #left_panel .content .system .icon_email_log,
+#main #nav .icon_email_log{
+	background-position:left -128px;
+}
+#main #left_panel .content .system .icon_help,
+#main #nav .icon_help{
+	background-position:left -144px;
+}
+#main #left_panel .content .system .icon_translation,
+#main #nav .icon_translation{
+	background-position:left -160px;
+}
+#main #left_panel .content .system .icon_menu,
+#main #nav .icon_menu{
+	background-position:left -176px;
+}
+#main #left_panel .content .system .icon_theme,
+#main #nav .icon_theme{
+	background-position:left -192px;
+}
+#main #left_panel .content .system .icon_security,
+#main #nav .icon_security{
+	background-position:left -208px;
+}
+#main #left_panel .content .system .icon_corp,
+#main #nav .icon_corp{
+	background-position:left -224px;
+}
+#main #left_panel .content .system .icon_group,
+#main #nav .icon_group{
+	background-position:left -240px;
+}
+#main #left_panel .content .system .icon_report,
+#main #nav .icon_report{
+	background-position:left -256px;
+}
+#main #left_panel .content .system .icon_my_report,
+#main #nav .icon_my_report{
+	background-position:left -256px;
+}
+#main #left_panel .content .system .icon_myaccount,
+#main #nav .icon_myaccount{
+	background-position:left -272px;
+}
+#main #left_panel .content .system .icon_my_pdf,
+#main #nav .icon_my_pdf{
+	background-position:left -288px;
+}
+#main #left_panel .content .system .icon_pdf,
+#main #nav .icon_pdf{
+	background-position:left -288px;
+}
+#main #left_panel .content .system .icon_backup,
+#main #nav .icon_backup{
+	background-position:left -304px;
+}
+#main #left_panel .content .system .icon_system,
+#main #nav .icon_group{
+	background-position:left -318px;
+}
+#main #left_panel .content .system .icon_market
+{
+	background-position:left -334px;
+}
+#main #left_panel .content .system .icon_websvc
+{
+	background-position:left -350px;
+}
+#main #left_panel .content .system .icon_repository
+{
+	background-position:left -366px;
+}
+#main #left_panel .content .system .icon_extension
+{
+	background-position:left -382px;
+}
+/* --for hovers */
+#main #left_panel .content .system a:hover .icon_user,
+#main #left_panel .content .system a.current .icon_user,
+#main #left_panel .content .system a:active .icon_user{
+	background-position:right -16px;
+}
+#main #left_panel .content .system a:hover .icon_role,
+#main #left_panel .content .system a.current .icon_role,
+#main #left_panel .content .system a:active .icon_role{
+	background-position:right -32px;
+}
+#main #left_panel .content .system a:hover .icon_module,
+#main #left_panel .content .system a.current .icon_module,
+#main #left_panel .content .system a:active .icon_module{
+	background-position:right -48px;
+}
+#main #left_panel .content .system a:hover .icon_eventlog,
+#main #left_panel .content .system a.current .icon_eventlog,
+#main #left_panel .content .system a:active .icon_eventlog{
+	background-position:right -64px;
+}
+#main #left_panel .content .system a:hover .icon_cache,
+#main #left_panel .content .system a.current .icon_cache,
+#main #left_panel .content .system a:active .icon_cache{
+	background-position:right -80px;
+}
+#main #left_panel .content .system a:hover .icon_cronjob,
+#main #left_panel .content .system a.current .icon_cronjob,
+#main #left_panel .content .system a:active .icon_cronjob{
+	background-position:right -96px;
+}
+#main #left_panel .content .system a:hover .icon_email_queue,
+#main #left_panel .content .system a.current .icon_email_queue,
+#main #left_panel .content .system a:active .icon_email_queue{
+	background-position:right -112px;
+}
+#main #left_panel .content .system a:hover .icon_email_log,
+#main #left_panel .content .system a.current .icon_email_log,
+#main #left_panel .content .system a:active .icon_email_log{
+	background-position:right -128px;
+}
+#main #left_panel .content .system a:hover .icon_help,
+#main #left_panel .content .system a.current .icon_help,
+#main #left_panel .content .system a:active .icon_help{
+	background-position:right -144px;
+}
+#main #left_panel .content .system a:hover .icon_translation,
+#main #left_panel .content .system a.current .icon_translation,
+#main #left_panel .content .system a:active .icon_translation{
+	background-position:right -160px;
+}
+#main #left_panel .content .system a:hover .icon_menu,
+#main #left_panel .content .system a.current .icon_menu,
+#main #left_panel .content .system a:active .icon_menu{
+	background-position:right -176px;
+}
+#main #left_panel .content .system a:hover .icon_theme,
+#main #left_panel .content .system a.current .icon_theme,
+#main #left_panel .content .system a:active .icon_theme{
+	background-position:right -192px;
+}
+#main #left_panel .content .system a:hover .icon_security,
+#main #left_panel .content .system a.current .icon_security,
+#main #left_panel .content .system a:active .icon_security{
+	background-position:right -208px;
+}
+#main #left_panel .content .system a:hover .icon_corp,
+#main #left_panel .content .system a.current .icon_corp,
+#main #left_panel .content .system a:active .icon_corp{
+	background-position:right -224px;
+}
+#main #left_panel .content .system a:hover .icon_group,
+#main #left_panel .content .system a.current .icon_group,
+#main #left_panel .content .system a:active .icon_group{
+	background-position:right -240px;
+}
+#main #left_panel .content .system a:hover .icon_report,
+#main #left_panel .content .system a.current .icon_report,
+#main #left_panel .content .system a:active .icon_report{
+	background-position:right -256px;
+}
+#main #left_panel .content .system a:hover .icon_my_report,
+#main #left_panel .content .system a.current .icon_my_report,
+#main #left_panel .content .system a:active .icon_my_report{
+	background-position:right -256px;
+}
+#main #left_panel .content .system a:hover .icon_myaccount,
+#main #left_panel .content .system a.current .icon_myaccount,
+#main #left_panel .content .system a:active .icon_myaccount{
+	background-position:right -272px;
+}
+#main #left_panel .content .system a:hover .icon_mypdf,
+#main #left_panel .content .system a.current .icon_mypdf,
+#main #left_panel .content .system a:active .icon_mypdf{
+	background-position:right -288px;
+}
+#main #left_panel .content .system a:hover .icon_pdf,
+#main #left_panel .content .system a.current .icon_pdf,
+#main #left_panel .content .system a:active .icon_pdf{
+	background-position:right -288px;
+}
+#main #left_panel .content .system a:hover .icon_backup,
+#main #left_panel .content .system a.current .icon_backup,
+#main #left_panel .content .system a:active .icon_backup{
+	background-position:right -304px;
+}
+#main #left_panel .content .system a:hover .icon_system,
+#main #left_panel .content .system a.current .icon_system,
+#main #left_panel .content .system a:active .icon_system{
+	background-position:right -318px;
+}
+#main #left_panel .content .system a:hover .icon_websvc,
+#main #left_panel .content .system a.current .icon_websvc,
+#main #left_panel .content .system a:active .icon_websvc{
+	background-position:right -350px;
+}
+#main #left_panel .content .system a:hover .icon_repository,
+#main #left_panel .content .system a.current .icon_repository,
+#main #left_panel .content .system a:active .icon_repository{
+	background-position:right -366px;
+}
+#main #left_panel .content .system a:hover .icon_extension,
+#main #left_panel .content .system a.current .icon_extension,
+#main #left_panel .content .system a:active .icon_extension{
+	background-position:right -382px;
+}

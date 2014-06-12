@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: SessionDO.xml 5508 2014-06-01 00:32:52Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="SessionDO" Description="" DataPermControl="N"  Class="BizDataObj" DBName="Default" Table="session" SearchRule="" SortRule="[create_time] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="id" Length="32" Type="Text"/>
+        <BizField Name="user_id" Column="user_id" Type="Number"/>
+		<BizField Name="username" Join="user" Column="username" Type="Number"/>
+        <BizField Name="expiration" Column="expiration" Type="Number"/>
+        <BizField Name="data" Column="data" Type="Text"/>
+        <BizField Name="ipaddr" Column="ipaddr" Type="Text"/>
+        <BizField Name="last_url" Column="last_url" Type="Text"/>
+        <BizField Name="create_time" Column="create_time" />
+        <BizField Name="update_time" Column="update_time" />
+	</BizFieldList>
+    <TableJoins>
+		<Join Name="user" Table="user" Column="id" ColumnRef="user_id" JoinType="LEFT JOIN"/>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

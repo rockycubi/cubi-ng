@@ -1,0 +1,6 @@
+LOGIN_FAILED  = "Login Failed."
+PASSWORD_INCORRECT  = "Password Incorrect."
+SMARTCARD_INCORRECT = "ID Card Incorrect."
+PERM_INCORRECT = "Setting Incorrect."
+FORM_ELEMENT_REQUIRED = "Required."
+FORM_ELEMENT_INVALID_INPUT = "%s Invalid."

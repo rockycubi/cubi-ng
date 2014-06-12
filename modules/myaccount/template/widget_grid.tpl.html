@@ -1,0 +1,99 @@
+<div id='{$form.name}' name='{$form.name}'>
+<style>
+{literal}
+table.input_row .form_footer_panel .navi_panel label{
+color:#666666;
+}
+.form_table .odd td{
+background-color:#f8f8f8;
+}
+{/literal}
+</style>
+
+<h2 style="display:none">{$form.title}</h2>
+
+<div style="padding-left:0px;padding-right:0px;">
+<div class="from_table_container lite_table" style="width:auto;">
+<!-- table start -->
+<table border="0" cellpadding="0" cellspacing="0" class="form_table" style="width:100%;border-color:#efefef;border-color-bottom:#aaaaaa" id="{$form.name}_data_table">
+	<thead>		
+     {foreach item=cell key=elems_name from=$dataPanel.elems}	
+     	{if $cell.type=='ColumnStyle'}
+     		{assign var=row_style_name value=$elems_name}     	
+		{else}
+			{if $cell.type=='RowCheckbox'}
+				{assign var=th_style value="text-align:left;padding-left:10px;"}
+			{else}
+				{assign var=th_style value=""}
+			{/if}
+         <th  style="background-image:none;background-color:#efefef;color:#AAAAAA;border-color:#cccccc" class="table_header_lite"
+				nowrap="nowrap" style="{$th_style}"
+			>{$cell.label}</th>	 
+		{/if}
+     {/foreach}
+	</thead>
+     {assign var=row_counter value=0}            
+     {foreach item=row from=$dataPanel.data}
+     	
+     	 {if $row.$row_style_name != ''}
+     	 	{assign var=row_style value=$dataPanel.data.$row_counter.$row_style_name}
+     	 {else}
+     	 	{assign var=row_style value=''}
+     	 {/if}
+     	 
+
+          {if $row_counter is odd}
+		   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" style="{$row_style}" class="odd">
+         {else}
+			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" style="{$row_style}" class="even">
+         {/if}
+         
+         {assign var=col_counter value=0}    
+         {foreach key=name item=cell key=cell_name from=$row}
+         	{if $col_counter eq 0}
+         		{assign var=col_class value=' class="row_header" '}    
+         	{else}
+         		{assign var=col_class value=' '}
+         	{/if}
+         	{if $cell_name != $row_style_name}
+				{if $cell_name == 'fld_type'} 
+         			{if $row_style != ''}
+         				{assign var=row_bgcolor value=padding-right:6px;border-right-width:6px;border-right-style:solid;border-right-color:#$row_style;}
+         			{else}
+         				{assign var=row_bgcolor value=padding-right:6px;border-right-width:6px;border-right-style:solid;border-right-color:#ffffff;}
+         			{/if}
+					 <td {$col_class} style="{$row_bgcolor}" nowrap="nowrap" >{$cell}</td>
+         		{else}
+         			{if $cell != ''}            	
+		              <td {$col_class} style="vertical-align:middle;{$row_style}" nowrap="nowrap" >{$cell}</td>
+		            {else}
+		              <td {$col_class} style="{$row_style}" nowrap="nowrap" >&nbsp;</td>
+		            {/if}
+         		{/if}
+            {/if}
+            {assign var=col_counter value=$col_counter+1}
+         {/foreach}
+                  
+		{assign var=row_counter value=$row_counter+1}
+		</tr>
+     {/foreach}
+  
+							
+</table>
+{if $navPanel}
+<div class="form_footer_panel" style="width:100%;">
+	<div class="ajax_indicator" style="width:60px;">
+		<div id='{$form.name}.load_disp' style="display:none" >
+			<img src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+	</div>
+	<div class="navi_panel">
+   {foreach item=elem from=$navPanel}
+		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+		{$elem.element}
+   {/foreach}				
+	</div>		
+</div>
+{/if}		
+</div>
+</div></div>

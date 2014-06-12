@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: RoleDetailView.xml 5503 2014-05-28 14:24:23Z rockyswen@gmail.com $
+-->
+<EasyView Name="RoleDetailView" Description="Role Management" class="EasyView" TemplateEngine="Smarty" TemplateFile="system_right_panel.tpl.html" PageTemplate="view.tpl.html" Access="Role.Administer_Roles">
+    <FormReferences>
+        <Reference Name="system.form.RoleDetailForm" subforms="system.form.RelatedUsersListForm"/>
+        <!--<Reference Name="system.form.RelatedUsersListForm"/>
+		<Reference Name="system.form.AclRoleActionsForm"/>-->
+		
+    </FormReferences>
+</EasyView>

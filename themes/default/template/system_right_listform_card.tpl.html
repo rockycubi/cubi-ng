@@ -1,0 +1,108 @@
+<form id='{$form.name}' name='{$form.name}'>
+<div style="padding-left:25px;padding-right:20px;">
+{include file="system_appbuilder_btn.tpl.html"}
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+		<div style="float:left; width:600px;">
+		<h2>
+		{$form.title}
+		</h2> 
+		<p class="form_desc">{$form.description}</p>
+		</div>
+	</td></tr></table>
+{if $actionPanel or $searchPanel }	
+	<div class="form_header_panel">	
+				<div class="action_panel">
+		{foreach item=elem from=$actionPanel}
+		    	{$elem.element}
+		{/foreach}
+				</div>
+				<div class="search_panel">
+		
+		{foreach item=elem from=$searchPanel}
+			{if $elem.label} {$elem.label} {/if} {$elem.element}
+		{/foreach}
+				</div>
+	</div>
+{/if}	
+
+<!-- grid start -->
+<div class="list_grid">
+{assign var=row_counter value=0}
+{foreach item=row from=$dataPanel.data}
+<div class="grid_cell">
+		{if $row_counter == 0}
+		<div 
+			id="{$form.name}-{$dataPanel.ids[$row_counter]}" normal="even" select="selected"
+			class="selected"
+			onmouseover="if(this.className!='selected')this.className='hover'" 
+			onmouseout="if(this.className!='selected')this.className='even'" 
+			onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');"
+		>
+		{else}
+		<div 
+			id="{$form.name}-{$dataPanel.ids[$row_counter]}" normal="even" select="selected"
+			class="even"
+			onmouseover="if(this.className!='selected')this.className='hover'" 
+			onmouseout="if(this.className!='selected')this.className='even'" 
+			onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');"
+		>		
+		{/if}
+		   {assign var=col_counter value=0}
+		   <div class="grid_cell_header">
+				<h4>{$row.fld_name}</h4>
+			</div>
+			<div class="grid_cell_content">
+			<ul>			
+			{foreach key=name item=cell from=$row}
+				{if $name!='fld_name' and $cell != ''}     
+				<!--  {$dataPanel.elems.$name.label} -->   		                   	
+	             <li>{$cell}</li>	
+	             {/if}           	            
+	            {assign var=col_counter value=$col_counter+1}
+	         {/foreach}		
+	         </ul>	
+			</div>
+			<div class="grid_cell_footer"></div>
+		</div>
+	</div>
+	{assign var=row_counter value=$row_counter+1}		
+    {/foreach}	
+
+</div>
+<!-- grid end -->
+
+
+<!-- table start -->
+<table border="0" cellpadding="0" cellspacing="0" class="form_table"  style="display:none" id="data_table">
+     {assign var=row_counter value=0}    
+     {foreach item=row from=$dataPanel.data}
+         {if $row_counter == 0}
+			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" ><td></td></tr>
+		{/if}
+	{/foreach}
+</table>
+<!-- table end -->	
+
+	<div class="form_footer_panel">
+		<div class="ajax_indicator">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel">
+
+{if $navPanel}
+   {foreach item=elem from=$navPanel}
+   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}   
+    	{$elem.element}
+   {/foreach}
+{/if}			
+		
+		</div>		
+	</div>
+	<div class="v_spacer"></div>
+</div>
+</form>

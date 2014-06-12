@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: DatabaseListForm.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<EasyForm Name="DatabaseListForm" icon="{RESOURCE_URL}/system/images/icon_database_list.png" Class="DatabaseForm" FormType="List" jsClass="jbForm" Title="Database Connection Management" Description="You can review and manage system database connection. " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" ConfigFile="application.xml" ConfigNode="DataSource" MessageFile="database.msg" Access="System.Administer_System">
+    <DataPanel>
+        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="NAME"/>
+		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/system/images/icon_database_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+   			<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.DatabaseDetailForm,{@:Elem[fld_Id].Value})"  />
+        </Element>    
+		<Element Name="fld_name" Class="ColumnText" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+   			<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.DatabaseDetailForm,{@:Elem[fld_Id].Value})"  />
+        </Element>    
+        <Element Name="fld_driver" Class="ColumnText" FieldName="DRIVER" Label="Driver"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_server" Class="ColumnText" FieldName="SERVER" Label="Server" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_user" Class="ColumnText" FieldName="USER" Label="Username"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_dbname" Class="ColumnText" FieldName="DBNAME" Label="Database"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_status" Class="ColumnBool" FieldName="STATUS" Label="Status"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        		
+    </DataPanel>
+    <ActionPanel>    	
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+			<EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(system.form.DatabaseNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=system.form.DatabaseEditForm&amp;fld:Id={@:m_RecordId}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>   
+        <Element Name="btn_test" Class="Button" Text="Test" CssClass="button_gray_m" Description="test connection (Ctrl+T)">
+            <EventHandler Name="btn_test_onclick" Event="onclick" EventLogMsg="" Function="TestConnection()"  ShortcutKey="Ctrl+T" ContextMenu="Test" />
+        </Element>             
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>
+       
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    	
+    </NavPanel> 
+    <SearchPanel>
+                  
+    </SearchPanel>
+</EasyForm>

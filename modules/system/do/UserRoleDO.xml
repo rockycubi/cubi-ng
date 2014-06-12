@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserRoleDO.xml 3408 2012-06-05 06:20:52Z agus.suhartono@gmail.com $
+-->
+<BizDataObj Name="UserRoleDO" Description="" Class="BizDataObj" DBName="Default" Table="user_role" SearchRule="" SortRule="[default] DESC" OtherSQLRule="" IdGeneration="Identity">
+    <BizFieldList>
+        <BizField Name="Id" Column="id" Type=""/>
+        <BizField Name="user_id" Column="user_id" Type=""/>
+        <BizField Name="role_id" Column="role_id" Type=""/>
+        <BizField Name="role_name" Column="name" Join="role"/>
+        <BizField Name="role_startpage" Column="startpage" Join="role"/>  
+        <BizField Name="default" Column="default" Type=""/>      
+    </BizFieldList>
+    <TableJoins>
+        <Join Name="role" Table="role" Column="id" ColumnRef="role_id" JoinType="INNER JOIN"/>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

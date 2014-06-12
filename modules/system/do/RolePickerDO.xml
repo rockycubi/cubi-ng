@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: RolePickerDO.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="RolePickerDO" Description="" Class="BizDataObj" DBName="Default" Table="role" SearchRule="" SortRule="" OtherSQLRule="" IdGeneration="Identity">
+	<BizFieldList>
+	    <BizField Name="Id" Column="id" Type=""/>
+        <BizField Name="name" Column="name" Type=""/>
+        <BizField Name="description" Column="description" Type=""/>
+        <BizField Name="startpage" Column="startpage" Type=""/>        
+        <BizField Name="status" Column="status" Type=""/>
+        <BizField Name="default" Column="default" Type=""/>
+        <BizField Name="user_default" Column="default" Type="" Join="user_role"/>
+        <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>		
+    </BizFieldList>
+    <TableJoins>
+    	<Join Name="user_role" Table="user_role" Column="role_id" ColumnRef="id" JoinType="LEFT JOIN"/>
+    </TableJoins>
+    <ObjReferences>
+    <!-- <Object Name="system.acl.d_acl_role_action" Relationship="1-M" Table="acl_role_action" Column="role_id" FieldRef="Id"/> -->
+    </ObjReferences>
+</BizDataObj>

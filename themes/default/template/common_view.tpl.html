@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+{include file='ios_webapp.tpl.html'}
+{php}}{/php}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<link rel="stylesheet" href="{$css_url}/general.css" type="text/css" />
+<link rel="stylesheet" href="{$css_url}/login.css" type="text/css" />
+{php} if (JSLIB_BASE!='JQUERY') : {/php}
+<script src="{$js_url}/jquery.js"></script>
+<script src="{$js_url}/jquery-ui-1.8.12.custom.min.js"></script>
+<script src="{$js_url}/jquery.textbox.hinter.js"></script>
+<script>{literal}try{var $j=jQuery.noConflict();}catch(e){}{/literal}</script>
+{php} endif;{/php}
+{$style_sheets}
+{$scripts}
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+<link rel="stylesheet" href="{$css_url}/ipad.css" type="text/css" />
+{php}}{/php}
+{php}if(preg_match('/Android/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+<link rel="stylesheet" href="{$css_url}/andriod.css" type="text/css" />
+{php}}{/php}
+<link rel="stylesheet" href="{$app_url}/languages/{$lang_name}/localization.css" type="text/css" />
+</head>
+
+<body>
+<div align="center">
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) ){ {/php}
+<div id="wrap_header_padding" style="height:80px;"></div>
+{php}}{/php}
+	<div id="wrap">
+		<div id="login_box">
+				<div id="forms" >
+					<div style="height:25px;"></div>
+					{foreach item=form from=$forms}
+					   <div>{$form}</div>
+					{/foreach}
+				</div>
+				<div id="loader_bg" ></div>
+				<div id="loader">
+					<div style="height:185px;"></div>
+					<div style="padding-left:300px; text-align:left">
+					<div class="loader_box">
+						<img src="{$image_url}/ajax_loader.gif" style="float:left; margin-top:8px;" />
+						<p style="float:left;margin-left:10px; padding-top:5px;" >
+						<img src="{$image_url}/loading.gif" />
+						<br/><span style="padding-left:3px;color:#aaaaaa ">{t}Please wait a while ...{/t}</span></p>
+					</div>
+					</div>			
+				</div>
+				{literal}
+				<script>
+					//$('loader_bg').fade( {from: 1, to: 0.7});
+					//$('loader').fade( {from: 0, to: 1});
+				</script>
+				{/literal}
+		</div>
+	</div>
+</div>
+{literal}
+<!--[if gte IE 6]>
+<style type="text/css">
+#loader .loader_box
+{
+background-image:url({/literal}{$theme_url}{literal}/images/loading_bg.gif);
+}
+</style>
+<![endif]-->
+{/literal}
+<script>
+window.onload=fade_loader;
+window.onunload=fadeout_loader;
+{php} if (JSLIB_BASE=='JQUERY') : {/php}
+{literal}
+function fade_loader(){
+	$('#loader').fadeOut('slow');
+	$('#loader_bg').fadeOut('slow');	
+}
+function fadeout_loader(){	
+	$('#loader_bg').fadeIn('slow');
+}
+{/literal}
+{php} else : {/php}
+{literal}
+function fade_loader(){
+	window.setTimeout("$('loader').fade( {from: 0.7, to: 0});",800);
+	window.setTimeout("$('loader_bg').fade( {from: 0.7, to: 0});",800);	
+	window.setTimeout("$('loader').hide();",2000);
+	window.setTimeout("$('loader_bg').hide();",2000);	
+}
+function fadeout_loader(){	
+	$('loader_bg').fade( {from: 0.5, to: 1});
+}
+{/literal}
+{php} endif; {/php}
+</script>
+
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+<script src="{$js_url}/ios_webapp.js"></script>
+{php}}{/php}
+</body>
+</html>

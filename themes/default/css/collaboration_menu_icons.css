@@ -1,0 +1,48 @@
+/* CSS Document */
+
+#main #left_panel .content .collaboration li img{
+	background-image:url(../images/left_menu_icon_collaboration.gif);
+}
+#main #left_panel .content .collaboration .icon_calender{
+	background-position:left 0px;
+}
+#main #left_panel .content .collaboration .icon_contact{
+	background-position:left -16px;
+}
+#main #left_panel .content .collaboration .icon_task{
+	background-position:left -32px;
+}
+#main #left_panel .content .collaboration .icon_message{
+	background-position:left -48px;
+}
+#main #left_panel .content .collaboration .icon_note{
+	background-position:left -64px;
+}
+
+
+/* --for hovers */
+#main #left_panel .content .collaboration a:hover .icon_calender,
+#main #left_panel .content .collaboration a.current .icon_calender,
+#main #left_panel .content .collaboration a:active .icon_calender{
+	background-position:right -0px;
+}
+#main #left_panel .content .collaboration a:hover .icon_contact,
+#main #left_panel .content .collaboration a.current .icon_contact,
+#main #left_panel .content .collaboration a:active .icon_contact{
+	background-position:right -16px;
+}
+#main #left_panel .content .collaboration a:hover .icon_task,
+#main #left_panel .content .collaboration a.current .icon_task,
+#main #left_panel .content .collaboration a:active .icon_task{
+	background-position:right -32px;
+}
+#main #left_panel .content .collaboration a:hover .icon_message,
+#main #left_panel .content .collaboration a.current .icon_message,
+#main #left_panel .content .collaboration a:active .icon_message{
+	background-position:right -48px;
+}
+#main #left_panel .content .collaboration a:hover .icon_note,
+#main #left_panel .content .collaboration a.current .icon_note,
+#main #left_panel .content .collaboration a:active .icon_note{
+	background-position:right -64px;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: upgrade.xml 3355 2012-05-31 05:43:33Z rockyswen@gmail.com $
+-->
+<Upgrade>
+    
+    <Version Name="1.0">
+        <UpgradeSql><![CDATA[
+        
+DROP TABLE IF EXISTS `data_acl`;
+CREATE TABLE IF NOT EXISTS `data_acl` (
+  `id` int(11) NOT NULL auto_increment,
+  `record_table` varchar(255) NOT NULL,
+  `record_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_perm` int(11) NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `record_table` (`record_table`),
+  KEY `record_id` (`record_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8  AUTO_INCREMENT=1 ;
+        ]]></UpgradeSql>
+    </Version>
+</Upgrade>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: DataACLForm.xml 3355 2012-05-31 05:43:33Z rockyswen@gmail.com $
+-->
+<EasyForm Name="DataACLForm" Icon="{RESOURCE_URL}/common/images/icon_data_sharing.gif" Pagesize="6" Class="DataACLForm" FormType="List" jsClass="jbForm" Title="Data Access Control List" Description="You can setup access permission for specified list of users." BizDataObj="common.do.DataACLDO" TemplateEngine="Smarty" TemplateFile="data_acl_form.tpl.html" >
+    <DataPanel>
+    	<Element Name="row_selections" 	Class="RowCheckbox"  Label="" FieldName="Id"/>
+    	<Element Name="fld_user"  		Class="ColumnText"	Sortable="Y"   FieldName="user_id" Text="{BizSystem::GetProfileName(@:Elem[fld_user].Value,'short')}" Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_user].Value)}" Label="User" />
+    	<Element Name="fld_perm"  		Class="ColumnList"	Sortable="Y"   FieldName="user_perm" SelectFrom="system.lov.DataPermLOV(AclPerm)" Label="Permission" />
+    	<Element Name="fld_create_by"  	Class="ColumnText"	Sortable="Y"   FieldName="create_by" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value,'short')}" Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_create_by].Value)}" Label="Create by" />
+    	<Element Name="fld_create_time" Class="ColumnText"	Sortable="Y"   FieldName="create_time" Label="Create Time"  />
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="btn_ok" Hidden="{@:m_Editable==1?'N':'Y'}" Class="Button" Text="OK" CssClass="button_gray_m">
+            <EventHandler Name="btn_ok_onclick" EventLogMsg="" Event="onclick" Function="ShareRecord()" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+		<Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+        <Element Name="btn_spacer" Hidden="{@:m_Editable==1?'N':'Y'}"  Class="Spacer" width="10" />		
+        <Element Name="btn_adv" Hidden="{@:m_Editable==1?'N':'Y'}" Class="Button" Text="Basic" CssClass="button_gray_w">
+            <EventHandler Name="btn_adv_onclick" EventLogMsg="" Event="onclick" Function="SwitchForm(common.form.DataSharingForm)"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>    
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+        <Element Name="fld_acl_group_filter"   cssclass="input_select_m" Class="DropDownList" FieldName="" Label="" SelectFrom="system.do.GroupDO[name:Id]">
+            <EventHandler Name="groupfilter_onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+    	<Element Name="fld_acl_uid"   cssclass="input_select_m" Class="DropDownList" FieldName="user_name" Label="" SelectFrom="system.do.UserContactDO[display_name:username],[group_id]='{@:Elem[fld_acl_group_filter].Value}'">
+        </Element>
+        <Element Name="fld_acl_perm"   Class="DropDownList"  SelectFrom="system.lov.DataPermLOV(AclPerm)" FieldName="user_perm"   />
+        
+        <Element Name="btn_add" Class="Button" Text="Add" CssClass="button_gray_add">
+            <EventHandler Name="btn_add_onclick" EventLogMsg="" Event="onclick" Function="AddAcl()"  />
+        </Element>
+        <Element Name="btn_spacer" Class="Spacer" width="10" />	
+         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="btn_del_onclick" EventLogMsg="" Event="onclick" Function="DeleteRecord()"  />
+        </Element>
+    </SearchPanel>
+</EasyForm>
