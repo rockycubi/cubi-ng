@@ -70,11 +70,11 @@ In Cubi-Ng, you can simply create a XML file and the framework will render the U
 
 The Benefits of Metadata Driven Development
 -------------------------------------------
-Metadata driven development means developers build business applications using metadata and not using code. Metadata is a high level definition of business objects like data model, services, forms, dialogs, validations and other things that are part of a business process.
+Metadata driven development (MDD) means developers build business applications using metadata and not using code. Metadata is a high level definition of business objects like data model, services, forms, dialogs, validations and other things that are part of a business process.
 
 Comparing metadata driven development with traditional coding or manual programming, unlike code which is tied to a specific platform or operating system, metadata is a high level definition and theoretically can run on any platform or operating system.
 
-[Metadata driven development, the Holy Grail of software development](http://janvanderhaegen.com/2011/12/19/metadata-driven-development-the-holy-grail-of-software-development/)
+More reading on MDD, [Metadata driven development, the Holy Grail of software development](http://janvanderhaegen.com/2011/12/19/metadata-driven-development-the-holy-grail-of-software-development/)
 
 Get start
 =========
