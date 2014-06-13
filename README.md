@@ -18,7 +18,8 @@ As the following chart demonstrated, web architecture has evolved through 3 stag
 - Model 1: classic web application
 - Model 2: AJAX web application
 - Model 3: Client side MV web application
-(http://blog.octo.com/wp-content/uploads/2014/03/web-application-models-over-time.png)
+
+[!web tech trend](http://blog.octo.com/wp-content/uploads/2014/03/web-application-models-over-time.png)
 
 Cubi is a mature web platform based on Model 2 (AJAX web application), Cubi-Ng is the Model 3 new generation. Its goal is to make single page application development easier.
 
