@@ -74,6 +74,8 @@ Metadata driven development means developers build business applications using m
 
 Comparing metadata driven development with traditional coding or manual programming, unlike code which is tied to a specific platform or operating system, metadata is a high level definition and theoretically can run on any platform or operating system.
 
+[Metadata driven development, the Holy Grail of software development](http://janvanderhaegen.com/2011/12/19/metadata-driven-development-the-holy-grail-of-software-development/)
+
 Get start
 =========
 - [Installation](https://github.com/rockycubi/cubi-ng/wiki/Installation)
