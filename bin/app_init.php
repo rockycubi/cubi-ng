@@ -24,10 +24,6 @@ define('OPENBIZ_HOME', dirname(dirname(__FILE__)) . "/openbiz");
  * ************************************************************************** */
 define('APP_HOME', dirname(dirname(__FILE__)));
 
-
-//enable minify 
-define('PAGE_MINIFY',0);
-
 /* website url. please change the localhost to real url */
 if (isset($_SERVER["HTTP_HOST"])) {
     define('SITE_URL', 'http://local.openbiz.me/');
@@ -37,40 +33,12 @@ if (isset($_SERVER["HTTP_HOST"])) {
 
 define('DEFAULT_SYSTEM_NAME', 'Cubi Platform');
 
-/* APP_URL is /a/b in case of http://host/a/b/index.php?... */
-$appHome = str_replace('\\', '/', APP_HOME);
-if (isset($_SERVER['DOCUMENT_ROOT'])) {
-    $appPath = str_replace($_SERVER['DOCUMENT_ROOT'], '', $appHome);
-} else {
-    $appPath = $appHome;
-}
-if ($appPath == $appHome) {
-    //support for apache alias path
-    //$doc_root = str_replace('\\','/',dirname(APP_HOME)); 
-    $doc_root = str_replace('\\', '/', APP_HOME);
-    $appPath = str_replace($doc_root, "", $appHome);
-}
-if (substr($appPath, 0, 1) != '/' && strlen($appPath) > 0) {
-    $appPath = '/' . $appPath;
-}
-if ($appPath == '/') {
-    define('APP_URL', '');
-} else {
-    if (!isset($_SERVER['HTTP_HOST'])) {
-        define('APP_URL', '');
-    } else {
-        define('APP_URL', $appPath);
-    }
-}
-
-/* define xhprof setting */
-define('XHPROF', 0);
-define('XHPROF_ROOT', '/Users/jixian/xhprof/'); /* Path to xhPorf libs root */
-define('XHPROF_URL', 'http://localhost/xhprof/xhprof_html/index.php?source=xhprof_testing&run=');
-
-/* APP_INDEX is /a/b/index.php in case of http://host/a/b/index.php?... */
+/* figure out APP_URL and APP_INDEX
+  [SCRIPT_NAME] => /cubi-ng/*.php, APP_URL is /cubi-ng, APP_INDEX is APP_URL/index.php */
 $indexScript = "/index.php"; // or "", or "/?"
-define('APP_INDEX', APP_URL . $indexScript);
+preg_match("/(\S+)\/\w+\.php/",$_SERVER['SCRIPT_NAME'],$m);
+define('APP_URL', $m[1]);
+define('APP_INDEX', APP_URL.$indexScript);
 
 /* define modules path */
 define('MODULE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "modules");
@@ -81,31 +49,15 @@ define('MODULE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "modules");
 /* define messages files path */
 define('MESSAGE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "messages");
 
-/* device */
-if (DeviceUtil::$DEVICE)
-    define('CLIENT_DEVICE', DeviceUtil::$DEVICE);
-
 /* define themes const */
 define('USE_THEME', 1);
-define('FORCE_DEFAULT_THEME', 0);
 define('THEME_URL', APP_URL . "/themes");
 define('THEME_PATH', APP_HOME . DIRECTORY_SEPARATOR . "themes");    // absolution path the themes
-if (DeviceUtil::$PHONE_TOUCH)
-    define('DEFAULT_THEME_NAME', 'touch'); // default theme for touch screen phone
-else
-    define('DEFAULT_THEME_NAME', 'default');     // name of the theme. theme files are under themes/theme_name
+define('DEFAULT_THEME_NAME', 'default');     // name of the theme. theme files are under themes/theme_name
 define('SMARTY_CPL_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files/tpl_cpl");    // smarty template compiling path
 
-/* js lib base, prototype (old) or jquery (new) */
-if (DeviceUtil::$PHONE_TOUCH)
-    define('JSLIB_BASE', "JQUERY");
-else /* define('JSLIB_BASE', "JQUERY"); */
-    define('JSLIB_BASE', "PROTOTYPE");
-/* define javascript path */
-if (JSLIB_BASE == 'JQUERY')
-    define('JS_URL', APP_URL . "/js/jq");
-else
-    define('JS_URL', APP_URL . "/js");
+/* js lib base */
+define('JS_URL', APP_URL . "/js");
 
 define('OTHERS_URL', APP_URL . "/others");
 /* Log file path */
