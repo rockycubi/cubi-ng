@@ -167,21 +167,18 @@ define('ALLOW_OWNER', 2);
 
 define('APPBUILDER', '1'); // 0: hidden, 1: show
 // load default theme
-if (FORCE_DEFAULT_THEME == 1) {
-    define('THEME_NAME', DEFAULT_THEME_NAME);
+if (@isset($_GET['theme'])) {
+	//$_GET
+	define('THEME_NAME', $_GET['theme']);
+	//save cookies
+	setcookie("THEME_NAME", $_GET['theme'], time() + 86400 * 365, "/");
+} elseif (@isset($_COOKIE['THEME_NAME'])) {
+	define('THEME_NAME', $_COOKIE['THEME_NAME']);
 } else {
-    if (@isset($_GET['theme'])) {
-        //$_GET
-        define('THEME_NAME', $_GET['theme']);
-        //save cookies
-        setcookie("THEME_NAME", $_GET['theme'], time() + 86400 * 365, "/");
-    } elseif (@isset($_COOKIE['THEME_NAME'])) {
-        define('THEME_NAME', $_COOKIE['THEME_NAME']);
-    } else {
-        //default
-        define('THEME_NAME', DEFAULT_THEME_NAME);
-    }
+	//default
+	define('THEME_NAME', DEFAULT_THEME_NAME);
 }
+
 include_once(OPENBIZ_HOME . "/bin/sysheader_inc.php");
 
 // service alias. used in expression engine
