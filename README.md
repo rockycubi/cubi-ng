@@ -37,7 +37,7 @@ Cubi-Ng is built on top of metadata driven development architecture (MDDA). It m
 
 To implement a listing UI as below
 
-![User listing UI](https://raw.githubusercontent.com/rockycubi/cubi-ng/master/images/docs/user_list.png)
+![User listing UI](https://raw.githubusercontent.com/rockycubi/cubi-docs/master/images/user_list.png)
 
 In Cubi-Ng, you can simply create a XML file and the framework will render the UI on browser. As angularjs is built-in, user  interaction experience on the listing is fast and smooth.
 ```xml
