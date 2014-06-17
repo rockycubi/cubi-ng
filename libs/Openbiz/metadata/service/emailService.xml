@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="emailService" Package="service" Class="emailService">
+   <Accounts>  
+        <Account Name="System2" Host="localhost" FromName="admin" FromEmail="admin@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Username="admin" Password="" />
+        <Account Name="SystemNotifier" Host="smtp.qq.com" FromName="System Notification" FromEmail="username@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Username="username" Password="xxxx" />
+    </Accounts>  
+    <Logging Type="DB" Object="email.do.EmailLogDO" Enabled="Y" />
+</PluginService>

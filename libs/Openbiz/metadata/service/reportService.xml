@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="reportService" Package="service" Class="reportService" TargetReportPath="D:\Tomcat5\webapps\birt-viewer\report\" ReportTemplate="dataobj.rptdesign.tpl" BIRTViewer="http://localhost:8080/birt-viewer">
+
+</PluginService>

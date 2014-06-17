@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="logService" Package="service" Class="logService">
+
+<!-- 
+Logging format options include CSV, XML and HTML
+
+Log Levels are the highest level of logging to record. 
+By default, will log all entries up to the selected level
+If this is set to FALSE, logging is disabled
+
+EMERG   = 0;  // Emergency: system is unusable
+ALERT   = 1;  // Alert: action must be taken immediately
+CRIT    = 2;  // Critical: critical conditions
+ERR     = 3;  // Error: error conditions
+WARN    = 4;  // Warning: warning conditions
+NOTICE  = 5;  // Notice: normal but significant condition
+INFO    = 6;  // Informational: informational messages
+DEBUG   = 7;  // Debug: debug messages
+
+Organize files by in different ways:
+PROFILE - pased on a profile userID
+LEVEL - Store log files groups by their level
+DATE - write log entries into a different file for each day
+LEVEL-DATE - Store log files groups by their level
+-->
+<Log_Config Format="CSV" Level="7" Org="level-date" DaysToLive="7"/>
+
+</PluginService>
