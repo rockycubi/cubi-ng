@@ -13,16 +13,17 @@
  */
 include_once ('device_util.php');
 
-/* * **************************************************************************
-  openbiz core path
- * ************************************************************************** */
-//define('OPENBIZ_HOME', 'absolute_dir/Openbiz');
-define('OPENBIZ_HOME', dirname(dirname(__FILE__)) . "/openbiz");
-
-/* * **************************************************************************
-  application related path
- * ************************************************************************** */
+/****************************************************************************
+  application home
+ ****************************************************************************/
 define('APP_HOME', dirname(dirname(__FILE__)));
+
+/****************************************************************************
+  libraries path
+ ****************************************************************************/
+define('OPENBIZ_HOME', APP_HOME . "/libs/Openbiz");
+define('SMARTY_DIR', APP_HOME . "/libs/Smarty/libs/");
+define('ZEND_FRWK_HOME', APP_HOME . "/libs/");
 
 /* website url. please change the localhost to real url */
 if (isset($_SERVER["HTTP_HOST"])) {
