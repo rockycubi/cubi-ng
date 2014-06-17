@@ -1,5 +1,5 @@
 <?php ob_start(); 
-require_once('../bin/app_init.php');
+require_once('../app_init.php');
 require_once('include/install_controller.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -10,7 +10,7 @@ require_once('include/install_controller.php');
 <meta http-equiv="x-ua-compatible" content="ie=7" />
 <link rel="stylesheet" href="style/default.css" type="text/css" />
 <link rel="stylesheet" href="style/<?php echo $lang;?>.css" type="text/css" /> 
-<link rel="stylesheet" href="../themes/default/css/openbiz.css" type="text/css" /> 
+<link rel="stylesheet" href="../../themes/default/css/openbiz.css" type="text/css" /> 
 <script type="text/javascript" src="js/prototype.js"></script>
 </head>
 <body>

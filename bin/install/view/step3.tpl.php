@@ -38,7 +38,7 @@
 		        >
 		            <td><?php echo $s['item'];?></td>
 		            <td><?php echo $s['value'];?></td>
-		            <td><img src="../themes/default/images/<?php echo $flag_icon;?>" /></td>
+		            <td><img src="../../themes/default/images/<?php echo $flag_icon;?>" /></td>
 		        </tr>
 		<?php
 		}
