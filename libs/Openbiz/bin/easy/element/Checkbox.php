@@ -28,7 +28,7 @@ class Checkbox extends OptionElement
 {
 	protected $m_DefaultChecked ; 
 	
-	protected function readMetaData(&$xmlArr)
+	protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_DefaultChecked = isset($xmlArr["ATTRIBUTES"]["DEFAULTCHECKED"]) ? $xmlArr["ATTRIBUTES"]["DEFAULTCHECKED"] : "N";

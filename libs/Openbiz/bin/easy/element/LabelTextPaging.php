@@ -9,7 +9,7 @@ class LabelTextPaging extends LabelText
 	public $m_CurrentPage;
 	public $m_TotalPage;
 	
-    protected function readMetaData(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_CurrentCss = isset($xmlArr["ATTRIBUTES"]["CURRENTCSSCLASS"]) ? $xmlArr["ATTRIBUTES"]["CURRENTCSSCLASS"] : null;

@@ -6,7 +6,7 @@ class ImageSelector extends OptionElement
     public $m_BlankOption;
 
 
-    protected function readMetaData(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_BlankOption = isset($xmlArr["ATTRIBUTES"]["BLANKOPTION"]) ? $xmlArr["ATTRIBUTES"]["BLANKOPTION"] : null;

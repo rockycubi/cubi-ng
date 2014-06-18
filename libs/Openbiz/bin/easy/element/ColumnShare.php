@@ -54,7 +54,7 @@ class ColumnShare extends ColumnText
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetaData(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_MyPrivateImg = isset($xmlArr["ATTRIBUTES"]["MYPRIVATEIMG"])	? $xmlArr["ATTRIBUTES"]["MYPRIVATEIMG"]	: "{RESOURCE_URL}/common/images/icon_data_private.gif";

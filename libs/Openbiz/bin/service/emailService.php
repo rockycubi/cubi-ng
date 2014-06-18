@@ -100,7 +100,7 @@ class emailService extends MetaObject
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_Accounts = new MetaIterator($xmlArr["PLUGINSERVICE"]["ACCOUNTS"]["ACCOUNT"], "EmailAccount");

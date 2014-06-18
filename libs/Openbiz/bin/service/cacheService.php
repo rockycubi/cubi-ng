@@ -62,7 +62,7 @@ class cacheService
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         $this->m_Cache 	= isset($xmlArr["PLUGINSERVICE"]["CACHESETTING"]["ATTRIBUTES"]["MODE"]) ? $xmlArr["PLUGINSERVICE"]["CACHESETTING"]["ATTRIBUTES"]["MODE"] : "Enabled";
         $this->m_CacheEngine = isset($xmlArr["PLUGINSERVICE"]["CACHEENGINE"]["ATTRIBUTES"]["TYPE"]) ? $xmlArr["PLUGINSERVICE"]["CACHEENGINE"]["ATTRIBUTES"]["TYPE"] : "FileCache";

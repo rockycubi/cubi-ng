@@ -70,7 +70,7 @@ class accessService
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         $viewCollection = $xmlArr["PLUGINSERVICE"]["ACCESS-CONSTRAINT"]["VIEW-COLLECTION"];
         $this->_restrictedViewList = new MetaIterator($xmlArr["PLUGINSERVICE"]["ACCESS-CONSTRAINT"]["VIEW-COLLECTION"]["VIEW"],"RestrictedView");

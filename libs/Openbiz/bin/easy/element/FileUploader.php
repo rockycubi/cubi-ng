@@ -62,7 +62,7 @@ class FileUploader extends FileInput
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetaData(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_UploadFolder = isset($xmlArr["ATTRIBUTES"]["UPLOADFOLDER"]) ? $xmlArr["ATTRIBUTES"]["UPLOADFOLDER"] : null;

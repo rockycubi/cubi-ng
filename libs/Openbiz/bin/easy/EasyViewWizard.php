@@ -29,7 +29,7 @@ class EasyViewWizard extends EasyView
     protected $m_DropSession = false;
     protected $m_NaviMethod = 'SwitchPage';
 
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_NaviMethod = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["NAVIMETHOD"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["NAVIMETHOD"] :'SwitchPage';

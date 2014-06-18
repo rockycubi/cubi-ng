@@ -48,7 +48,7 @@ class HTMLMenus extends MetaObject implements iUIControl
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         $this->m_Name = $xmlArr["MENU"]["ATTRIBUTES"]["NAME"];
         $this->m_Package = $xmlArr["MENU"]["ATTRIBUTES"]["PACKAGE"];

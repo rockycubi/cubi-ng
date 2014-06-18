@@ -50,7 +50,7 @@ class ColumnImage extends ColumnText
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetaData(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_Alt = isset($xmlArr["ATTRIBUTES"]["ALT"]) ? $xmlArr["ATTRIBUTES"]["ALT"] : null;

@@ -24,7 +24,7 @@ class WidgetForm extends EasyForm
 		return $this->configable;
 	}
 	
-	protected function readMetadata(&$xmlArr)
+	protected function readMetaData($xmlArr)
 	{
 		parent::readMetaData($xmlArr);	
 		if(isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["CONFIGFORM"]))

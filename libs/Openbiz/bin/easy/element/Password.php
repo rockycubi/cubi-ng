@@ -26,7 +26,7 @@
  */
 class Password extends InputElement
 {
-	public function readMetaData(&$xmlArr){
+	public function readMetaData($xmlArr){
 		parent::readMetaData($xmlArr);
 		$this->m_cssClass = isset($xmlArr["ATTRIBUTES"]["CSSCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSCLASS"] : "input_text";		
 		$this->m_cssErrorClass = isset($xmlArr["ATTRIBUTES"]["CSSERRORCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSERRORCLASS"] : $this->m_cssClass."_error";

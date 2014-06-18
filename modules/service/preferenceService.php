@@ -25,7 +25,7 @@ class preferenceService
         $this->readMetadata($xmlArr);
     }
 
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         $this->m_PreferenceObj = $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["BIZDATAOBJ"];
     }

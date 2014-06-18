@@ -21,7 +21,7 @@ class PivotColumnText extends ColumnText
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetaData(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_PivotType = isset($xmlArr["ATTRIBUTES"]["PIVOTTYPE"]) ? $xmlArr["ATTRIBUTES"]["PIVOTTYPE"] : null;     

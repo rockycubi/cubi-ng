@@ -47,7 +47,7 @@ class EasyFormWizard extends EasyForm
         $this->setActiveRecord($this->m_ActiveRecord);
     }
 
- 	protected function readMetadata(&$xmlArr)
+ 	protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);        
         $this->m_WizardPanel = new Panel($xmlArr["EASYFORM"]["WIZARDPANEL"]["ELEMENT"],"",$this);

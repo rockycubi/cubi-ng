@@ -14,7 +14,7 @@
 class SelectorView extends EasyView
 {
 	public $m_FormSelector;
-	protected function readMetadata(&$xmlArr)
+	protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         unset($this->m_FormRefs);

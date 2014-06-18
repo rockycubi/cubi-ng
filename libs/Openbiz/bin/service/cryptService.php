@@ -38,7 +38,7 @@ class cryptService
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         $this->m_DefaultKey 	= strtolower($xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["DEFAULTKEY"]);
     	$this->m_Algorithm 		= strtolower($xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["ALGORITHM"]);

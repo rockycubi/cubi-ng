@@ -18,7 +18,7 @@ class FormSelectorWidget extends EasyForm
 	
 	private $_DefaultViewMode;
 	
-	protected function readMetadata(&$xmlArr)
+	protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->_DefaultViewMode = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["DEFAULTSELECTEDFORM"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["DEFAULTSELECTEDFORM"] : null;

@@ -16,7 +16,7 @@ class DashboardView extends EasyView
 	protected $m_UserWidgetDO = "common.do.UserWidgetDO";	
 	protected $columns;
 	
-	protected function readMetadata(&$xmlArr)
+	protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
 		$formRefXML = $this->getFormReferences();		

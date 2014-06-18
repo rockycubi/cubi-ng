@@ -25,7 +25,7 @@ class eventlogService
       $this->readMetadata($xmlArr);
    }
 
-   protected function readMetadata(&$xmlArr)
+   protected function readMetaData($xmlArr)
    {      
       $this->m_logDataObj 	= $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["BIZDATAOBJ"];      
       $this->m_MessageFile = isset($xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["MESSAGEFILE"]) ? $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["MESSAGEFILE"] : null;

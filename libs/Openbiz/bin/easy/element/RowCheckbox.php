@@ -28,7 +28,7 @@ class RowCheckbox extends InputElement
 {
 	protected  $m_CheckStatus;
 	
-    protected function readMetaData(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_CheckStatus = isset($xmlArr["ATTRIBUTES"]["CHECKSTATUS"]) ? $xmlArr["ATTRIBUTES"]["CHECKSTATUS"] : null;

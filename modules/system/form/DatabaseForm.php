@@ -17,7 +17,7 @@ class DatabaseForm extends EasyForm
 	public $m_ConfigNode;
 	public $m_ModeStatus;
 	
-	protected function readMetadata(&$xmlArr)
+	protected function readMetaData($xmlArr)
 	{
 		parent::readMetaData($xmlArr);
 		$this->m_ConfigFile = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["CONFIGFILE"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["CONFIGFILE"] : null;

@@ -25,17 +25,11 @@
         </Element>-->      		
     </ActionPanel> 
     <NavPanel>
-        <!--<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
-        	<EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
-        </Element>
-        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
-        	<EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
-        </Element>-->
-        <Element Name="btn_first"  Class="Button" Text="" CssClass="button_gray_navi first" HTMLAttr="ng-click='gotoPage(1)'"/>
-        <Element Name="btn_prev" Class="Button" Text="" CssClass="button_gray_navi prev" HTMLAttr="ng-click='gotoPage(currentPage-1)'"/>
+        <Element Name="btn_first" Class="Button" CssClass="button_gray_navi first" Click="gotoPage(1)"/>
+        <Element Name="btn_prev" Class="Button" CssClass="button_gray_navi prev" Click="gotoPage(currentPage-1)"/>
         <Element Name="txt_page" Class="LabelText" Text="{{currentPage}} of {{totalPage}}"/>
-        <Element Name="btn_next" Class="Button" Text="" CssClass="button_gray_navi next" HTMLAttr="ng-click='gotoPage(currentPage+1)'"/>
-        <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
+        <Element Name="btn_next" Class="Button" CssClass="button_gray_navi next" Click="gotoPage(currentPage+1)"/>
+        <Element Name="btn_last" Class="Button" CssClass="button_gray_navi last" Click="gotoPage(totalPage)"/>
     </NavPanel> 
     <SearchPanel>
         <Element Name="qry_username"  Class="InputText" FuzzySearch="Y" FieldName="username" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>

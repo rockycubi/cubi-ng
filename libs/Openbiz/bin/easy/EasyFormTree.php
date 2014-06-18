@@ -29,7 +29,7 @@ class EasyFormTree extends EasyForm
 	public $m_RootSearchRule;
     public $m_TreeDepth;
     
-	protected function readMetadata(&$xmlArr)
+	protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_TitleField = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["TITLEFIELD"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["TITLEFIELD"] : "title";

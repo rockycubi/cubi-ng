@@ -10,7 +10,7 @@ class ErrorReportService
    	   $this->readMetadata($xmlArr);
    	}
 
-   	protected function readMetadata(&$xmlArr)
+   	protected function readMetaData($xmlArr)
    	{      
      	 $this->m_ReportServer 	= $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["REPORTSERVER"];      
    	}

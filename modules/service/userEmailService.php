@@ -25,7 +25,7 @@ class userEmailService extends MetaObject
         $this->readMetadata($xmlArr);
     } 
        	
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetadata($xmlArr);
     	$this->m_Tempaltes	 	= $this->readTemplates($xmlArr["PLUGINSERVICE"]["TEMPLATE"]);

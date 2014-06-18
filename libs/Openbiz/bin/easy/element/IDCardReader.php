@@ -26,7 +26,7 @@
  */
 class IDCardReader extends InputElement
 {
-	protected function readMetaData(&$xmlArr){
+	protected function readMetaData($xmlArr){
 		parent::readMetaData($xmlArr);
 		$this->m_cssClass = isset($xmlArr["ATTRIBUTES"]["CSSCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSCLASS"] : "input_cardreader";
 		$this->m_cssErrorClass = isset($xmlArr["ATTRIBUTES"]["CSSERRORCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSERRORCLASS"] : $this->m_cssClass."_error";

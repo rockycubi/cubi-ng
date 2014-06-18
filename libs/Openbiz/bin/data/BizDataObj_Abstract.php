@@ -195,7 +195,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
      */
     function __construct(&$xmlArr)
     {
-        $this->readMetadata($xmlArr);
+        $this->readMetaData($xmlArr);
         $this->inheritParentObj();
     }
 
@@ -205,7 +205,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_InheritFrom = isset($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["INHERITFROM"]) ? $xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["INHERITFROM"] : null;

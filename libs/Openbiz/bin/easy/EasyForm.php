@@ -26,7 +26,7 @@
  * @copyright Copyright (c) 2005-2009
  * @access public
  */
-class EasyForm extends MetaObject implements iSessionObject
+class EasyForm extends MetaObject implements iSessionObject,iUIControl
 {
     public $DATAFORMAT = 'RECORD';
 
@@ -134,7 +134,7 @@ class EasyForm extends MetaObject implements iSessionObject
      * @param array $xmlArr
      * @return void
      */
-    function __construct(&$xmlArr)
+    function __construct($xmlArr)
     {
         $this->readMetadata($xmlArr);
         //echo $_GET['referer'];
@@ -161,7 +161,7 @@ class EasyForm extends MetaObject implements iSessionObject
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetadata($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_InheritFrom = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["INHERITFROM"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["INHERITFROM"] : null;        

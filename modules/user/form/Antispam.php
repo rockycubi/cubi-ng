@@ -33,7 +33,7 @@ class Antispam extends InputElement{
 		}
     }	
 	
-	protected function readMetaData(&$xmlArr){
+	protected function readMetaData($xmlArr){
 		parent::readMetaData($xmlArr);
 		$this->m_AntiSpamImage = isset($xmlArr["ATTRIBUTES"]["ANTISPAMIMAGE"]) ? $xmlArr["ATTRIBUTES"]["ANTISPAMIMAGE"] : "{@home:base_url}/bin/antispam_image.php";
 		$this->m_Length = isset($xmlArr["ATTRIBUTES"]["LENGTH"]) ? $xmlArr["ATTRIBUTES"]["LENGTH"] : 6;

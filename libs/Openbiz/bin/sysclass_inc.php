@@ -68,7 +68,7 @@ abstract class MetaObject
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetadata($xmlArr)
     {
         $rootKeys = array_keys($xmlArr);
         $rootKey = $rootKeys[0];

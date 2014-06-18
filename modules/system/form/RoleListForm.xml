@@ -5,7 +5,10 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: RoleListForm.xml 5510 2014-06-01 00:50:35Z rockyswen@gmail.com $
 -->
-<EasyForm Name="RoleListForm" Icon="icon_roles.gif" Class="RoleListForm" FormType="List" jsClass="jbForm" Title="Role Management" Description="Manage user roles in the application. Role is used in the application to control user permissions" DataService="/system/roles" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
+<EasyForm Name="RoleListForm" Icon="icon_roles.gif" Class="RoleListForm" Title="Role Management" 
+Description="Manage user roles in the application. Role is used in the application to control user permissions" 
+DataService="/system/roles" 
+TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Link="{@home:url}/system/role_detail/{{dataobj.Id}}" Sortable="Y"/>
@@ -15,19 +18,19 @@
         <Element Name="fld_default" Class="ColumnBool" FieldName="default" Sortable="Y" Label="Default"/>	
     </DataPanel>
     <ActionPanel>
-		<Element Name="lnk_new" Class="LabelText" Text="Add" CssClass="button_gray_add" Link="{@home:url}/system/role_new"/>  
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Link="{@home:url}/system/role_edit/{{selectedId}}"/>
-        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Click="delete(selectedIndex)" />
+		<Element Name="lnk_new" Class="LabelText" Text="Add" Link="{@home:url}/system/role_new" CssClass="button_gray_add"/>  
+        <Element Name="btn_edit" Class="Button" Text="Edit" Link="{@home:url}/system/role_edit/{{selectedId}}" CssClass="button_gray_m"/>
+        <Element Name="btn_delete" Class="Button" Text="Delete" Click="delete(selectedIndex)" CssClass="button_gray_m" />
     </ActionPanel> 
     <NavPanel>
-        <Element Name="btn_first"  Class="Button" Text="" CssClass="button_gray_navi first" HTMLAttr="ng-click='gotoPage(1)'"/>
-        <Element Name="btn_prev" Class="Button" Text="" CssClass="button_gray_navi prev" HTMLAttr="ng-click='gotoPage(currentPage-1)'"/>
+        <Element Name="btn_first" Class="Button" Click="gotoPage(1)" CssClass="button_gray_navi first"/>
+        <Element Name="btn_prev" Class="Button" Click="gotoPage(currentPage-1)" CssClass="button_gray_navi prev"/>
         <Element Name="txt_page" Class="LabelText" Text="{{currentPage}} of {{totalPage}}"/>
-        <Element Name="btn_next" Class="Button" Text="" CssClass="button_gray_navi next" HTMLAttr="ng-click='gotoPage(currentPage+1)'"/>
-        <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
+        <Element Name="btn_next" Class="Button" Click="gotoPage(currentPage+1)" CssClass="button_gray_navi next"/>
+        <Element Name="btn_last" Class="Button" Click="gotoPage(totalPage)" CssClass="button_gray_navi last"/>
     </NavPanel> 
     <SearchPanel>
         <Element Name="qry_name" Class="InputText" FieldName="name" CssClass="input_text_search"/>
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray" Click="search()"/>
+        <Element Name="btn_dosearch" Class="Button" text="Go" Click="search()" CssClass="button_gray"/>
     </SearchPanel>
 </EasyForm>

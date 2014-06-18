@@ -29,7 +29,7 @@ class WebsvcService extends MetaObject
         $this->readMetadata($xmlArr);
     }
 
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {      
         $this->m_RequireAuth = isset($xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["REQUIREAUTH"]) ? $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["REQUIREAUTH"] : 'N';
         $this->m_RequireAuth = strtoupper($this->m_RequireAuth);

@@ -36,7 +36,7 @@
  */
 class LoginForm extends EasyForm
 {   
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         $result = parent::readMetaData($xmlArr);
 		

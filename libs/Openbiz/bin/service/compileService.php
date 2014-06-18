@@ -17,7 +17,7 @@ class compileService
         $this->readMetadata($xmlArr);
     }	
 
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         $this->m_ObjTemplateData = $xmlArr["PLUGINSERVICE"]["OBJLOADERTEMPLATE"]["VALUE"];        
         $this->m_XmlTemplateData = $xmlArr["PLUGINSERVICE"]["XMLLOADERTEMPLATE"]["VALUE"];

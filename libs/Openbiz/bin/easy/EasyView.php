@@ -23,7 +23,7 @@
  * @copyright Copyright (c) 2005-2009
  * @access public
  */
-class EasyView extends MetaObject implements iSessionObject
+class EasyView extends MetaObject implements iSessionObject,iUIControl
 {
     public $m_Title;
     public $m_Keywords;
@@ -52,7 +52,7 @@ class EasyView extends MetaObject implements iSessionObject
      * @param array $xmlArr
      * @return void
      */
-    public function __construct(&$xmlArr)
+    public function __construct($xmlArr)
     {
         $this->readMetadata($xmlArr);
     }
@@ -63,7 +63,7 @@ class EasyView extends MetaObject implements iSessionObject
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetadata($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_Name = $this->prefixPackage($this->m_Name);

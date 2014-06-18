@@ -43,7 +43,7 @@ class localeInfoService extends  MetaObject
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
     }
 

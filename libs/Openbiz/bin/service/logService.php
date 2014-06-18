@@ -97,7 +97,7 @@ class logService extends MetaObject
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $level = strtoupper($xmlArr["PLUGINSERVICE"]["LOG_CONFIG"]["ATTRIBUTES"]["LEVEL"]);

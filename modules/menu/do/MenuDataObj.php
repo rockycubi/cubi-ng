@@ -27,7 +27,7 @@ class MenuDataObj extends MetaObject implements iSessionObject{
         
     }	
     
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
     	parent::readMetaData($xmlArr);
     	$this->m_Name = $this->prefixPackage($this->m_Name);

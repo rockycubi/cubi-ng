@@ -37,7 +37,7 @@ class MenuWidget extends MetaObject implements iUIControl {
         $this->translate();
     }
     
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
     	parent::readMetaData($xmlArr);
         $this->m_Name = $this->prefixPackage($this->m_Name);

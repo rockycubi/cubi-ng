@@ -72,7 +72,7 @@ class authService
      * 
      * @param array $xmlArr 
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         $this->m_AuthticationType = $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["AUTHTYPE"];
         $this->m_AuthticationDataObj = $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["BIZDATAOBJ"];

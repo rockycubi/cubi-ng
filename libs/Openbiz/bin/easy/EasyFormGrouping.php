@@ -19,7 +19,7 @@ class EasyFormGrouping extends EasyForm
 {
 	protected $m_GroupBy;
 	
-	protected function readMetadata(&$xmlArr)
+	protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
     	$this->m_GroupBy = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["GROUPBY"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["GROUPBY"] : null;    

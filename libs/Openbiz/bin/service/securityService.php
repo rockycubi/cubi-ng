@@ -48,7 +48,7 @@ class securityService
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         $this->m_Mode =   isset($xmlArr["PLUGINSERVICE"]["SECURITY"]["ATTRIBUTES"]["MODE"]) ? $xmlArr["PLUGINSERVICE"]["SECURITY"]["ATTRIBUTES"]["MODE"] : "DISABLED";
         if(strtoupper($this->m_Mode) == 'ENABLED' )
@@ -130,7 +130,7 @@ class securityFilter extends MetaIterator
      * @param string $ruleName
      * @return void
      */
-    protected function readMetadata(&$xmlArr, $filterName, $ruleName)
+    protected function readMetaData($xmlArr, $filterName, $ruleName)
     {
         $this->m_Name = $ruleName;
         $this->m_Mode =   isset($xmlArr["ATTRIBUTES"]["MODE"]) ? $xmlArr["ATTRIBUTES"]["MODE"] : "DISABLED";
@@ -222,7 +222,7 @@ class securityRule_Abstract implements iSecurityRule
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         $this->m_Name 	= $xmlArr["ATTRIBUTES"]["NAME"];
         $this->m_Action	= $xmlArr["ATTRIBUTES"]["ACTION"];

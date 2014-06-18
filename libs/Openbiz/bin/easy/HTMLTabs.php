@@ -47,7 +47,7 @@ class HTMLTabs extends MetaObject implements iUIControl
      *
      * @param array $xmlArr
      */
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         $this->m_Name = $xmlArr["TABS"]["ATTRIBUTES"]["NAME"];
         $this->m_Package = $xmlArr["TABS"]["ATTRIBUTES"]["PACKAGE"];

@@ -24,7 +24,7 @@ class CubiService extends  MetaObject
    	   $this->readMetadata($xmlArr);
    	}	
 	
-   	protected function readMetadata(&$xmlArr)
+   	protected function readMetaData($xmlArr)
    	{      
      	 $this->m_UDC_Server 	= $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["UDCSERVER"].'/ws.php/udc/CollectService';      
    	}

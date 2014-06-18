@@ -38,7 +38,7 @@ class profileService
         //$this->readMetadata($xmlArr);
     }
 
-    protected function readMetadata(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         //$this->m_profileObj = $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["BIZDATAOBJ"];
     }

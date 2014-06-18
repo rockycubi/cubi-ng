@@ -28,7 +28,7 @@ class Textarea extends OptionElement
 {
 	public $m_BlankOption;
 	
-	public function readMetaData(&$xmlArr){
+	public function readMetaData($xmlArr){
 		parent::readMetaData($xmlArr);
 		$this->m_cssClass = isset($xmlArr["ATTRIBUTES"]["CSSCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSCLASS"] : "input_textarea";
 		$this->m_cssErrorClass = isset($xmlArr["ATTRIBUTES"]["CSSERRORCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSERRORCLASS"] : "input_textarea_error";

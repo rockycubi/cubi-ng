@@ -52,7 +52,7 @@ class ImageUploader extends FileUploader
      * @param array $xmlArr
      * @return void
      */
-    protected function readMetaData(&$xmlArr)
+    protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_PicWidth 	= isset($xmlArr["ATTRIBUTES"]["PICWIDTH"]) ? $xmlArr["ATTRIBUTES"]["PICWIDTH"] : null;

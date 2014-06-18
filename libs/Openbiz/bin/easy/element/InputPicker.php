@@ -35,7 +35,7 @@ class InputPicker extends InputText
      * @param array $xmlArr
      * @return void
      */
-    public function readMetaData(&$xmlArr)
+    public function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_ValuePicker  = isset($xmlArr["ATTRIBUTES"]["VALUEPICKER"]) ? $xmlArr["ATTRIBUTES"]["VALUEPICKER"] : null;

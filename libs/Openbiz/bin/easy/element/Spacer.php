@@ -2,7 +2,7 @@
 class Spacer extends LabelText
 {
 	
-	protected function readMetaData(&$xmlArr){
+	protected function readMetaData($xmlArr){
 		parent::readMetaData($xmlArr);
 		$this->m_cssClass = isset($xmlArr["ATTRIBUTES"]["CSSCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSCLASS"] : "element_spacer";
 		$this->m_cssErrorClass = isset($xmlArr["ATTRIBUTES"]["CSSERRORCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSERRORCLASS"] : $this->m_cssClass."_error";
