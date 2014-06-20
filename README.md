@@ -78,6 +78,7 @@ More reading on MDD, [Metadata driven development, the Holy Grail of software de
 
 Get start
 =========
-- [Installation](https://github.com/rockycubi/cubi-ng/wiki/Installation)
-- [Understand core concepts](https://github.com/rockycubi/cubi-ng/wiki/Core-Concepts)
-- [Create your web app](https://github.com/rockycubi/cubi-ng/wiki/Create-Web-App)
+- [Installation](https://github.com/rockycubi/cubi-ng/wiki/CubiNG-Installation)
+- [Overview](https://github.com/rockycubi/cubi-ng/wiki/CubiNG-Overview)
+- [UI Architecture](https://github.com/rockycubi/cubi-ng/wiki/CubiNG-UI-Architecture)
+- [Web Services](https://github.com/rockycubi/cubi-ng/wiki/CubiNG-Web-Services)
