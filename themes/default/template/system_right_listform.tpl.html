@@ -1,4 +1,7 @@
-<form id='{$form.name}' name='{$form.name}' ng-controller="TableFormController" ng-init="init('{$form.name}','{$form.dataService}','{$form.queryString}')">
+<form id='{$form.name}' name='{$form.name}' 
+ng-controller="TableFormController" 
+ng-init="init('{$form.name}','{$form.dataService}','{$form.queryString}')">
+<!-- form header start -->
 <div style="padding-left:25px;padding-right:20px;">
 	<div>
 	<table><tr><td>
@@ -16,12 +19,8 @@
 {if $actionPanel or $searchPanel }	
 	<div class="form_header_panel">	
 		<div class="action_panel" >
-			{foreach item=elem from=$searchPanel}
-				{if $elem.type=='InputDateRangePicker'} {$elem.element}{/if} 
-			{/foreach}
-		
 			{foreach item=elem from=$actionPanel}
-			    	{$elem.element}
+                {$elem.element}
 			{/foreach}
 		</div>
 		<div class="search_panel" >		
@@ -32,7 +31,8 @@
 			{/foreach}
 		</div>
 	</div>	
-{/if}	
+{/if}
+<!-- form header end -->	
 
 <div class="from_table_container">
 <!-- table start -->
@@ -66,16 +66,18 @@
 </div>
 <!-- table end -->	
 
-	<div class="form_footer_panel">
-		<div class="navi_panel">
-{if $navPanel}
-   {foreach item=elem from=$navPanel}
-   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
-    	{$elem.element}
-   {/foreach}
-{/if}
-		</div>		
-	</div>
-	
+<!-- form footer start -->
+<div class="form_footer_panel">
+    <div class="navi_panel">
+    {if $navPanel}
+       {foreach item=elem from=$navPanel}
+            {if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+            {$elem.element}
+       {/foreach}
+    {/if}
+    </div>
+</div>
+<!-- form footer end -->
+
 </div>
 </form>

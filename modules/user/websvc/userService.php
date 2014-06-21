@@ -55,8 +55,7 @@ class userService extends  WebsvcService
     		}
     		else { 
 				$result['errors']['password'] = $this->getMessage("PASSWORD_INCORRECT");  
-				$result['errors']['login_status'] = $this->getMessage("LOGIN_FAILED");						
-				break;		    			   			
+				$result['errors']['login_status'] = $this->getMessage("LOGIN_FAILED");									   			
     		}
     	}
     	catch (Exception $e) {

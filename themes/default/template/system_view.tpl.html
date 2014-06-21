@@ -29,8 +29,6 @@ cubiViewApp.config(['$routeProvider', '$locationProvider',
 		.when(APP_INDEX+'/:module/:view', {
 		  templateUrl: function(params){ return APP_INDEX+'/'+params.module+'/'+params.view+'/?partial=1'; }
 		});
-		//.otherwise({ redirectTo: '' });;
-
 	  // configure html5 to get links working on jsfiddle
 	  $locationProvider.html5Mode(true);
 	}]);
@@ -72,10 +70,5 @@ cubiViewApp.config(['$routeProvider', '$locationProvider',
 	
 	</div>
 </div>
-
-
-{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
-<script src="{$js_url}/ios_webapp.js"></script>
-{php}}{/php}
 </body>
 </html>

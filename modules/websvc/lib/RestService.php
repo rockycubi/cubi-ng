@@ -342,7 +342,7 @@ class RestService
 		$dataObj = BizSystem::getObject($DOName);
 		$rec = $dataObj->fetchById($id);
 		if (empty($rec)) {
-			$response->status(400);
+			$response->status(404);
 			$response->body("No data is found for $resource $id");
 			return;
 		}
