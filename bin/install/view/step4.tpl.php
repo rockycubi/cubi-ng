@@ -28,7 +28,7 @@
 					    </p>  
 					</td>
 					<td>
-						<a href="../index.php/user/login" class='btn_highlight' style="text-align:center"><?php echo STR_READY_GO;?><span><?php echo STR_LOGIN_TO_OPENBIZ;?></span></a>
+						<a href="../../index.php/user/login" class='btn_highlight' style="text-align:center"><?php echo STR_READY_GO;?><span><?php echo STR_LOGIN_TO_OPENBIZ;?></span></a>
 					</td>
 				</tr>
 			</table>
