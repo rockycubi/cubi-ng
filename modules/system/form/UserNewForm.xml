@@ -19,8 +19,8 @@
         <Element Name="fld_default_group" ElementSet="Group and Role" DefaultValue="{BizSystem::getService('system.lib.SystemService')->getDefaultGroupId()}" Class="DropDownList" FieldName="default_group" Label="Default Group" SelectFrom="system.do.GroupPickDO[name:Id]"   Description="User default group for data sharing" />
         <Element Name="fld_default_role" ElementSet="Group and Role" DefaultValue="{BizSystem::getService('system.lib.SystemService')->getDefaultRoleId()}" Class="DropDownList" FieldName="default_role" Label="Default Role" SelectFrom="system.do.RolePickDO[name:Id]"  Description="User default role and Login landing page" />
         
-        <Element Name="fld_default_lang" ElementSet="Preference" DefaultValue="{DEFAULT_LANGUAGE}" Class="myaccount.form.LanguageSelector" FieldName="default_lang" Label="Default Language" Description="User Default Language" />
-        <Element Name="fld_default_theme" ElementSet="Preference" DefaultValue="{DEFAULT_THEME_NAME}" Class="myaccount.form.ThemeSelector" FieldName="default_theme" Label="Default Theme" Description="User Default Theme" />
+        <!--<Element Name="fld_default_lang" ElementSet="Preference" DefaultValue="{DEFAULT_LANGUAGE}" Class="myaccount.form.LanguageSelector" FieldName="default_lang" Label="Default Language" Description="User Default Language" />
+        <Element Name="fld_default_theme" ElementSet="Preference" DefaultValue="{DEFAULT_THEME_NAME}" Class="myaccount.form.ThemeSelector" FieldName="default_theme" Label="Default Theme" Description="User Default Theme" />-->
         
         <Element Name="fld_owner_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Default permission for my data " FieldName="owner_perm" Label="Owner Perm"  />
         <Element Name="fld_group_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Default permission for my group's users" FieldName="group_perm" Label="Group Perm"  />
