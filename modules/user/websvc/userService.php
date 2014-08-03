@@ -43,8 +43,7 @@ class userService extends  WebsvcService
     	   	    $redirectPage = APP_INDEX.$profile['roleStartpage'][0];
     	   	   	if(!$profile['roleStartpage'][0])
     	   	   	{
-    	   	   		$result['errors']['password'] = $this->getMessage("PERM_INCORRECT");
-					$result['errors']['login_status'] = $this->getMessage("LOGIN_FAILED");
+					$result['errors']['login_status'] = $this->getMessage("LOGIN_FAILED")." ".$this->getMessage("PERM_INCORRECT");
     				return $result;
     	   	   	}
     	   	    

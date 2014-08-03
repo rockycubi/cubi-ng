@@ -588,15 +588,16 @@ class EasyForm extends MetaObject implements iSessionObject,iUIControl
      * @param array $paramFields
      * @return void
      */
-    public function setRequestParams($paramFields)
+    public function setRequestParams($paramFields, $setQuerystring=true)
     {
 		if (empty($paramFields)) return;
-		//print $this->m_Name; print_r($paramFields);
-		$querylists = array();
-		foreach ($paramFields as $k=>$v) {
-			$querylist[] = "$k=$v";
+		if ($setQuerystring) {
+			$querylists = array();
+			foreach ($paramFields as $k=>$v) {
+				$querylist[] = "$k=$v";
+			}
+			$this->m_QueryString = implode('&',$querylist);
 		}
-		$this->m_QueryString = implode('&',$querylist);
 		
 		// replace ':id' with $paramFields['Id'];
 		if ($this->m_DataService && isset($paramFields['Id'])) {

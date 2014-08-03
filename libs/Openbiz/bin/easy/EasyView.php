@@ -228,11 +228,14 @@ class EasyView extends MetaObject implements iSessionObject,iUIControl
     {}
 	
 	public function setRequestId($id) {
+		$setQuerystring = true;
 		foreach ($this->m_FormRefs as $formRef) {
 			$form = $formRef->m_Name;
 			$form = $this->prefixPackage($form);
 			$formObj = BizSystem::getObject($form);
-			$formObj->setRequestParams(array('Id'=>$id));
+			// only set the request id to the main first form
+			$formObj->setRequestParams(array('Id'=>$id), $setQuerystring);
+			$setQuerystring = false;
 		}
 	}
 
