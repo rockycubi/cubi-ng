@@ -63,42 +63,6 @@ class BizDataObj_Lite extends BizDataObj_Abstract
     protected $_fetch4countQuery = null;
 
     /**
-     * Get session variables data of this object
-     *
-     * @param SessionContext $sessionContext
-     * @return void
-     */
-    public function getSessionVars($sessionContext)
-    {
-        if ($this->m_Stateless == "Y")
-            return;
-        $sessionContext->getObjVar($this->m_Name, "RecordId", $this->m_RecordId);
-        $sessionContext->getObjVar($this->m_Name, "SearchRule", $this->m_SearchRule);
-        $sessionContext->getObjVar($this->m_Name, "SortRule", $this->m_SortRule);
-        $sessionContext->getObjVar($this->m_Name, "OtherSqlRule", $this->m_OtherSQLRule);
-        $sessionContext->getObjVar($this->m_Name, "Association", $this->m_Association);
-    }
-
-    /**
-     * Save Session variables/data of this object
-     *
-     * @param SessionContext $sessionContext
-     * @return void
-     */
-    public function setSessionVars($sessionContext)
-    {
-        if ($this->m_Stateless == "Y")
-            return;
-        $sessionContext->setObjVar($this->m_Name, "RecordId", $this->m_RecordId);
-        $sessionContext->setObjVar($this->m_Name, "SearchRule", $this->m_SearchRule);
-        $sessionContext->setObjVar($this->m_Name, "SortRule", $this->m_SortRule);
-        $sessionContext->setObjVar($this->m_Name, "OtherSqlRule", $this->m_OtherSQLRule);
-        if(is_array($this->m_Association)){
-        	$sessionContext->setObjVar($this->m_Name, "Association", $this->m_Association);
-        }
-    }
-
-    /**
      * Get the error message caused by data action
      *
      * @return string the error message string
