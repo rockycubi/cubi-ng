@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: UserRolesForm.xml 5500 2014-05-28 05:14:09Z rockyswen@gmail.com $
 -->
-<EasyForm Name="UserRolesForm" Class="UserRolesForm" Icon="icon_roles.gif" FormType="List" jsClass="jbForm" Title="User Roles" Description="List roles of a given user account. An user can associate with one or more roles." BizDataObj="system.do.RolePickerDO" DataService="/system/users/:id/roles" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
+<EasyForm Name="UserRolesForm" Class="UserRolesForm" Icon="icon_roles.gif" FormType="List" jsClass="jbForm" Title="User Roles" Description="List roles of a given user account. An user can associate with one or more roles." BizDataObj="system.do.RolePickerDO" DataService="/system/users/:id/roles" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
     	<Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="Role Id" Sortable="Y"/>

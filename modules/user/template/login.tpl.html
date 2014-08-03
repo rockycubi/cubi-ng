@@ -31,55 +31,6 @@
 			<span class="input_error_msg" ng-show="errors.password">{literal}{{{/literal} errors.password {literal}}}{/literal}</span>		
 		</p>
 		{/if}
-
-		{if $dataPanel.antispam.label}
-		<p class="input_row">
-			<label style="width:60px;">{$dataPanel.antispam.label}</label>
-			<span style="width:200px; display:block;float:left;">{$dataPanel.antispam.element}</span>
-			{if $errors.antispam}
-			<span class="input_error_msg">{$errors.antispam}</span>
-			{/if}		
-		</p>
-		{/if}
-
-		{if $dataPanel.smartcard.label}
-		<div class="input_row" style="height:140px;">
-			<div style="height:30px;">
-			<label style="width:120px;">{$dataPanel.smartcard.label}</label>
-			</div>
-			<div style="height:120px;">
-			<span style="width:400px; display:block;float:left;">{$dataPanel.smartcard.element}</span>
-			</div>			
-		</div>
-		{/if}		
-		
-		{if $dataPanel.session_timeout.label}
-		<div class="input_row"  style="width:400px;display:block;height:35px;overflow:hidden;">
-			<label style="width:60px;">{$dataPanel.session_timeout.label}</label>
-			<span style="width:200px; display:block;height:35px;float:left;">{$dataPanel.session_timeout.element}</span>
-			{if $errors.session_timeout}
-			<span class="input_error_msg">{$errors.session_timeout}</span>
-			{/if}		
-		</div>	
-		{/if}	
-		{if $dataPanel.current_language.label}
-		<div class="input_row" style="width:400px;display:block;height:35px;overflow:hidden;" >
-			<label style="width:60px;">{$dataPanel.current_language.label}</label>
-			<span style="width:200px; display:block;height:35px;float:left;">{$dataPanel.current_language.element}</span>
-			{if $errors.current_language}
-			<span class="input_error_msg">{$errors.current_language}</span>
-			{/if}		
-		</div>	
-		{/if}
-		{if $dataPanel.current_theme.label}
-		<div class="input_row" style="width:400px;display:block;height:35px;overflow:hidden;">
-			<label style="width:60px;">{$dataPanel.current_theme.label}</label>
-			<span style="width:200px; display:block;height:35px;float:left;">{$dataPanel.current_theme.element}</span>
-			{if $errors.current_theme}
-			<span class="input_error_msg">{$errors.current_theme}</span>
-			{/if}		
-		</div>
-		{/if}
 						
 		<p class="input_row" style="height:38px;padding-top:5px;padding-left:0px;clear:both" >
 			<!-- onclick="document.getElementById('login_indicator').className='show'"  -->
@@ -89,17 +40,19 @@
 			{/foreach}
 			</span>
 		</p>
-			<!-- 
-			{if $errors.login_status}
-				<span id="login_indicator" class="show" style="float:none;text-indent:0px;">
-				{$errors.login_status}
-				</span>
-			{else}
-				<span id="login_indicator" class="hidden" style="float:none;text-indent:0px;">
-				{t}Processing login...{/t}
-				</span>
-			{/if}
-			 -->	
+
+		<div class="input_error_msg" ng-show="errors.login_status">{literal}{{{/literal} errors.login_status {literal}}}{/literal}</div>
+		<!-- 
+		{if $errors.login_status}
+			<span id="login_indicator" class="show" style="float:none;text-indent:0px;">
+			{$errors.login_status}
+			</span>
+		{else}
+			<span id="login_indicator" class="hidden" style="float:none;text-indent:0px;">
+			{t}Processing login...{/t}
+			</span>
+		{/if}
+		 -->	
 
 		<!--<div id='errorsDiv' class='innerError errorBox' ng-show="errors.login_status" style="width:235px;margin-bottom:10px">
 			{literal}{{{/literal} errors.login_status {literal}}}{/literal}

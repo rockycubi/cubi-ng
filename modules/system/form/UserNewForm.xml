@@ -10,25 +10,23 @@
         <Element Name="fld_Id"  ElementSet="General" Class="LabelText" FieldName="Id" Label="Id" Hidden="Y" />
 		<Element Name="fld_username" ElementSet="General" Class="InputText" FieldName="username" Required="Y" Label="Username"  HTMLAttr="maxlength='36'" Description="Between 6-20 charactors"/>
         <Element Name="fld_password" ElementSet="General" Class="Password" FieldName="password" label="Password"  Required="Y"  HTMLAttr="maxlength='36'" Description="Between 6-12 charactors"/>
-		<Element Name="fld_password_repeat" ElementSet="General" Class="Password" FieldName="password" Description="Input password again for confirmation"  Label="Repeat"  required="Y"/>
+		<Element Name="fld_password_repeat" ElementSet="General" Class="Password" FieldName="password_repeat" Description="Input password again for confirmation"  Label="Repeat"  required="Y"/>
         <Element Name="fld_email" ElementSet="General" Class="InputText" FieldName="email" Label="Email" Description="User email address" />
-        <Element Name="fld_status" ElementSet="General" Class="DropDownList" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
+        <Element Name="fld_status" ElementSet="General" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
         
-
+        <Element Name="fld_default_group" ElementSet="Group and Role" DefaultValue="{BizSystem::getService('system.lib.SystemService')->getDefaultGroupId()}" Class="Listbox" FieldName="default_group" Label="Default Group" SelectFrom="system.do.GroupPickDO[name:Id]"   Description="User default group for data sharing" />
+        <Element Name="fld_default_role" ElementSet="Group and Role" DefaultValue="{BizSystem::getService('system.lib.SystemService')->getDefaultRoleId()}" Class="Listbox" FieldName="default_role" Label="Default Role" SelectFrom="system.do.RolePickDO[name:Id]"  Description="User default role and Login landing page" />
+        <!--
+        <Element Name="fld_default_lang" ElementSet="Preference" DefaultValue="{DEFAULT_LANGUAGE}" Class="myaccount.form.LanguageSelector" FieldName="default_lang" Label="Default Language" Description="User Default Language" />
+        <Element Name="fld_default_theme" ElementSet="Preference" DefaultValue="{DEFAULT_THEME_NAME}" Class="myaccount.form.ThemeSelector" FieldName="default_theme" Label="Default Theme" Description="User Default Theme" />
         
-        <Element Name="fld_default_group" ElementSet="Group and Role" DefaultValue="{BizSystem::getService('system.lib.SystemService')->getDefaultGroupId()}" Class="DropDownList" FieldName="default_group" Label="Default Group" SelectFrom="system.do.GroupPickDO[name:Id]"   Description="User default group for data sharing" />
-        <Element Name="fld_default_role" ElementSet="Group and Role" DefaultValue="{BizSystem::getService('system.lib.SystemService')->getDefaultRoleId()}" Class="DropDownList" FieldName="default_role" Label="Default Role" SelectFrom="system.do.RolePickDO[name:Id]"  Description="User default role and Login landing page" />
-        
-        <!--<Element Name="fld_default_lang" ElementSet="Preference" DefaultValue="{DEFAULT_LANGUAGE}" Class="myaccount.form.LanguageSelector" FieldName="default_lang" Label="Default Language" Description="User Default Language" />
-        <Element Name="fld_default_theme" ElementSet="Preference" DefaultValue="{DEFAULT_THEME_NAME}" Class="myaccount.form.ThemeSelector" FieldName="default_theme" Label="Default Theme" Description="User Default Theme" />-->
-        
-        <Element Name="fld_owner_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Default permission for my data " FieldName="owner_perm" Label="Owner Perm"  />
-        <Element Name="fld_group_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Default permission for my group's users" FieldName="group_perm" Label="Group Perm"  />
-		<Element Name="fld_other_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Default permission for other users " FieldName="other_perm" Label="Other Perm"  />
+        <Element Name="fld_owner_perm"  Class="Listbox" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Default permission for my data " FieldName="owner_perm" Label="Owner Perm"  />
+        <Element Name="fld_group_perm"  Class="Listbox" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Default permission for my group's users" FieldName="group_perm" Label="Group Perm"  />
+		<Element Name="fld_other_perm"  Class="Listbox" SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Default permission for other users " FieldName="other_perm" Label="Other Perm"  />
 		
 		<Element Name="fld_force_change_pwd" FieldName="force_change_passwd" ElementSet="Initialization" Label="Change Password" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Class="Checkbox" Text="Force user change password on first login" />
         <Element Name="fld_force_complete_profile" FieldName="force_complete_profile" ElementSet="Initialization" Label="Complete Profile" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Class="Checkbox" Text="Force user complete his/her profile on first login" />
-        	
+        -->
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">

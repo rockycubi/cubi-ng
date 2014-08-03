@@ -225,6 +225,10 @@ function TableFormController($scope, $http, $location, $compile) {
 		if (sortField && sortOrder) url += '&sort='+sortField+'&sorder='+sortOrder;
 		if (queryString) url += '&'+queryString;
 		$http.get(url).success(function(responseObj) {
+			if (typeof responseObj.data == 'undefined' || responseObj.data == null) {
+				openDialog("<div style='padding:5px'>"+responseObj+"<div>", 500, 300);
+				return;
+			}
 			$scope.dataset = responseObj.data;
 			$scope.totalPage = responseObj.totalPage;
 			if ($scope.totalPage == 0) $scope.totalPage = 1;
