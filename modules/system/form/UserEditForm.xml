@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: UserEditForm.xml 5474 2014-05-15 05:18:14Z rockyswen@gmail.com $
 -->
-<EasyForm Name="UserEditForm" Class="UserForm" Icon="icon_user_edit.gif" FormType="Edit" jsClass="jbForm" Title="Edit user" Description="Edit attributes of a given user account" BizDataObj="system.do.UserDO" DataService="/system/users" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg"> 
+<EasyForm Name="UserEditForm" Class="EasyForm" Icon="icon_user_edit.gif" FormType="Edit" jsClass="jbForm" Title="Edit user" Description="Edit attributes of a given user account" BizDataObj="system.do.UserDO" DataService="/system/users" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg"> 
     <DataPanel>
         <Element Name="fld_Id"  hidden="Y" Class="LabelText" FieldName="Id" Label="User Id" HTMLAttr="ng-model='formData.Id'"/>
         <Element Name="fld_username" Class="InputText" FieldName="username" Label="Username"  Validator="{@validate:betweenLength({tx}[fld_username]{/tx}, 3, 36)}" HTMLAttr="maxlength='36' ng-model='formData.username'"/>

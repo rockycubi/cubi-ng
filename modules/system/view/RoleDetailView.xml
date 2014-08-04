@@ -8,8 +8,8 @@
 <EasyView Name="RoleDetailView" Description="Role Management" class="EasyView" TemplateEngine="Smarty" TemplateFile="system_right_panel.tpl.html" PageTemplate="view.tpl.html" Access="Role.Administer_Roles">
     <FormReferences>
         <Reference Name="system.form.RoleDetailForm" subforms="system.form.RelatedUsersListForm"/>
-        <!--<Reference Name="system.form.RelatedUsersListForm"/>
-		<Reference Name="system.form.AclRoleActionsForm"/>-->
+        <!--<Reference Name="system.form.RelatedUsersListForm"/>-->
+		<Reference Name="system.form.AclRoleActionsForm"/>
 		
     </FormReferences>
 </EasyView>

@@ -43,43 +43,14 @@ class LabelBool extends LabelText{
      */
     public function render()
     {
-    	if(!$this->m_TrueImg)
-    	{
-    		$this->m_TrueImg = "flag_y.gif";
-    	}
-    	if(!$this->m_FalseImg)
-    	{
-    		$this->m_FalseImg = "flag_n.gif";
-    	}
-        $val=$this->m_Value;
-        $style = $this->getStyle();
-        $text = $this->getText();
-        $id = $this->m_Name;
-        $func = $this->getFunction();
-        if($val==='1' || $val==='true' || strtoupper($val) == 'Y' || $val>0 || $val==$this->m_TrueValue)
-    	{
-        	$image_url  = $this->m_TrueImg;            
-        }
-        else
-        {
-        	$image_url  = $this->m_FalseImg;            
-        }   
-        if(preg_match("/\{.*\}/si",$image_url))
-        {
-        	$formobj = $this->getFormObj();
-        	$image_url =  Expression::evaluateExpression($image_url, $formobj);
-        }else{
-        	$image_url = Resource::getImageUrl()."/".$image_url;
-        }                   
-    	if ($this->m_Link)
-        {
-            $link = $this->getLink();
-            $target = $this->getTarget();
-            $sHTML = "<a alt=\"".$text."\" title=\"".$text."\" id=\"$id\" href=\"$link\" $target $func $style><img src='$image_url' /></a>";
-        }else{
-        	$sHTML = "<span id=\"$id\"  ><img style=\"padding-top:2px;\" alt=\"".$text."\" title=\"".$text."\" src='$image_url' /></span>";
-        }
-        return $sHTML;
+    	// create ng-src="$image_path/{{dataobj.fieldname==1 && $this->m_TrueImg | $this->m_FalseImg}}"
+		$imagePath = Resource::getImageUrl();
+		$imgsrcText = "ng-src=\"$imagePath/{{dataobj.".$this->m_FieldName."==1 && '$this->m_TrueImg' || '$this->m_FalseImg'}}\"";
+		//$imgsrcText = "ng-src='".$imagePath."/$this->m_TrueImg'";
+		
+		$id = $this->m_Name;
+		$sHTML = "<img id=\"$id\" $imgsrcText/>";
+		return $sHTML;
     }    	
 }
 

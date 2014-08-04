@@ -32,9 +32,7 @@
         <Element Name="btn_last" Class="Button" CssClass="button_gray_navi last" Click="gotoPage(totalPage)"/>
 	</NavPanel> 
     <SearchPanel>
-        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="system.do.GroupDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
-        </Element>      	
+        <Element Name="qry_name"  Class="InputText" CssClass="input_text_search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" Click="search()" CssClass="button_gray"/>      	
     </SearchPanel>
 </EasyForm>

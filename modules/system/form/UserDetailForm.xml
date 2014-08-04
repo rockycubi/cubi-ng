@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: UserDetailForm.xml 5520 2014-06-05 06:20:06Z rockyswen@gmail.com $
 -->
-<EasyForm Name="UserDetailForm" Icon="icon_user_list.gif" Description="Detailed attributes of a user account" Class="UserForm" FormType="" jsClass="jbForm" Title="User Detail" DataService="/system/users" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
+<EasyForm Name="UserDetailForm" Icon="icon_user_list.gif" Description="Detailed attributes of a user account" Class="EasyForm" FormType="" jsClass="jbForm" Title="User Detail" DataService="/system/users" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
     <DataPanel>
         <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>
         <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username"/>

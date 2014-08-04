@@ -62,38 +62,5 @@ class ColumnBool extends ColumnText
 		$id = $this->m_Name;
 		$sHTML = "<img id=\"$id\" $imgsrcText/>";
 		return $sHTML;
-		/*
-        $val=$this->getText()?$this->getText():$this->getValue();
-        $style = $this->getStyle();
-        $text = $this->getText();
-        $id = $this->m_Name;
-        $func = $this->getFunction();        
-        
-        if($val==='1' || $val==='true' || strtoupper($val) == 'Y' || $val>0 || $val==$this->m_TrueValue)
-        {
-        	$image_url  = $this->m_TrueImg;            
-        }
-        else
-        {
-        	$image_url  = $this->m_FalseImg;            
-        }
-        if(preg_match("/\{.*\}/si",$image_url))
-        {
-        	$formobj = $this->getFormObj();
-        	$image_url =  Expression::evaluateExpression($image_url, $formobj);
-        }else{
-        	$image_url = Resource::getImageUrl()."/".$image_url;
-        }
-        
-    	if ($this->m_Link)
-        {
-            $link = $this->getLink();
-            $target = $this->getTarget();
-            $sHTML = "<a  id=\"$id\" href=\"$link\" $target $func $style><img src='$image_url' /></a>";
-        }else{
-        	$sHTML = "<img id=\"$id\"  alt=\"".$text."\" title=\"".$text."\"  src='$image_url' />";
-        }
-        return $sHTML;
-		*/
     }
 }
