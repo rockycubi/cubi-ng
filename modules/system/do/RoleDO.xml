@@ -21,7 +21,7 @@
     <TableJoins>
     </TableJoins>
     <ObjReferences>
-    <!-- <Object Name="system.acl.d_acl_role_action" Relationship="1-M" Table="acl_role_action" Column="role_id" FieldRef="Id"/> -->
-	<Object Name="system.do.UserDO" Description="" Relationship="M-M" Table="user" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_role" XColumn1="role_id" XColumn2="user_id" XDataObj="system.do.UserRoleDO"/>
+		<Object Name="system.do.AclRoleActionDO" Relationship="1-M" Table="acl_role_action" Column="role_id" FieldRef="Id"/> -->
+		<Object Name="system.do.UserDO" Description="" Relationship="M-M" Table="user" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_role" XColumn1="role_id" XColumn2="user_id" XDataObj="system.do.UserRoleDO"/>
     </ObjReferences>
 </BizDataObj>

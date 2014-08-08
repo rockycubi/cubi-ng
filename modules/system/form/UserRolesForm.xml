@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: UserRolesForm.xml 5500 2014-05-28 05:14:09Z rockyswen@gmail.com $
 -->
-<EasyForm Name="UserRolesForm" Class="UserRolesForm" Icon="icon_roles.gif" FormType="List" jsClass="jbForm" Title="User Roles" Description="List roles of a given user account. An user can associate with one or more roles." BizDataObj="system.do.RolePickerDO" DataService="/system/users/:id/roles" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
+<EasyForm Name="UserRolesForm" Class="EasyForm" Icon="icon_roles.gif" Title="User Roles" Description="List roles of a given user account. An user can associate with one or more roles." DataService="/system/users/:id/roles" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
     	<Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="Role Id" Sortable="Y"/>
@@ -28,10 +28,10 @@
         </Element>	
     </ActionPanel> 
     <NavPanel>
-        <Element Name="btn_first"  Class="Button" Text="" CssClass="button_gray_navi first" HTMLAttr="ng-click='gotoPage(1)'"/>
-        <Element Name="btn_prev" Class="Button" Text="" CssClass="button_gray_navi prev" HTMLAttr="ng-click='gotoPage(currentPage-1)'"/>
+        <Element Name="btn_first" Class="Button" CssClass="button_gray_navi first" Click="gotoPage(1)"/>
+        <Element Name="btn_prev" Class="Button" CssClass="button_gray_navi prev" Click="gotoPage(currentPage-1)"/>
         <Element Name="txt_page" Class="LabelText" Text="{{currentPage}} of {{totalPage}}"/>
-        <Element Name="btn_next" Class="Button" Text="" CssClass="button_gray_navi next" HTMLAttr="ng-click='gotoPage(currentPage+1)'"/>
-        <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
+        <Element Name="btn_next" Class="Button" CssClass="button_gray_navi next" Click="gotoPage(currentPage+1)"/>
+        <Element Name="btn_last" Class="Button" CssClass="button_gray_navi last" Click="gotoPage(totalPage)"/>
     </NavPanel> 
 </EasyForm>

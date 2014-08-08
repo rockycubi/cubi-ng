@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: UserGroupsForm.xml 5494 2014-05-23 05:28:02Z rockyswen@gmail.com $
 -->
-<EasyForm Name="UserGroupsForm" Icon="icon_group_list.gif" Class="UserGroupsForm" FormType="List" jsClass="jbForm" Title="User Groups" Description="List groups of a given user account. An user can associate with one or more groups." BizDataObj="system.do.GroupPickerDO" DataService="/system/users/:id/groups" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
+<EasyForm Name="UserGroupsForm" Icon="icon_group_list.gif" Class="EasyForm" Title="User Groups" Description="List groups of a given user account. An user can associate with one or more groups." DataService="/system/users/:id/groups" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
     	<Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="Group ID" Sortable="Y" />        
@@ -18,14 +18,10 @@
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
-            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="LoadDialog(system.form.GroupPickForm)" />
-        </Element>
-<!--        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
-            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=system.form.UserGroupEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
-        </Element>
--->		
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="dialog('/f/system/group_pick',650,500)" />
+        </Element>	
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
-            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="RemoveRecord()" />
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="removeFromParent(selectedIndex)" />
         </Element>
         <Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_default" Class="Button" Text="Set Default" CssClass="button_gray_w" >
@@ -33,10 +29,10 @@
         </Element>		
     </ActionPanel> 
     <NavPanel>
-        <Element Name="btn_first"  Class="Button" Text="" CssClass="button_gray_navi first" HTMLAttr="ng-click='gotoPage(1)'"/>
-        <Element Name="btn_prev" Class="Button" Text="" CssClass="button_gray_navi prev" HTMLAttr="ng-click='gotoPage(currentPage-1)'"/>
+        <Element Name="btn_first" Class="Button" CssClass="button_gray_navi first" Click="gotoPage(1)"/>
+        <Element Name="btn_prev" Class="Button" CssClass="button_gray_navi prev" Click="gotoPage(currentPage-1)"/>
         <Element Name="txt_page" Class="LabelText" Text="{{currentPage}} of {{totalPage}}"/>
-        <Element Name="btn_next" Class="Button" Text="" CssClass="button_gray_navi next" HTMLAttr="ng-click='gotoPage(currentPage+1)'"/>
-        <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
+        <Element Name="btn_next" Class="Button" CssClass="button_gray_navi next" Click="gotoPage(currentPage+1)"/>
+        <Element Name="btn_last" Class="Button" CssClass="button_gray_navi last" Click="gotoPage(totalPage)"/>
     </NavPanel> 
 </EasyForm>

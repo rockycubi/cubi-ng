@@ -1,21 +1,83 @@
-{php}
-$this->assign('template_file', 'system_right_listform.tpl.html');
-{/php}
-{literal}
-<style>
-#main #right_panel .content table.input_row td .label_text{
-width:350px;
-}
-#system\.form\.AclRoleActionsForm .action_panel{
-width:240px;
-}
-#system\.form\.AclRoleActionsForm .search_panel{
-width:450px;
-}
-.search_panel select{
-float:left;
-margin-right:5px;
-}
-</style>
-{/literal}
-{include file=$template_file}
+<form id='{$form.name}' name='{$form.name}' 
+ng-controller="TableRolePermController" 
+ng-init="init('{$form.name}','{$form.dataService}','{$form.queryString}')">
+<!-- form header start -->
+<div style="padding-left:25px;padding-right:20px;">
+	<div>
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+		<div style="float:left; width:600px;">
+		<h2>
+		{$form.title}
+		</h2> 
+		<p class="form_desc">{$form.description}</p>
+		</div>
+	</td></tr></table>
+	</div>
+{if $actionPanel or $searchPanel }	
+	<div class="form_header_panel">	
+		<div class="action_panel" >
+			{foreach item=elem from=$actionPanel}
+                {$elem.element}
+			{/foreach}
+		</div>
+		<div class="search_panel" >		
+			{foreach item=elem from=$searchPanel}
+				{if $elem.type!='InputDateRangePicker'}
+					{if $elem.label}<span style="float:left;padding-right:5px;line-height:20px">{$elem.label}</span> {/if} {$elem.element}
+				{/if}
+			{/foreach}
+		</div>
+	</div>	
+{/if}
+<!-- form header end -->	
+
+<div class="from_table_container">
+<!-- table start -->
+<table border="0" cellpadding="0" cellspacing="0" class="form_table" id="{$form.name}_data_table">
+	<thead>		
+     {foreach item=cell key=elems_name from=$dataPanel}	
+     	{if $cell.type=='ColumnStyle'}
+     		{assign var=row_style_name value=$elems_name}     	
+		{else}
+			{if $cell.type=='RowCheckbox'}
+				{assign var=th_style value="text-align:left;padding-left:10px;"}
+			{else}
+				{assign var=th_style value=""}
+			{/if}
+         <th onmouseover="this.className='hover'" onmouseout="this.className=''" nowrap="nowrap" style="{$th_style}">
+		 {if $cell.sortable=='Y'}<a href='' ng-click="sortRecord('{$cell.field}')">{$cell.label}</a>
+		 {else}{$cell.label}
+		 {/if}
+		 </th>	 
+		{/if}
+     {/foreach}
+	</thead>
+	<tbody>
+		<tr ng-repeat="dataobj in dataset" ng-click="selectRow($index)" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="dataobj.selected==1?'selected':highlightclass" ng-mouseenter="highlightclass='hover'" ng-mouseleave="highlightclass=''">
+		{foreach item=cell key=elems_name from=$dataPanel}
+			<td>{$cell.element}</td>
+		{/foreach}
+		</tr>
+	</tbody>
+</table>
+</div>
+<!-- table end -->	
+
+<!-- form footer start -->
+<div class="form_footer_panel">
+    <div class="navi_panel">
+    {if $navPanel}
+       {foreach item=elem from=$navPanel}
+            {if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+            {$elem.element}
+       {/foreach}
+    {/if}
+    </div>
+</div>
+<!-- form footer end -->
+
+</div>
+</form>

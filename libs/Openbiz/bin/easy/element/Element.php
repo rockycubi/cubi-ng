@@ -422,12 +422,14 @@ class Element extends MetaObject implements iUIControl
 		if ($this->m_Click) {
 			return "ng-click=".$this->m_Click;
 		}
+		
 		if ($this->m_EventHandlers == null) return '';
 		$funcList = array();
 		foreach ($this->m_EventHandlers as $eventHandler) {
 			$ehName = $eventHandler->m_Name;
             $event = $eventHandler->m_Event;
 			if ($event == "onclick") $event = "ng-click";
+			else if ($event == "onchange") $event = "ng-change";
             $func = $eventHandler->m_OrigFunction;
 			$redirectPage = $eventHandler->m_RedirectPage;
 			if ($redirectPage) {

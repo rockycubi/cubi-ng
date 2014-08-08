@@ -225,8 +225,8 @@ function TableFormController($scope, $http, $location, $compile) {
 		if (sortField && sortOrder) url += '&sort='+sortField+'&sorder='+sortOrder;
 		if (queryString) url += '&'+queryString;
 		$http.get(url).success(function(responseObj) {
-			if (typeof responseObj.data == 'undefined' || responseObj.data == null) {
-				openDialog("<div style='padding:5px'>"+responseObj+"<div>", 500, 300);
+			if (typeof responseObj.data == 'undefined' && responseObj.data == null) {
+				openDialog("<div style='padding:10px'>"+responseObj+"</div>");
 				return;
 			}
 			$scope.dataset = responseObj.data;
@@ -317,6 +317,7 @@ function CFormController($scope, $resource, $window, $location) {
 			}
 		}, function(errorObj) {
 			// errorObj.data, errorObj.status, errorObj.statusText
+			openDialog(errorObj.toString());
 			console.log(errorObj);
 			if (typeof errorObj.data == 'string') $scope.errorMsg = errorObj.data;
 			else $scope.errors = errorObj.data;
@@ -405,6 +406,34 @@ function LeftMenuController($scope, $http, $location, MenuService) {
 		return $location.path() == path;
 	}
 }
+
+function TableRolePermController($scope, $http, $location, $compile, $injector) {
+	$injector.invoke(TableFormController, this, {$scope:$scope});
+	
+	$scope.saveAccessLevel = function() {
+		// collect data from dataset (action_id, role_id, access_level)
+		var reqDataSet = new Array();
+
+		for (i=0; i<$scope.dataset.length; i++) {
+			var arr = {};
+			arr['Id'] = $scope.dataset[i].Id;
+			roleId = $scope.dataset[i].role_id;
+			arr['access_level'] = $scope.dataset[i].access_level;
+			reqDataSet.push(arr);
+		}
+		console.log(reqDataSet);
+		// post json data to service url
+		var url = $scope.dataService;
+		$http.post(url,reqDataSet).success(function(response) {
+			alert(response);
+			//$scope.refresh();
+		}).error(function(message, status) {
+			alert(status + " " + message);
+			return;
+		})
+	}
+}
+TableRolePermController.prototype = Object.create(TableFormController.prototype);
 
 function openDialog(content, w, h) {
 	$('#modal_dialog').remove();

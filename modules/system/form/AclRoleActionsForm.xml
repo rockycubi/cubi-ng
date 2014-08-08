@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: AclRoleActionsForm.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
 -->
-<EasyForm Name="AclRoleActionsForm" Icon="icon_roles_permissions_l.gif" Class="EasyForm" Title="Role Permissions" Description="Manage the permissions of the given role by setting access level to resource actions" DataService="/system/aclactions" TemplateEngine="Smarty" TemplateFile="form_role_permission_grid.tpl.html" MessageFile="system.msg">
+<EasyForm Name="AclRoleActionsForm" Icon="icon_roles_permissions_l.gif" Class="EasyForm" Title="Role Permissions" Description="Manage the permissions of the given role by setting access level to resource actions" DataService="/system/roles/:id/aclroleactions" TemplateEngine="Smarty" TemplateFile="form_role_permission_grid.tpl.html" MessageFile="system.msg">
     <DataPanel>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="Action Id" Sortable="Y"/>
         <Element Name="fld_module" Class="ColumnText" FieldName="module" Label="Module" Sortable="Y"/>
@@ -16,7 +16,7 @@
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="edit_onclick" Event="onclick" Function="SaveAccessLevel()"/>
+            <EventHandler Name="edit_onclick" Event="onclick" Function="saveAccessLevel()"/>
         </Element>
     </ActionPanel> 
     <NavPanel>
@@ -27,15 +27,13 @@
         <Element Name="btn_last" Class="Button" Click="gotoPage(totalPage)" CssClass="button_gray_navi last"/>
     </NavPanel> 
     <SearchPanel>
-		<Element Name="module_filter"  BlankOption="All Modules" width="120" Class="Listbox" FieldName="module" Label="" SelectFrom="system.do.AclModuleListDO[module:module]" >
-            <EventHandler Name="module_filter_onchange" Event="onchange" Function="RunSearch()"/>
+		<Element Name="module_filter"  BlankOption="All Modules" Class="Listbox" FieldName="module" Label="" SelectFrom="system.do.AclModuleListDO[module:module]" Style="margin-right:10px">
+            <EventHandler Name="module_filter_onchange" Event="onchange" Function="search()"/>
         </Element>
-    	<Element Name="resource_selector"  BlankOption="All Resources" width="120" Class="Listbox" FieldName="resource" Label="" SelectFrom="system.do.AclResourceListDO[resource:resource],[module]='{@:Elem[module_filter].Value}'" >
-            <EventHandler Name="resource_selector_onchange" Event="onchange" Function="RunSearch()"/>
+    	<!--<Element Name="resource_selector"  BlankOption="All Resources" width="120" Class="Listbox" FieldName="resource" Label="" SelectFrom="system.do.AclResourceListDO[resource:resource],[module]='{@:Elem[module_filter].Value}'" >
+            <EventHandler Name="resource_selector_onchange" Event="onchange" Function="search()"/>
         </Element> 
         <Element Name="qry_module"  Class="InputText" FieldName="module_alias" CssClass="input_text_search" />
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
-        </Element>        
+        <Element Name="btn_dosearch" Class="Button" text="Go" Click="search()" CssClass="button_gray"/>-->
     </SearchPanel>
 </EasyForm>
