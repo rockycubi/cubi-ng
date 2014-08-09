@@ -5,21 +5,18 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: MenuNewForm.xml 5515 2014-06-04 04:57:18Z rockyswen@gmail.com $
 -->
-<EasyForm Name="MenuNewForm" Class="EasyForm" icon="icon_menu_add.gif" FormType="New" jsClass="jbForm" Title="New Menu Item" Description="In this form you can create a new menu item to system." DataService="/menu/menus" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="MENU" MessageFile="">
+<EasyForm Name="MenuNewForm" Class="EasyForm" icon="icon_menu_add.gif" Title="New Menu Item" Description="In this form you can create a new menu item to system." DataService="/menu/menus" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="MENU" MessageFile="">
     <DataPanel>
-        <Element Name="fld_parent" Class="TreeListbox" BLANKOPTION="-- Root --" SelectFrom="menu.do.MenuTreeListDO[title:Id],[published]=1,[PId]=''" ElementSet="General" FieldName="parent" Label="Parent"  AllowURLParam="N" DefaultValue="{$_POST['_selectedId']?$_POST['_selectedId']:''}"/>
-        <Element Name="fld_label" Class="InputText"  ElementSet="General" FieldName="title" Label="Title" Description="Will displayed in menu tree" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_link" Class="InputText"  ElementSet="General" FieldName="link" Label="Link" Description="support URL string format" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
-        <Element Name="fld_url_match" Class="InputText"  ElementSet="General" FieldName="url_match" Label="URL Match" Description="used for BreadCrumb to find current node" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-        <Element Name="fld_description" Class="Textarea"  ElementSet="General" FieldName="description" Label="Description" Description="Comments for menu administrator" AllowURLParam="N" CssClass="input_textarea" CssErrorClass="input_textarea_error" CssFocusClass="input_textarea_focus"/>
+        <Element Name="fld_parent" Class="TreeListbox" BLANKOPTION="-- Root --" SelectFrom="menu.do.MenuTreeListDO[title:Id],[published]=1,[PId]=''" ElementSet="General" FieldName="parent" Label="Parent"/>
+        <Element Name="fld_label" Class="InputText"  ElementSet="General" FieldName="title" Label="Title" Description="Will displayed in menu tree"/>
+		<Element Name="fld_link" Class="InputText"  ElementSet="General" FieldName="link" Label="Link" CssClass="input_text_l" Description="support URL string format"/>            
+        <Element Name="fld_description" Class="Textarea"  ElementSet="General" FieldName="description" Label="Description" Description="Comments for menu administrator"/>
         
-        <Element Name="fld_icon_css" Class="InputText" ElementSet="Parameters" FieldName="icon_css" Label="CSS Class" Description="CSS class name for this menu item" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
-		<Element Name="fld_access" Class="InputText" ElementSet="Parameters" SelectFrom="1" DefaultValue="0" FieldName="access" Label="Access"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
-        
-        <Element Name="fld_module" Class="Listbox" ElementSet="Parameters" SelectFrom="system.do.ModuleDO[name]" FieldName="module" Label="Module"  AllowURLParam="N" />
-        <Element Name="fld_type" Class="Listbox"  ElementSet="Parameters" SelectFrom="menu.do.MenuTypeDO(MenuType)" DefaultValue="Application" FieldName="type" Label="Type"  AllowURLParam="N" />
-		<Element Name="fld_ordering" Class="Listbox" ElementSet="Parameters" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  AllowURLParam="N" />
-		<Element Name="fld_published" Class="Checkbox" ElementSet="Parameters" SelectFrom="1" DefaultValue="1" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />           
+        <Element Name="fld_icon_css" Class="InputText" ElementSet="Parameters" FieldName="icon_css" Label="Icon CSS Class" Description="CSS class name for this menu item"/>
+		<Element Name="fld_access" Class="InputText" ElementSet="Parameters" FieldName="access" Label="Access Level" Description="Example: User.Administer_Users"/>
+        <Element Name="fld_module" Class="Listbox" ElementSet="Parameters" SelectFrom="system.do.ModuleDO[name]" FieldName="module" Label="Module"/>
+		<Element Name="fld_ordering" Class="Listbox" ElementSet="Parameters" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering" Description="Low order appears on top"/>
+		<Element Name="fld_published" Class="Checkbox" ElementSet="Parameters" DefaultValue="1" FieldName="published" Label="Published"/>           
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m" Click="save('/menu/menu_detail/')"/>

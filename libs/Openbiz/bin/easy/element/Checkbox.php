@@ -24,44 +24,17 @@
  * @copyright Copyright (c) 2005-2009
  * @access public
  */
-class Checkbox extends OptionElement
+class Checkbox extends InputElement
 {
-	protected $m_DefaultChecked ; 
+	protected $trueValue="1";
+	protected $falseValue="0";
 	
 	protected function readMetaData($xmlArr)
     {
         parent::readMetaData($xmlArr);
-        $this->m_DefaultChecked = isset($xmlArr["ATTRIBUTES"]["DEFAULTCHECKED"]) ? $xmlArr["ATTRIBUTES"]["DEFAULTCHECKED"] : "N";
+        $this->trueValue = isset($xmlArr["ATTRIBUTES"]["TRUEVALUE"]) ? $xmlArr["ATTRIBUTES"]["TRUEVALUE"] : "1";
+		$this->falseValue = isset($xmlArr["ATTRIBUTES"]["FALSEVALUE"]) ? $xmlArr["ATTRIBUTES"]["FALSEVALUE"] : "0";
     }
-    public function getDefaultChecked()
-    {
-    	$formObj = $this->getFormObj();    	
-    	return Expression::evaluateExpression($this->m_DefaultChecked, $formObj);
-    }
-    /**
-     * Get value of element
-     *
-     * @return mixed
-     */
-    public function getValue()
-    {
-       
-    	if(strtoupper($this->getDefaultChecked())=='Y' && !isset($_GET['F']) )
-    	{
-    		$this->m_Value = $this->getSelectFrom();
-    		return $this->m_Value;
-    	}
-    	
-        if($this->m_Value!=null)
-        {
-            return $this->m_Value;
-        }
-        else
-        {
-            return $this->m_DefaultValue;
-        }
-    }
-    
 
     /**
      * Render element, according to the mode
@@ -70,45 +43,11 @@ class Checkbox extends OptionElement
      */
     public function render()
     {
-        $boolValue = $this->getSelectFrom();
-        $disabledStr = ($this->getEnabled() == "N") ? "DISABLED=\"true\"" : "";
-        
-        if(strtoupper($this->getDefaultChecked())=='Y' && !isset($_GET['F']))
-    	{		
-    		$checkedStr = "CHECKED";
-    	}else{    		
-        	$checkedStr = ($boolValue == $this->getValue()) ? "CHECKED" : "";
-    	}        
-        $defaultValue = $this->m_DefaultValue;
         $style = $this->getStyle();
         $text = $this->getText();
         $func = $this->getFunction();
-        $sHTML = '';
-        $fromList = array();
-        $this->getFromList($fromList);
-        
-        if (count($fromList) > 1)
-        {
-            $valueArr = explode(',', $this->getValue());
 
-            foreach ($fromList as $opt)
-            {
-                $test = array_search($opt['val'], $valueArr);
-                if ($test === false)
-                {
-                    $checkedStr = '';
-                }
-                else
-                {
-                    $checkedStr = "CHECKED";
-                }
-                $sHTML .= "<INPUT TYPE=CHECKBOX NAME='".$this->m_Name."[]' ID=\"" . $this->m_Name ."\" DefaultValue=\"$defaultValue\" VALUE=\"" . $opt['val'] . "\" $checkedStr $disabledStr $this->m_HTMLAttr $func /> " . $opt['txt'] . "";
-            }
-        }
-        else
-        {
-            $sHTML = "<INPUT TYPE=\"CHECKBOX\" NAME=\"" . $this->m_Name . "\" ID=\"" . $this->m_Name ."\" DefaultValue=\"$DefaultValue\" VALUE='$boolValue' $checkedStr $disabledStr $this->m_HTMLAttr $style $func /> ".$text."";
-        }
+		$sHTML = "<INPUT TYPE=\"CHECKBOX\" NAME=\"$this->m_Name\" ID=\"$this->m_Name\" $this->m_ModelText $this->m_HTMLAttr $style $func ng-true-value='$this->trueValue' ng-false-value='$this->falseValue'/> ".$text."";
 
         return $sHTML;
     }

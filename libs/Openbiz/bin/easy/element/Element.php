@@ -129,7 +129,7 @@ class Element extends MetaObject implements iUIControl
 
         // additional data in HTMLAttr
 		$this->m_HTMLAttr .= ($this->m_DataRole) ? " data-role='".$this->m_DataRole."'" : "";
-        $this->m_HTMLAttr .= " title='".$this->m_Description."'"." clientValidator='".$this->m_ClientValidator."'";
+        //$this->m_HTMLAttr .= " title='".$this->m_Description."'"." clientValidator='".$this->m_ClientValidator."'";
     }
 
     /**

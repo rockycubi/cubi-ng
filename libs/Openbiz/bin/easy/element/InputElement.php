@@ -65,6 +65,9 @@ class InputElement extends Element
 		$this->m_HintText = $this->m_Hint ? "placeholder='".$this->m_Hint."'" : null;
 		if ($this->m_FieldName) {
 			$this->m_ModelText = "ng-model='dataobj.".$this->m_FieldName."'";
+			if ($this->m_DefaultValue !== null || $this->m_DefaultValue !== '') {
+				$this->m_ModelText .= " ng-init=\"dataobj.".$this->m_FieldName."='$this->m_DefaultValue'\"";
+			}
 		}
     }
 

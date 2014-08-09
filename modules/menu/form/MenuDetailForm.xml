@@ -7,31 +7,24 @@
 -->
 <EasyForm Name="MenuDetailForm" Class="EasyForm" FormType="" icon="icon_menu_l.gif" jsClass="jbForm" Title="Menu Item Detail" Description="In this form you can view a detailed menu item." DataService="/menu/menus" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="MENU" MessageFile="">
     <DataPanel>
-        <Element Name="fld_Id" Class="Hidden" Hidden="Y" ElementSet="General" FieldName="Id" Label="Id"  AllowURLParam="Y"/>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" ElementSet="General" FieldName="Id" Label="Id"/>
         <Element Name="fld_parent_id" Class="Hidden" ElementSet="General" FieldName="PId" Label="Parent Id"/>
         <!--<Element Name="fld_parent" Class="LabelText" Text="{@query:FetchField(menu.do.MenuDO, [Id]=@:Elem[fld_parent_id].Value, title)}" ElementSet="General" FieldName="parent" Label="Parent"/>-->
-        <Element Name="fld_label" Class="LabelText"  ElementSet="General" FieldName="title" Label="Title" AllowURLParam="N"/>
-		<Element Name="fld_link" Class="LabelText"  ElementSet="General" FieldName="link" Label="Link" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
-        <Element Name="fld_url_match" Class="LabelText"  ElementSet="General" FieldName="url_match" Label="URL Match" AllowURLParam="N" />
-        <Element Name="fld_description" Class="LabelText"  ElementSet="General" FieldName="description" Label="Description" AllowURLParam="N" />
-        <Element Name="fld_icon_css" Class="LabelText" ElementSet="Parameters" FieldName="icon_css" Label="CSS Class" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
-        <Element Name="fld_module" Class="LabelText" ElementSet="Parameters"  FieldName="module" Label="Module"  AllowURLParam="N" />
-        <Element Name="fld_type" Class="LabelText"  ElementSet="Parameters"  FieldName="type" Label="Type"  AllowURLParam="N" />
-		<Element Name="fld_ordering" Class="LabelText" ElementSet="Parameters"  FieldName="sortorder" Label="Ordering"  AllowURLParam="N" />
-		<Element Name="fld_published" Class="LabelBool" ElementSet="Parameters" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;" >		
-			<!--<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_published,{@:Elem[fld_published].Value})"/>-->	
-		</Element>           
-		<Element Name="fld_access" Class="LabelBool" ElementSet="Parameters" FieldName="access" Label="Access"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:;">
-			<!--<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_access,{@:Elem[fld_access].Value})"/>-->
-		</Element> 
+        <Element Name="fld_label" Class="LabelText"  ElementSet="General" FieldName="title" Label="Title"/>
+		<Element Name="fld_link" Class="LabelText"  ElementSet="General" FieldName="link" Label="Link" />            
+        <Element Name="fld_description" Class="LabelText"  ElementSet="General" FieldName="description" Label="Description"/>
+        <Element Name="fld_icon_css" Class="LabelText" ElementSet="Parameters" FieldName="icon_css" Label="CSS Class"/>
+        <Element Name="fld_module" Class="LabelText" ElementSet="Parameters"  FieldName="module" Label="Module"/>
+		<Element Name="fld_ordering" Class="LabelText" ElementSet="Parameters"  FieldName="sortorder" Label="Ordering"/>
+		<Element Name="fld_published" Class="LabelBool" ElementSet="Parameters" FieldName="published" Label="Published"/>
+		<Element Name="fld_access" Class="LabelBool" ElementSet="Parameters" FieldName="access" Label="Access Level"/>
 
 		<!--<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>-->
-        <Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
+        <Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time"/>
         <!--<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>-->
-        <Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>		   
+        <Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time"/>		   
     </DataPanel>
-    <ActionPanel>       
-        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Link="{@home:url}/menu/menu_new"/>
+    <ActionPanel>
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)" Link="{@home:url}/menu/menu_edit/{{dataobj.Id}}"/>
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)" Click="delete('/menu/menu_list')"/>>
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m" Click="back()"/>

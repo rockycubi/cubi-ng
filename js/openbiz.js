@@ -293,6 +293,8 @@ function CFormController($scope, $resource, $window, $location) {
 		
 		if ($scope.id == '' || $scope.id == null) {
 			$scope.dataobj = new Model();
+			// set default value
+			// ...
 		}
 		else {
 			// get the data with given record id
