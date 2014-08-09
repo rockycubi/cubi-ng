@@ -5,15 +5,11 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: GroupListForm.xml 5508 2014-06-01 00:32:52Z rockyswen@gmail.com $
 -->
-<EasyForm Name="GroupListForm" Class="EasyForm"  Icon="icon_group_list.gif" FormType="List" jsClass="jbForm" Title="Group Management" Description="User Group controls users data level visibility in the system." DataService="/system/Groups" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" EventName="" MessageFile="">
+<EasyForm Name="GroupListForm" Class="EasyForm"  Icon="icon_group_list.gif" Title="Group Management" Description="User Group controls users data level visibility in the system." DataService="/system/Groups" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" EventName="" MessageFile="">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" >         
-         	<!-- <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(system.form.GroupDetailForm,{@:Elem[fld_Id].Value})"   />-->
-        </Element>
-        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" Link="{@home:url}/system/group_detail/{{dataobj.Id}}" >
-       		<!-- <EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.GroupDetailForm,{@:Elem[fld_Id].Value})"   /> -->
-        </Element>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y" Link="{@home:url}/system/group_detail/{{dataobj.Id}}"/>
         <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y"/>
 		<Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active" />
         <Element Name="fld_default" Class="ColumnBool" FieldName="default" Sortable="Y" Label="Default" />

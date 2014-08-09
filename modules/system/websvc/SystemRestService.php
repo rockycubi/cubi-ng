@@ -17,6 +17,24 @@ class SystemRestService extends RestService
 									 'modulechangelogs'=>'system.do.ModuleChangeLogDO',
 									 'sessions'=>'system.do.SessionDO');
 
+	public function query($resource, $request, $response) {
+		if ($resource == 'users') {
+			// new user rest service
+			$userRestSvc = new UserRestService();
+			return  $userRestSvc->query($resource, $request, $response);
+		}
+		return parent::query($resource, $request, $response);
+	}
+	
+	public function get($resource, $id, $request, $response) {
+		if ($resource == 'users') {
+			// new user rest service
+			$userRestSvc = new UserRestService();
+			return  $userRestSvc->get($resource, $id, $request, $response);
+		}
+		return parent::get($resource, $id, $request, $response);
+	}
+
 	public function post($resource, $request, $response) {
 		if ($resource == 'users') {
 			// new user rest service
@@ -24,6 +42,15 @@ class SystemRestService extends RestService
 			return  $userRestSvc->post($resource, $request, $response);
 		}
 		return parent::post($resource, $request, $response);
+	}
+	
+	public function put($resource, $id, $request, $response) {
+		if ($resource == 'users') {
+			// new user rest service
+			$userRestSvc = new UserRestService();
+			return  $userRestSvc->put($resource, $id, $request, $response);
+		}
+		return parent::put($resource, $id, $request, $response);
 	}
 	
 	public function putChildren($resource, $id, $childresource, $request, $response) {

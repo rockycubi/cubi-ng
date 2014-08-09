@@ -309,6 +309,10 @@ function CFormController($scope, $resource, $window, $location) {
 		var formData = angular.copy($scope.dataobj);
 		formData.$save(function(data) {
 			console.log("Data is successfully saved.");
+			if (typeof data.Id == 'undefined' || data.Id == null) {
+				openDialog(data);
+				return;
+			}
 			if (typeof redirectPage != 'undefined' && redirectPage != null && data.Id != null) {
 				var redirectUrl = APP_INDEX+redirectPage+data.Id;
 				console.log("Redirect to page "+redirectUrl);
@@ -317,7 +321,6 @@ function CFormController($scope, $resource, $window, $location) {
 			}
 		}, function(errorObj) {
 			// errorObj.data, errorObj.status, errorObj.statusText
-			openDialog(errorObj.toString());
 			console.log(errorObj);
 			if (typeof errorObj.data == 'string') $scope.errorMsg = errorObj.data;
 			else $scope.errors = errorObj.data;

@@ -6,7 +6,7 @@ include_once MODULE_PATH.'/websvc/lib/RestService.php';
 
 class UserRestService extends RestService
 {
-	protected $resourceDOMap = array('users'=>'system.do.UserDO');
+	protected $resourceDOMap = array('users'=>'system.do.UserNPDO');
 
 	public function post($resource, $request, $response) {
 		$DOName = $this->getDOName($resource);
@@ -20,11 +20,11 @@ class UserRestService extends RestService
 		$dataRec = new DataRecord(null, $dataObj);
 		$inputRecord = json_decode($request->getBody());
 		if ($inputRecord->password != $inputRecord->password_repeat) {
-			$response->status(400);
-			$errmsg = "Invalid password";
-			$response->body($errmsg);
+			$errors['password_repeat'] = "Password repeat is not same as password";
+			$this->setErrorResponse(400, $errors, $response, $format);
 			return;
 		}
+		
         foreach ($inputRecord as $k => $v) {
 			if ($k == 'password') {
 				$v = hash(HASH_ALG, $v);
@@ -66,6 +66,63 @@ class UserRestService extends RestService
         }
 		
 		$format = strtolower($request->params('format'));
+		return $this->setResponse($dataRec->toArray(), $response, $format);
+	}
+	
+	public function put($resource, $id, $request, $response) {
+		$format = strtolower($request->params('format'));
+	
+		$DOName = $this->getDOName($resource);
+		if (empty($DOName)) {
+			$response->status(404);
+			$response->body("Resource '$resource' is not found.");
+			return;
+		}
+		$dataObj = BizSystem::getObject($DOName);
+		$rec = $dataObj->fetchById($id);
+		if (empty($rec)) {
+			$response->status(404);
+			$response->body("No data is found for $resource $id");
+			return;
+		}
+		
+		$dataRec = new DataRecord($rec, $dataObj);
+		$inputRecord = json_decode($request->getBody());
+		
+		if ($inputRecord->password != $inputRecord->password_repeat) {
+			$errors['password_repeat'] = "Password repeat is not same as password";
+			$this->setErrorResponse(400, $errors, $response, $format);
+			return;
+		}
+		
+        foreach ($inputRecord as $k => $v) {
+			// if password is ********, ignore password value
+			if ($k == 'password' && $v == '********') {
+				continue;
+			}
+			if ($k == 'password') {
+				$v = hash(HASH_ALG, $v);
+			}
+			if ($k == 'password_repeat') {
+				continue;
+			}
+            $dataRec[$k] = $v; // or $dataRec->$k = $v;
+		}
+        try {
+			$dataRec->save();
+        }
+        catch (ValidationException $e) {
+            $response->status(400);
+			$errmsg = implode("\n",$e->m_Errors);
+			$response->body($errmsg);
+			return;
+        }
+        catch (BDOException $e) {
+            $response->status(400);
+			$response->body($e->getMessage());
+			return;
+        }
+		
 		return $this->setResponse($dataRec->toArray(), $response, $format);
 	}
 }

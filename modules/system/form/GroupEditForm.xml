@@ -5,21 +5,17 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: GroupEditForm.xml 5508 2014-06-01 00:32:52Z rockyswen@gmail.com $
 -->
-<EasyForm Name="GroupEditForm" Class="EasyForm" FormType="Edit"  Icon="icon_group_edit.gif" jsClass="jbForm" Title="Edit Group" Description="User Group controls users data level visibility in the system." BizDataObj="system.do.GroupDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detailform_panel.tpl.html" EventName="" MessageFile="">
+<EasyForm Name="GroupEditForm" Class="EasyForm" Icon="icon_group_edit.gif" Title="Edit Group" Description="User Group controls users data level visibility in the system." DataService="/system/Groups" TemplateEngine="Smarty" TemplateFile="detailform_panel.tpl.html" EventName="" MessageFile="">
     <DataPanel>
-		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
-		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N"/>
+		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id"/>
+		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name" CssClass="input_text"/>
+		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"/>
         <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
         <Element Name="fld_default" Class="Listbox" FieldName="default" Label="Default" SelectFrom="system.lov.Selection(Default)"/>        
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=system.form.GroupDetailForm&amp;fld:Id={@system.do.GroupDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
-        </Element>
-        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
-            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(system.form.GroupListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
-        </Element>
+		<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m" Click="save('/system/group_detail/')"/>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m" Click="back()"/>
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 
