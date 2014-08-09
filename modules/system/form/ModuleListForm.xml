@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: ModuleListForm.xml 5508 2014-06-01 00:32:52Z rockyswen@gmail.com $
 -->
-<EasyForm Name="ModuleListForm" Icon="icon_modules_l.gif" Class="ModuleForm" FormType="List" jsClass="jbForm" Title="Module Management" Description="Manage modules in the application. A modules is a component implementing certain business logic. " DataService="/system/Modules" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" MessageFile="system.msg">
+<EasyForm Name="ModuleListForm" Icon="icon_modules_l.gif" Class="EasyForm" Title="Module Management" Description="Manage modules in the application. A modules is a component implementing certain business logic. " DataService="/system/modules" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" MessageFile="system.msg">
     <DataPanel>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y" Link="{@home:url}/system/module_detail/{{dataobj.Id}}"/>
@@ -15,14 +15,14 @@
         <Element Name="fld_version" Class="ColumnText" FieldName="version" Sortable="Y" Label="Version"/>
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Link="{@home:url}/system/module_edit/{{selectedId}}"/>
+        <!--<Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Link="{@home:url}/system/module_edit/{{selectedId}}"/>
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
             <EventHandler Name="delete_onclick" Event="onclick" Function="PurgeRecord()" />
         </Element>
         <Element Name="btn_unload" Class="Button" Text="Unload" CssClass="button_gray_m" Click="delete(selectedIndex)"/>
         <Element Name="btn_load" Class="Button" Text="Load Modules" CssClass="button_gray_w">
             <EventHandler Name="load_onclick" Event="onclick" Function="loadNewModules(0)"/>
-        </Element>
+        </Element>-->
     </ActionPanel> 
     <NavPanel>
         <Element Name="btn_first" Class="Button" CssClass="button_gray_navi first" Click="gotoPage(1)"/>

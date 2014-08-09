@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: ModuleActionsForm.xml 5508 2014-06-01 00:32:52Z rockyswen@gmail.com $
 -->
-<EasyForm Name="ModuleActionsForm" Class="EasyForm" Icon="icon_modules_action_l.gif" FormType="List" jsClass="jbForm" Title="Module Actions" Description="List the actions of current module, defined at module's mod.xml file.\nTo refresh the list , please click reload button above." BizDataObj="system.do.AclActionDO" DataService="/system/aclactions" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
+<EasyForm Name="ModuleActionsForm" Class="EasyForm" Icon="icon_modules_action_l.gif" Title="Module Actions" Description="List the actions of current module, defined at module's mod.xml file.\nTo refresh the list , please click reload button above." DataService="/system/modules/:id/aclactions" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" />
         <Element Name="fld_module" Class="ColumnText" FieldName="module" Label="Module" Sortable="Y"/>
