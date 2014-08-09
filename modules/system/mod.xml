@@ -23,13 +23,6 @@
 		<Resource Name="Module">
 			<Action Name="Administer_Modules" Description="Administration includes view modules, load modules, activate/deactivate modules"/>
 		</Resource>
-		<Resource Name="System">
-			<Action Name="Administer_System" Description="Administration of system setting"></Action>			
-		</Resource>
-		<Resource Name="Session">
-			<Action Name="Administer_Session" Description="Administration of user sessions"></Action>
-			<Action Name="Switch_Session" Description="Switch user session on fly" />						
-		</Resource>
     </ACL>
     <Menu>
     <!-- System menus -->
@@ -38,7 +31,6 @@
 	    		<MenuItem Name="System.User.List" Title="User Management" Description="" URL="/system/user_list" Order="10">
 	    			<MenuItem Name="System.User.Detail" Title="User Detail" Description="" URL="/system/user_detail" Order="10"/>	    			
 	    		</MenuItem>
-				<!--<MenuItem Name="System.Session_Management" Title="Session Management" Description="" URL="/system/session_manage" Order="20"/>-->
 	    	</MenuItem>
 	    	<MenuItem Name="System.Role" Title="Role" Description="Role Management Module" IconImage="spacer.gif" IconCssClass="icon_role" Order="12">
 	    		<MenuItem Name="System.Role.List" Title="Role Management" Description="" URL="/system/role_list" Order="10">
@@ -49,63 +41,18 @@
 	    		<MenuItem Name="System.Modules.List" Title="Module Management" Description="" URL="/system/module_list" Order="10">
 	    			<MenuItem Name="System.Modules.Detail" Title="Module Detail" Description="" URL="/system/module_detail" Order="10"/>
 	    		</MenuItem>
-	    		<!--<MenuItem Name="System.Modules.ChangeLog" Title="Change Logs" Description="" URL="/system/module_change_log" Order="20">
-	    		</MenuItem>-->
 	    	</MenuItem>
             <MenuItem Name="System.Group" Title="Group" Description="Group Management Module" IconImage="spacer.gif" IconCssClass="icon_group" Order="14">
 	    		<MenuItem Name="System.Group.List" Title="Group Management" Description="" URL="/system/group_list" Order="10">
 					<MenuItem Name="System.Group.Detail" Title="Group Detail" Description="" URL="/system/group_detail" Order="10"/>
 					<MenuItem Name="System.Group.Initialize" Title="Initialize Group" Description="" URL="/system/initialize_group" Order="20"/>
 	    		</MenuItem>
-	    		<!--<MenuItem Name="System.Group.DataShare" Title="Group Data Sharing" Description="" URL="/system/group_data_sharing" Order="20">
-	    		</MenuItem>-->
 	    	</MenuItem>
-	    	<!--<MenuItem Name="System.Setting" Title="System" Description="System Management" Access="System.Administer_System" IconImage="spacer.gif" IconCssClass="icon_system" Order="17">
-	    		<MenuItem Name="System.Setting.Database" Title="Database Connections" Description="" URL="/system/database_list" Order="10">
-	    		</MenuItem>
-	    		<MenuItem Name="System.Setting.Preference" Title="Preference Setting" Description="" URL="/system/user_preference" Order="20"/>
-	    	</MenuItem>
-	    	<MenuItem Name="System.Extension" Title="Extension" Description="System Extension" Access="System.Administer_System" IconImage="spacer.gif" IconCssClass="icon_extension" Order="18">
-	    		
-	    	</MenuItem>-->
 		</MenuItem>	
     </Menu>
     <Dependency>
     </Dependency>
     <ChangeLog>
-    	<Version Name="2.3">
-	    	<Change Name="system_feature_23" Type="New_Feature"  Status="Finished" PublishDate="2013-01-09" Description="Add group setting initialize feature"></Change>
-	    </Version>
-    	<Version Name="2.1">
-	    	<Change Name="system_feature_21" Type="New_Feature"  Status="Finished" PublishDate="2012-10-17" Description="added system initialize feature"></Change>
-	    </Version>
-    	<Version Name="2.0">
-	    	<Change Name="system_feature_20" Type="New_Feature"  Status="Finished" PublishDate="2012-04-30" Description="Added OAuth supports"></Change>
-	    </Version>
-    	<Version Name="1.1">
-	    	<Change Name="feature_11" Type="New_Feature"  Status="Finished" PublishDate="2012-03-15" Description="Added multi currency supports"></Change>
-	    </Version>
-    	<Version Name="1.0">
-	    	<Change Name="feature_19" Type="New_Feature"  Status="Finished" PublishDate="2012-03-04" Description="Role and group detail views can show associated users"></Change>
-	    </Version>
-    	<Version Name="0.9">
-	    	<Change Name="feature_09" Type="New_Feature"  Status="Finished" PublishDate="2012-01-29" Description="Added a super switch user feature, Users who has this permission change change himself into another one on fly, even without knowing it's password"></Change>
-	    </Version>
-    	<Version Name="0.8">
-	    	<Change Name="feature_08" Type="New_Feature"  Status="Finished" PublishDate="2012-01-03" Description="Added session manager can allow administrator to view and manage user session"></Change>
-	    </Version>
-	    <Version Name="0.7">
-	    	<Change Name="feature_07.7" Type="New_Feature"  Status="Finished" PublishDate="2011-05-02" Description="Added module and resource selectors in Role permission setting."></Change>
-	    </Version>
-    	<Version Name="0.6">
-    		<Change Name="feature_06.7" Type="New_Feature"  Status="Finished" PublishDate="2011-05-02" Description="Added module and resource selectors in Role permission setting."></Change>
-    		<Change Name="feature_06.6" Type="Bug_Fiexed"  Status="Finished" PublishDate="2011-05-02" Description="Fiexed display of module dependency framework version."></Change>
-    		<Change Name="feature_06.5" Type="New_Feature"  Status="Finished" PublishDate="2011-04-18" Description="Change log module added a load changes for all modules."></Change>
-    		<Change Name="feature_06.4" Type="Bug_Fiexed"  Status="Finished" PublishDate="2011-04-17" Description="Checkbox element support default status by specify DefaultChecked attribute in metadata"></Change>
-    		<Change Name="feature_06.3" Type="New_Feature"  Status="Finished" PublishDate="2011-04-17" Description="Added Change log history view."></Change>
-    		<Change Name="feature_06.2" Type="New_Feature"  Status="Finished" PublishDate="2011-04-17" Description="Added Change log feature for module management , It coulds allow user to view history of a module ,and what's new in the new version release."></Change>    		
-    		<Change Name="feature_06.1" Type="New_Feature" Status="Finished" PublishDate="2011-04-15" Description="Added multiplue group and role selection supports in user detail view."></Change>
-    	</Version>
     </ChangeLog>
 </Module>
 

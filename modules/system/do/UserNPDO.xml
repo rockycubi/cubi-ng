@@ -23,5 +23,7 @@
     <TableJoins>
     </TableJoins>
     <ObjReferences>
+		<Object Name="system.do.RoleDO" Description="" Relationship="M-M" Table="role" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_role" XColumn1="user_id" XColumn2="role_id" XDataObj="system.do.UserRoleDO"/>
+        <Object Name="system.do.GroupDO" Description="" Relationship="M-M" Table="group" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_group" XColumn1="user_id" XColumn2="group_id" XDataObj="system.do.UserGroupDO"/>
    </ObjReferences>
 </BizDataObj>

@@ -6,10 +6,15 @@ include_once MODULE_PATH.'/websvc/lib/RestService.php';
 
 class RoleRestService extends RestService
 {
-	protected $resourceDOMap = array('roles'=>'system.do.RoleDO');
+	protected $resourceDOMap = array('users'=>'system.do.UserNPDO','roles'=>'system.do.RoleDO');
 	
 	public function queryChildren($resource, $id, $childresource, $request, $response)
     {
+		// handle aclroleactions in special logic
+		if ($childresource != "aclroleactions") {
+			return parent::queryChildren($resource, $id, $childresource, $request, $response);
+		}
+	
 		$roleId = $id;
 		// get page and sort parameters
 		$allGetVars = $request->get();

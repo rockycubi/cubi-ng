@@ -25,50 +25,6 @@ CREATE TABLE `acl_role_action` (
   KEY `action_id` (`action_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-/*Table structure for table `meta_do` */
-
-DROP TABLE IF EXISTS `meta_do`;
-
-CREATE TABLE `meta_do` (
-  `name` varchar(100) NOT NULL,
-  `module` varchar(100) NOT NULL,
-  `class` varchar(100) NOT NULL,
-  `dbname` varchar(100) default NULL,
-  `table` varchar(100) default NULL,
-  `data` text,
-  `fields` text,
-  PRIMARY KEY  (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-/*Table structure for table `meta_form` */
-
-DROP TABLE IF EXISTS `meta_form`;
-
-CREATE TABLE `meta_form` (
-  `name` varchar(100) NOT NULL,
-  `module` varchar(100) NOT NULL,
-  `class` varchar(100) NOT NULL,
-  `dataobj` varchar(100) default NULL,
-  `template` varchar(100) default NULL,
-  `data` text,
-  `elements` text,
-  PRIMARY KEY  (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-/*Table structure for table `meta_view` */
-
-DROP TABLE IF EXISTS `meta_view`;
-
-CREATE TABLE `meta_view` (
-  `name` varchar(100) NOT NULL,
-  `module` varchar(100) NOT NULL,
-  `class` varchar(100) NOT NULL,
-  `template` varchar(100) default NULL,
-  `data` text,
-  `forms` text,
-  PRIMARY KEY  (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
 /*Table structure for table `module` */
 
 DROP TABLE IF EXISTS `module`;

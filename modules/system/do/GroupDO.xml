@@ -20,6 +20,6 @@
     <TableJoins>
     </TableJoins>
     <ObjReferences>
-    	<Object Name="system.do.UserDO" Description="" Relationship="M-M" Table="user" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_group" XColumn1="group_id" XColumn2="user_id" XDataObj="system.do.UserGroupDO"/>
+    	<Object Name="system.do.UserNPDO" Description="" Relationship="M-M" Table="user" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="user_group" XColumn1="group_id" XColumn2="user_id" XDataObj="system.do.UserGroupDO"/>
     </ObjReferences>
 </BizDataObj>

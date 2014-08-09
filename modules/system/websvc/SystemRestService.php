@@ -11,7 +11,7 @@ include_once 'RoleRestService.php';
  */
 class SystemRestService extends RestService
 {
-	protected $resourceDOMap = array('users'=>'system.do.UserDO',
+	protected $resourceDOMap = array('users'=>'system.do.UserNPDO',
 									 'roles'=>'system.do.RoleDO',
 									 'groups'=>'system.do.GroupDO',
 									 'modules'=>'system.do.ModuleDO',
