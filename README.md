@@ -82,3 +82,16 @@ Get start
 - [Overview](https://github.com/rockycubi/cubi-ng/wiki/CubiNG-Overview)
 - [UI Architecture](https://github.com/rockycubi/cubi-ng/wiki/CubiNG-UI-Architecture)
 - [Web Services](https://github.com/rockycubi/cubi-ng/wiki/CubiNG-Web-Services)
+
+Demo
+----
+The cubi-ng demo is hosted at OpenShift cloud platform. Visit http://openbiz-cubing.rhcloud.com/index.php/user/login, login with username:demo1, password: demo123. Once you login the application, you landing page is "My Account". You can click "Administration" top link to play with core cubi-ng modules user, role, group, menu and module.
+- Cubi-ng system modules, https://code.google.com/p/openbiz-cubi/wiki/CubiSystemModule
+- Cubi-ng menu module, https://code.google.com/p/openbiz-cubi/wiki/CubiMenuModule
+- Cubi-ng myaccount module, https://code.google.com/p/openbiz-cubi/wiki/CubiMyAccount. 
+- Cubi-ng user module, https://code.google.com/p/openbiz-cubi/wiki/CubiUserModule.Please be aware that the "Register new account" and "Forget password" links are not functional yet.
+
+Get help
+--------
+- If you have any question, you can email me rocky@openbiz.me
+- For bugs, please create issues at https://github.com/rockycubi/cubi-ng/issues
