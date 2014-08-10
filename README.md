@@ -85,11 +85,11 @@ Get start
 
 Demo
 ----
-The cubi-ng demo is hosted at OpenShift cloud platform. Visit http://openbiz-cubing.rhcloud.com/index.php/user/login, login with username:demo1, password: demo123. Once you login the application, you landing page is "My Account". You can click "Administration" top link to play with core cubi-ng modules user, role, group, menu and module.
+The cubi-ng demo is hosted at OpenShift cloud platform. Visit http://openbiz-cubing.rhcloud.com/index.php/user/login, login with username:demo1, password: demo123. Once you login the application, your landing page is "My Account". You can click "Administration" top link to play with core cubi-ng modules user, role, group, menu and module.
 - Cubi-ng system modules, https://code.google.com/p/openbiz-cubi/wiki/CubiSystemModule
 - Cubi-ng menu module, https://code.google.com/p/openbiz-cubi/wiki/CubiMenuModule
 - Cubi-ng myaccount module, https://code.google.com/p/openbiz-cubi/wiki/CubiMyAccount. 
-- Cubi-ng user module, https://code.google.com/p/openbiz-cubi/wiki/CubiUserModule.Please be aware that the "Register new account" and "Forget password" links are not functional yet.
+- Cubi-ng user module, https://code.google.com/p/openbiz-cubi/wiki/CubiUserModule. Please be aware that the "Register new account" and "Forget password" links are not functional yet.
 
 Get help
 --------
