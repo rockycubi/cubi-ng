@@ -1,5 +1,7 @@
 <?php
 
+define ('HASH_ALG','sha1');
+
 include_once MODULE_PATH.'/websvc/lib/RestService.php';
 include_once OPENBIZ_BIN.'data/private/BizDataObj_SQLHelper.php';
 
@@ -38,9 +40,6 @@ class MyaccountRestService extends RestService
 		try {
 			$this->validateInputs($inputRecord);
 		} catch (ValidationException $e) {
-			/*$response->status(400);
-			$errmsg = implode("\n",$e->m_Errors);
-			$response->body($errmsg);*/
 			$this->setErrorResponse(400, $e->m_Errors, $response, $format);
 			return;
 		}
@@ -63,18 +62,15 @@ class MyaccountRestService extends RestService
            $dataRec->save();
         }
         catch (ValidationException $e) {
-            $response->status(400);
-			$errmsg = implode("\n",$e->m_Errors);
-			$response->body($errmsg);
+			$this->setErrorResponse(400, $e->m_Errors, $response, $format);
 			return;
         }
         catch (BDOException $e) {
-            $response->status(400);
-			$response->body($e->getMessage());
+            $this->setErrorResponse(400, $e->m_Errors, $response, $format);
 			return;
         }
 
-		return $this->setResponse($dataRec->toArray(), $response, $format);
+		$this->setNoticeResponse("Data is successfully saved.", $response, $format);
     }
 	
 	protected function validateInputs($inputRecord) {

@@ -302,6 +302,8 @@ function CFormController($scope, $resource, $window, $location) {
 				console.log($scope.dataobj);
 			}, function(errorObj) {
 				console.log(errorObj);
+				if (typeof errorObj.data == 'string') $scope.errorMsg = errorObj.data;
+				else $scope.errors = errorObj.data;
 			});
 		}
 	}
@@ -311,8 +313,9 @@ function CFormController($scope, $resource, $window, $location) {
 		var formData = angular.copy($scope.dataobj);
 		formData.$save(function(data) {
 			console.log("Data is successfully saved.");
-			if (typeof data.Id == 'undefined' || data.Id == null) {
-				openDialog(data);
+			if (typeof data.notice != 'undefined' && data.notice != null) {
+				//openDialog("<div style='padding:10px'>"+data.notice+"</div>");
+				$scope.noticeMsg = data.notice;
 				return;
 			}
 			if (typeof redirectPage != 'undefined' && redirectPage != null && data.Id != null) {

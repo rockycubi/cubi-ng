@@ -432,6 +432,21 @@ class RestService
 		}
 	}
 	
+	protected function setNoticeResponse($notice, $response, $format) {
+		$response->status(200);
+		//$message = "Successfully deleted record of $resource $id";
+		if ($format == 'json') {
+			$response['Content-Type'] = 'application/json';
+			$response->body(json_encode(array('notice'=>$notice)));
+		}
+		else {
+			$response['Content-Type'] = "text/xml; charset=utf-8"; 
+			$xml = new array2xml('Results');
+			$xml->createNode(json_encode(array('notice'=>$notice)));
+			$response->body($xml);
+		}
+	}
+	
 	protected function setErrorResponse($errorCode, $errors, $response, $format) {
 		$response->status($errorCode);
 		//$message = "Successfully deleted record of $resource $id";
